@@ -1,7 +1,8 @@
 @import 'src/assets/scss/form.scss';
+@import 'src/app/profile/my-profile-body/my-profile-body.component.scss';
 
 
-/* panel */
+/* Panel */
 
 ::ng-deep .main-info {
   .mat-datepicker-toggle {
@@ -14,7 +15,7 @@
   overflow: hidden;
 }
 
-/* main */
+/* Main */
 
 .main-content {
   padding: 0 30px 30px;
@@ -56,11 +57,146 @@
   font-size: 1.2rem;
 }
 
+/* Form */ 
 .pseudo {
   color: #777;
 }
 
-/* card user */
+.inputPseudo:disabled,
+.inputMail:disabled {
+  border-radius: 30px;
+  background-color: #f4f4f4;
+  border: none;
+}
+
+.inputPswrd {
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border: none;
+  background: transparent;
+}
+
+.material-icons {
+  cursor: pointer;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  background: transparent;
+  color: #32325d;
+}
+
+.bi-pen-fill {
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.bi-question-circle-fill {
+  color: #32325d;
+}
+
+
+.inputPseudo,
+.inputMail,
+.inputIcon {
+  border-radius: 30px;
+  background: #e8f0fe;
+  border: none;
+}
+
+.popoverClass {
+  border: none;
+  background: none;
+}
+
+.forgotPswrd {
+  color: #a792ee;
+  cursor: pointer;
+  font-size: 0.8571em
+}
+
+.bi-check-circle-fill {
+  color: greenyellow;
+  animation: check 0.6s linear infinite;
+}
+
+@keyframes check {
+  0% {
+    transform: scale(1.15);
+  }
+  50% {
+    transform: scale(1.00);
+  }
+  100% {
+    transform: scale(1.15);
+  }
+}
+
+.btn-neutral {
+  background-color: #FFFFFF;
+  color: #32325d;
+}
+.btn-neutral:disabled {
+  background: linear-gradient(145deg, #979797, #808080, #616161);
+  color: white;
+}
+
+.error-message {
+  font-size: 0.8rem;
+  position: relative;
+  top: -16px;
+}
+
+.input-invalid {
+  border: 1px solid red !important
+}
+
+.backgroundPanel {
+  background: url(./../../../assets/img/bgPicture.png);
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: right -10% bottom 111%;
+}
+
+img.img-profile {
+  position: absolute;
+  top: 2rem;
+  left: 6rem;
+}
+
+/* Modal for Pseudo */
+
+.backgroundModal {
+  background: linear-gradient(145deg, #00a9ce, #167dce, #3e56d4);
+  color: white;
+  border-radius: 15px;
+}
+
+.pseudoModal {
+  text-decoration: underline;
+  font-size: 18px;
+}
+
+.btnTrutMe {
+  border: 1px solid white;
+  border-radius: 25px;
+  background-color: white;
+  color: #a792ee;
+}
+
+.checked {
+  width: 15rem;
+}
+
+h4.modal-title {
+  font-weight: 500;
+}
+
+.titlePasswordIn {
+  display: none;
+}
+
+/* Card user */
 
 .card-user .card-body {
   min-height: 130px;
@@ -125,22 +261,42 @@ label {
 }
 
 
-.btn-neutral {
-  background-color: #FFFFFF;
-  color: #f96332;
-}
-
-
 .btn-footer {
   button {
-    border-radius: 5px;
+    border-radius: 15px;
     font-size: 1.2rem;
     border: 0;
   }
 }
 
-.error-message {
-  font-size: 0.8rem;
-  position: relative;
-  top: -16px;
+.mat-form-field + .mat-form-field {
+  margin-left: 8px;
 }
+
+.blockList,
+.closeFriend {
+  padding-left: 2.4rem;
+  padding-right: 4rem;
+}
+
+.panelForm {
+  border-radius: 0;
+  box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 0%), 0px 2px 2px 0px rgb(0 0 0 / 0%), 0px 1px 5px 0px rgb(0 0 0 / 13%) !important;
+}
+
+.containerPicture {
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+}
+img.pictureExemple {
+  border-radius: 50%;
+}
+
+.profileHover:hover {
+  background: rgba(0,0,0,.04);
+  border-radius: 25px;
+}
+
+
+

@@ -97,7 +97,7 @@
             <p class="col">{{'SETTING.verified.I-agree-t-m-data-may-b-used-t-check-my-account'|translate}}</p>
           </div>
           <div class="row mx-0">
-            <button class="ml-auto m-3 btn btn-primary" (click)="confirm()">
+            <button class="ml-auto m-3 px-2 confirmBtn" (click)="confirm()">
               <span>{{'CORE.Confirm'|translate}}</span>
             </button>
           </div>
@@ -125,8 +125,9 @@
       </div>
     </div>
     <!-- Image -->
-    <div class="d-none d-sm-none d-md-block col-md-4 col-xl-6 bg-side px-0">
-      <img class="w-100 h-100" src="https://eps-file-default.s3.eu-west-3.amazonaws.com/verification-wiins-id.png" alt="">
+    <div class="d-none d-sm-none d-md-block col-md-4 col-xl-6 px-0 backgroundId">
+      <img src="../../../../../assets/img/verification-wiins-id.png" alt="">
+      <p class="withSmile d-flex justify-content-center text-white mt-3">{{'SETTING.verified.With-smile' | translate}}</p>
     </div>
   </div>
 </div>

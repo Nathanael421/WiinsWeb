@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UserModel } from 'src/app/core/models/baseUser/user.model';
 import { Store, select } from '@ngrx/store';
-import { RootStoreState, MyUserStoreSelectors } from 'src/app/root-store';
+import { RootStoreState, MyUserStoreSelectors,ProfileFeatureStoreSelectors } from 'src/app/root-store';
 import { skipWhile, filter } from 'rxjs/operators';
+import { ProfileModel } from 'src/app/core/models/baseUser/profile.model';
 
 @Component({
   selector: 'app-sidebar-setting',
@@ -21,12 +22,20 @@ export class SidebarSettingComponent implements OnInit {
     { path: 'language', title: 'SIDEBAR-SETTING.Language', icon: 'fa fa-language' },
     // { path: 'notification', title: 'SIDEBAR-SETTING.Notification', icon: 'fa fa-bell-o' },
     { path: 'others', title: 'SIDEBAR-SETTING.Others', icon: 'fa fa-wrench' },
-    { path: 'ledger', title: 'CORE.Ledger', icon: 'fa fa-credit-card' },
-    { path: 'certificate', title: 'CORE.Certification', icon: 'fa fa-certificate' }
+    { path: 'ledger', title: 'CORE.Ledger', icon: 'fa fa-credit-card' }
   ]
 
   // user
   user$: Observable<UserModel>
+
+  // toggle
+  public isCollapsed = false;
+
+  // profile 
+  myprofile$: Observable<ProfileModel>
+
+  // nav
+  placeSelected: string = 'menu'
 
   constructor(
     private store$: Store<RootStoreState.State>
@@ -41,6 +50,17 @@ export class SidebarSettingComponent implements OnInit {
       filter((value: UserModel) => value !== undefined),
     )
 
+    // to select my profile
+    this.myprofile$ = this.store$.pipe(
+      select(ProfileFeatureStoreSelectors.selectProfile),
+      skipWhile(val => val === null),
+      filter(profile => !!profile),
+    )
+
+  }
+
+  selectPlace(place: string): void {
+    this.placeSelected = place
   }
 
 }

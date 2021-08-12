@@ -51,17 +51,17 @@ import { WatchingVideoComponent } from './space-tube/watching-video/watching-vid
 import { HomeTubeComponent } from './space-tube/home-tube/home-tube.component';
 import { GroupStoryComponent } from './space-group/group-story/group-story.component';
 import { GroupManagementComponent } from './space-group/group-management/group-management.component';
-import { LanguageComponent } from './home-setting/language/language.component';
 import { ListPlaylistMusicComponent } from './space-music/list-playlist-music/list-playlist-music.component';
 import { ForgotPasswordComponent } from './sign/forgot-password/forgot-password.component';
 import { ChangingPasswordComponent } from './sign/changing-password/changing-password.component';
 import { CommunityListComponent } from './core/component/community-list/community-list.component';
-import { CertificationMenuComponent } from './home-setting/certification-menu/certification-menu.component';
 import { LedgerComponent } from './home-setting/ledger/ledger.component';
 import { OnboardingComponent } from './sign/onboarding/onboarding.component';
 import { ToDiscordComponent } from './sign/to-discord/to-discord.component';
 import { ToStripeComponent } from './sign/to-stripe/to-stripe.component';
 import { ForgotPasswordConfirmationComponent } from './sign/forgot-password-confirmation/forgot-password-confirmation.component';
+import { CertificationStepsComponent } from './home-setting/update-users/to-become-wiinser-pro/certification-steps/certification-steps.component';
+import { VeritificationStepsComponent } from './home-setting/update-users/to-become-wiinser-pro/veritification-steps/veritification-steps.component';
 
 const routes: Routes = [
 
@@ -231,12 +231,12 @@ const routes: Routes = [
       { path: '', redirectTo: 'update-users', pathMatch: 'full' },
       { path: 'update-users', component: UpdateUsersComponent },
       { path: 'update-password', component: UpdatePasswordComponent },
-      { path: 'language', component: LanguageComponent },
       { path: 'notification', component: NotificationComponent },
       { path: 'others', component: OthersComponent },
       { path: 'visibility', component: VisibilityComponent },
       { path: 'ledger', component: LedgerComponent },
-      { path: 'certificate', component: CertificationMenuComponent }
+      { path: 'verificate', component: VeritificationStepsComponent },
+      { path: 'certificate', component: CertificationStepsComponent }
     ]
   }
 

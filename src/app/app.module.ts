@@ -101,7 +101,6 @@ import { PublicationModalComponent } from './core/modal/publication-modal/public
 import { PublicationMiniatureComponent } from './core/component/publication-miniature/publication-miniature.component'
 import { CrooperImageValidationComponent } from './core/modal/crooper-image-validation/crooper-image-validation.component'
 import { ImageCropperModule } from 'ngx-image-cropper'
-import { LanguageComponent } from './home-setting/language/language.component';
 import { ContainerTOUComponent } from './term-of-use/container-t-o-u/container-t-o-u.component'
 import { ModalTOUComponent } from './core/modal/modal-t-o-u/modal-t-o-u.component';
 import { ListPlaylistMusicComponent } from './space-music/list-playlist-music/list-playlist-music.component'
@@ -115,12 +114,11 @@ import { ReportModalComponent } from './core/modal/report-modal/report-modal.com
 import { ReportMessageComponent } from './core/modal/report-message/report-message.component';
 import { FooterCoreComponent } from './core/component/footer-core/footer-core.component';
 import { VerificationSpaceUnlockedComponent } from './space-creative/verification-space-unlocked/verification-space-unlocked.component';
-import { CertificationMenuComponent } from './home-setting/certification-menu/certification-menu.component';
 import { LedgerComponent } from './home-setting/ledger/ledger.component'
 import { TransfertCryptoModalComponent } from './core/modal/transfert-crypto-modal/transfert-crypto-modal.component'
 import { PasswordValidationComponent } from './core/modal/password-validation/password-validation.component';
-import { CertificationStepsComponent } from './home-setting/certification-menu/certification-steps/certification-steps.component';
-import { VeritificationStepsComponent } from './home-setting/certification-menu/veritification-steps/veritification-steps.component'
+import { CertificationStepsComponent } from './home-setting/update-users/to-become-wiinser-pro/certification-steps/certification-steps.component'
+import { VeritificationStepsComponent } from './home-setting/update-users/to-become-wiinser-pro/veritification-steps/veritification-steps.component'
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MyProfileBodyComponent } from './profile/my-profile-body/my-profile-body.component';
 import { ProfileBodyComponent } from './profile/profile-body/profile-body.component';
@@ -131,10 +129,16 @@ import { APP_INITIALIZER, ErrorHandler } from "@angular/core";
 import { GlobalErrorHandler } from './core/interceptors/globalErrorHandler.interceptor'
 import { PlyrModule } from 'ngx-plyr';
 import { OnboardingComponent } from './sign/onboarding/onboarding.component';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ToDiscordComponent } from './sign/to-discord/to-discord.component';
 import { ToStripeComponent } from './sign/to-stripe/to-stripe.component';
 import { ForgotPasswordConfirmationComponent } from './sign/forgot-password-confirmation/forgot-password-confirmation.component';
+import { ConfidentialityComponent } from './home-setting/update-users/confidentiality/confidentiality.component';
+import { LangageComponent } from './home-setting/update-users/langage/langage.component';
+import { DownloadDataComponent } from './home-setting/update-users/download-data/download-data.component';
+import { ToBecomeWiinserProComponent } from './home-setting/update-users/to-become-wiinser-pro/to-become-wiinser-pro.component';
+import { NotificationsComponent } from './home-setting/update-users/notifications/notifications.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 // AoT requires an exported function for factories
@@ -147,7 +151,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     AppComponent, LoginComponent, RegisterComponent, HomeComponent, NavBarComponent,
     MyProfileComponent, UpdateUsersComponent, HomeSettingComponent, UpdatePasswordComponent,
     FeedPublicationStandardComponent, SidebarSettingComponent, FeedPublicationComponent, VisibilityComponent,
-    VisibilityMainComponent, IdentificationComponent, BlacklistComponent, LanguageComponent, NotificationComponent,
+    VisibilityMainComponent, IdentificationComponent, BlacklistComponent, NotificationComponent,
     OthersComponent, MiniChatComponent, MiniPlayerMusicComponent, SpaceStoryComponent, RequestListComponent,
     ProfileComponent, SpaceMessengerComponent, ThreadMessageComponent, UserListMessageComponent, ProfileStoryComponent,
     ProfileMusicComponent, ProfileTubeComponent, SpaceMusicComponent, MusicMainComponent, MusicSaveComponent,
@@ -165,14 +169,15 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     ContentIdComponent, PasswordValidationsComponent, ModalTOUComponent, ChangingPasswordComponent,
     ManagementTeamComponent, GroupValidationComponent, ReportMessageComponent, FooterCoreComponent,
     ForgotPasswordComponent, CommunityListComponent, ReportModalComponent, VerificationSpaceUnlockedComponent,
-    CertificationMenuComponent, LedgerComponent, CreateMusicProjectComponent, NotfoundComponent, 
-    VeritificationStepsComponent, MyProfileBodyComponent, ProfileBodyComponent, CreditMusicComponent, OnboardingComponent, ToDiscordComponent, ToStripeComponent, ForgotPasswordConfirmationComponent
+    LedgerComponent, CreateMusicProjectComponent, NotfoundComponent, 
+    VeritificationStepsComponent, MyProfileBodyComponent, ProfileBodyComponent, CreditMusicComponent, OnboardingComponent, ToDiscordComponent, ToStripeComponent, ForgotPasswordConfirmationComponent,
+    ConfidentialityComponent, LangageComponent, DownloadDataComponent, ToBecomeWiinserProComponent, NotificationsComponent
   ],
   imports: [
     RootStoreModule, BrowserModule, NgxMasonryModule, AppRoutingModule, NgbModule, HttpClientModule,
     HttpClientJsonpModule, CoreModule, BrowserAnimationsModule, FormsModule, AutosizeModule,
     MaterialModule, ReactiveFormsModule, ClickOutsideModule, GooglePlaceModule,
-    InfiniteScrollModule, RoundProgressModule, DragDropModule, MatProgressSpinnerModule, PlyrModule, ImageCropperModule, QRCodeModule,
+    InfiniteScrollModule, RoundProgressModule,NgxPaginationModule, DragDropModule, MatProgressSpinnerModule, PlyrModule, ImageCropperModule, QRCodeModule,
     TranslateModule.forRoot({ 
       loader: { 
         provide: TranslateLoader,
