@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { VerificationForm } from 'src/app/home-setting/certification-menu/veritification-steps/veritification-steps.component';
+import { VerificationForm } from 'src/app/home-setting/update-users/to-become-wiinser-pro/veritification-steps/veritification-steps.component';
 import { environment } from '../../../../environments/environment'
 
 @Injectable({

@@ -1,8 +1,14 @@
+@import 'src/app/home-setting/update-users/to-become-wiinser-pro/to-become-wiinser-pro.component.scss';
+
 /* SideBar */
 
 .sidebar {
   border: 1px solid #d8d8d8;
   border-top: 0;
+  border-radius: 15px;
+  overflow: hidden;
+  position: sticky;
+  top: 4rem;
 }
 
 .nav {
@@ -11,9 +17,9 @@
 }
 
 .sidebar .nav li.active>a{
-  background-color: #FFFFFF;
+  background: linear-gradient(145deg, #00a9ce, #167dce, #3e56d4);
   box-shadow: 0 1px 15px 1px rgba(39, 39, 39, 0.1);
-  border-left: 3px solid #9e9e9e;
+  color: white;
 }
 
 .sidebar .nav li>a {
@@ -46,9 +52,19 @@
   display: block;
   height: auto;
   white-space: nowrap;
+  font-weight: 500;
 }
 
 .sidebar .nav li:hover:not(.active)>a,
 .sidebar .nav li:focus:not(.active)>a {
   border-left: 3px solid #9e9e9e;
+}
+
+.sidebar .nav li.active .now-ui-icons {
+  color: white;
+}
+
+.certifVerif {
+  position: sticky;
+  top: 29rem;
 }

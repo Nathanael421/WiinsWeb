@@ -1,0 +1,67 @@
+.card {
+    border: 0;
+  }
+  
+  .card-body {
+    height: 15rem;
+  }
+  
+  .card-header,
+  .card-footer {
+    background: transparent;
+    border: 0;
+  }
+  
+  .title {
+    color: white;
+    font-size: 20px;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+
+  .verified:hover .title,
+  .certified:hover .title {
+    font-size: 25px;
+  }
+  
+  .card-bg-1 {
+    background-image: url('https://images.unsplash.com/photo-1508179522353-11ba468c4a1c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjI4MjY1ODA3&ixlib=rb-1.2.1&q=80&w=1080');
+    background-size: cover;
+    background-position: center;
+    height: 7rem;
+  }
+  
+  .card-bg-2 {
+    background-image: url('https://images.unsplash.com/photo-1620001001197-2484c0bb0f3f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjI4MjYzNDQy&ixlib=rb-1.2.1&q=80&w=1080');
+    background-size: cover;
+    background-position: center;
+    height: 7rem;
+  }
+  
+  .bi {
+    color: white;
+  }
+  
+  .btn-start {
+    color: white;
+    background-color: #fc9b19;
+    border: 2px solid white;
+    border-radius: 7px;
+  
+    span {
+      font-size: 1rem;
+    }
+  }
+  
+  .one-features-span {
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+  
+  .btn-back {
+    .bi {
+      color: black;
+    }
+  }
+  

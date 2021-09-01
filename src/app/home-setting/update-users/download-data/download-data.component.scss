@@ -1,0 +1,16 @@
+@import 'src/app/home-setting/update-users/update-users.component.scss';
+
+.btn-Download,
+.btn-Download:active {
+    background: linear-gradient(145deg, #00a9ce, #167dce, #3e56d4);
+    color: white;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    border: 0;
+    font-weight: 400;
+}
+.btn-Download:disabled {
+    background: linear-gradient(145deg, #979797, #808080, #616161);
+  color: white;
+}
+

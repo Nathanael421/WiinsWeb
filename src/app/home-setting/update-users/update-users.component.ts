@@ -1,7 +1,7 @@
 import { ProfileFeatureStoreSelectors, RootStoreState, MyUserStoreActions, ProfileFeatureStoreActions } from 'src/app/root-store'
 import { Store, select } from '@ngrx/store'
 import { ProfileModel, BtnFollow } from '../../core/models/baseUser/profile.model'
-import { Component, OnInit } from '@angular/core'
+import { Component, Input, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms'
 import { filter, skipWhile } from 'rxjs/operators'
 import { Observable } from 'rxjs'
@@ -10,29 +10,46 @@ import { DatePipe } from '@angular/common'
 import * as _ from 'lodash'
 import { MatSnackBar } from '@angular/material/snack-bar'
 import { TranslateService } from '@ngx-translate/core'
+import { trigger, state, style, animate, transition } from '@angular/animations'
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-update-users',
   templateUrl: './update-users.component.html',
-  styleUrls: ['./update-users.component.scss']
+  styleUrls: ['./update-users.component.scss'],
 })
 
 export class UpdateUsersComponent implements OnInit {
 
-  // default
+  // Default
   baseUrl = environment.baseUrl;
 
-  // get user & profil
+  // Get user & profil
   profile$: Observable<ProfileModel>;
+  myprofile: Observable<ProfileModel>
+  profile: ProfileModel
+  pictureProfile: String
 
-  // send the form
+  // Send the form
   registerForm: FormGroup;
+
+  // Toggle collapse
+  isCollapsed: boolean = false;
+  isDisabled: boolean = true;
+
+  // Password
+  show: boolean = false;
+
+  // NgbModal
+  closeResult = '';
+
 
   constructor(
     private store$: Store<RootStoreState.State>,
     private formBuilder: FormBuilder,
     private _snackBar: MatSnackBar,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private modalService: NgbModal
   ) { }
 
   ngOnInit() {
@@ -40,6 +57,7 @@ export class UpdateUsersComponent implements OnInit {
     // we initialise the form
     this.registerForm = this.formBuilder.group({
       pseudo: ['', [Validators.minLength(4), Validators.pattern(/^\S*$/)]],
+      password: ['',[Validators.minLength(8), Validators.required]],
       email: ['', [Validators.email]],
       introduction: ['']
     })
@@ -51,6 +69,12 @@ export class UpdateUsersComponent implements OnInit {
       skipWhile(profile => profile == null)
     )
 
+    // get the profile
+    this.myprofile = this.store$.pipe(
+      select(ProfileFeatureStoreSelectors.selectProfile),
+      skipWhile(val => val === null),
+      filter(profile => !!profile)
+    )
   }
 
   udapteInfo() {
@@ -82,8 +106,39 @@ export class UpdateUsersComponent implements OnInit {
     }
 
     // send the update
-    else this.store$.dispatch(new MyUserStoreActions.UpdateUser(_.pickBy(this.registerForm.value, _.identity)))
+    else this.store$.dispatch(new MyUserStoreActions.UpdateUser(_.pickBy(this.f.pseudo.value, _.identity)))
+  }
 
+  open(contentPseudo) {
+    this.modalService.open(contentPseudo, {ariaLabelledBy: 'modal-basic-title', windowClass: '.backgroundModal'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+  openM(contentMail) {
+    this.modalService.open(contentMail, {ariaLabelledBy: 'modal-basic-title', windowClass: '.backgroundModal'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+  openP(contentPassword) {
+    this.modalService.open(contentPassword, {ariaLabelledBy: 'modal-basic-title', windowClass: '.backgroundModal'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
   }
 
   resetInfo() {
@@ -93,14 +148,9 @@ export class UpdateUsersComponent implements OnInit {
 
   get f() { return this.registerForm.controls }
 
-  changeFriendOption(value: boolean) {
-    // change the visibility button for the friends
-    this.store$.dispatch(new ProfileFeatureStoreActions.ChangeBtnFollow(new BtnFollow(value, undefined)))
-  }
 
-  changeViewverOption(value: boolean) {
-    // change the visibility button for the followers
-    this.store$.dispatch(new ProfileFeatureStoreActions.ChangeBtnFollow(new BtnFollow(undefined, value)))
+  editProfil() {
+    this.isDisabled = !this.isDisabled;
+    this.isCollapsed = !this.isCollapsed;
   }
-
 }

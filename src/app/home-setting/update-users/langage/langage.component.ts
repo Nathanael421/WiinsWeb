@@ -11,12 +11,12 @@ import { RootStoreState, MyUserStoreSelectors } from 'src/app/root-store';
 import { MatSelectChange } from '@angular/material/select';
 
 @Component({
-  selector: 'app-language',
-  templateUrl: './language.component.html',
-  styleUrls: ['./language.component.scss']
+  selector: 'app-langage',
+  templateUrl: './langage.component.html',
+  styleUrls: ['./langage.component.scss']
 })
 
-export class LanguageComponent implements OnInit {
+export class LangageComponent implements OnInit {
 
   // my user
   user$: Observable<UserModel>

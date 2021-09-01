@@ -1,37 +1,95 @@
 <!-- Component Body -->
 <div class="container-fluid main-info py-5" *ngIf="(profile$|async); let p">
-  <!-- First Row -->
+  <!-- General Information -->
   <div class="row mx-0">
     <div class="col">
-      <div class="card">
+      <div class="card backgroundPanel">
         <form [formGroup]="registerForm">
           <div class="card-header">
-            <h5 class="title pl-3">{{'SETTING.profile.Edit-t-profile'|translate}}</h5>
+            <div class="d-flex align-items-baseline">
+            <h5 class="title pl-3">{{'SETTING.profile.General-information'|translate}}</h5>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" (click)="collapse.toggle(); editProfil()" [attr.aria-expanded]="isCollapsed" aria-controls="collapseExample" class="ml-3 bi bi-pen-fill text-black" viewBox="0 0 16 16">
+              <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001z"/>
+            </svg>
+          </div>
+          <!--Update and Cancel-->
             <div class="btn-footer float-right">
-              <button class="mx-2 btn-primary px-2" (click)="udapteInfo()">{{'CORE.Update'|translate}}</button>
-              <button class="mx-2 btn-neutral px-2" (click)="resetInfo()">{{'CORE.Cancel'|translate}}</button>
+              <button class="mx-2 btn-neutral px-2" (click)="resetInfo();collapse.toggle(); editProfil()" [disabled]="isDisabled">{{'CORE.Cancel'|translate}}</button>
             </div>
           </div>
-          <div class="card-body">
-            <div class="row w-100 mx-0">
-              <div class="col-12 col-xs-12 col-md-12 col-lg-4">
+          <div class="card-body d-flex w-100">
+            <div class="mt-4 row w-100 mx-0 d-flex flex-column">
+              <fieldset [disabled]="isDisabled">
+                <!--Pseudo-->
+              <div class="col-12 col-xs-12 col-md-12 col-lg-10">
                 <div class="form-group">
+                  <div class="w-100 d-flex justify-content-between align-items-baseline px-2">
                   <label>{{'PROFILE.Pseudo'|translate}}</label>
-                  <input #pseudo type="text" class="form-control pl-4" formControlName="pseudo" [placeholder]="p._meta.pseudo">
+                  <div class="saveButton-infoButton d-flex align-items-baseline">
+                  <button class="saveButton btn p-0" *ngIf="f.pseudo.value.length > 4 && f.pseudo.value != p._meta.pseudo && f.password.valid" (click)="open(contentPseudo)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                    </svg>
+                  </button>
+                  <button class="popoverClass" placement="right" ngbPopover="{{'SETTING.Pseudo.Pseudo-changed-once'|translate}}" triggers="mouseenter:mouseleave">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle-fill" viewBox="0 0 16 16">
+                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"/>
+                    </svg>
+                  </button>
                 </div>
-                <div class="text-right error-message" *ngIf="f.pseudo.value">
+                </div>
+                  <input #pseudo type="text" [ngClass]="{'input-invalid': f.pseudo.errors && f.pseudo.touched }" class="inputPseudo w-100 pl-4 py-2" formControlName="pseudo" [placeholder]="p._meta.pseudo">
+                </div>
+                <div class="text-left error-message" *ngIf="f.pseudo.value">
                   <span *ngIf="f.pseudo.value.length < 4" class="text-danger">{{'ERROR-MESSAGE.Your-username-must-have-at-least-4-char'|translate}}</span>
                   <span *ngIf="f.pseudo.errors" class="text-danger">{{'ERROR-MESSAGE.Pseudo-contains-invalid-caracters'|translate}}</span>
+                  <span *ngIf="f.pseudo.value === p._meta.pseudo" class="text-danger">{{'SETTING.Pseudo.Pseudo-cannot-be-same' | translate}}</span>
                 </div>
               </div>
-              <div class="col-12 col-xs-12 col-md-12 col-lg-8">
+              <!--Email-->
+              <div class="col-12 col-xs-12 col-md-12 col-lg-10">
                 <div class="form-group">
+                  <div class="w-100 d-flex justify-content-between px-2">
                   <label for="exampleInputEmail1">{{'PROFILE.Email'|translate}}</label>
-                  <input type="email" class="form-control pl-4" formControlName="email" [placeholder]="p._meta.email">
+                  <div class="saveButton-infoButton d-flex align-items-baseline">
+                    <button class="saveButton btn p-0" *ngIf="f.email.value != p._meta.email && f.password.valid && f.email.valid" (click)="openM(contentMail)">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                      </svg>
+                    </button>
+                  <button class="popoverClass" placement="right" ngbPopover="{{'SETTING.Email.Email-changed'|translate}}" triggers="mouseenter:mouseleave">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle-fill" viewBox="0 0 16 16">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"/>
+                  </svg>
+                </button>
+                  </div>
                 </div>
-                <div class="text-right error-message" *ngIf="f.email.value">
+                  <input type="email" class="inputMail w-100 pl-4 py-2" [ngClass]="{'input-invalid': f.email.errors && f.email.value === ''}" formControlName="email" [placeholder]="p._meta.email">
+                </div>
+                <div class="text-left error-message" *ngIf="f.email.value">
                   <span *ngIf="f.email.errors" class="text-danger">{{'ERROR-MESSAGE.Email-invalid'|translate}}</span>
                 </div>
+              </div>
+              <!--Password-->
+              <div class="col-12 col-xs-12 col-md-12 col-lg-10 collapse" #collapse="ngbCollapse" [(ngbCollapse)]="!isCollapsed">
+                <div class="form-group">
+                  <label for="password">{{'PLACEHOLDER.Password-required'|translate}}</label>
+                  <div class="inputIcon d-flex align-items-baseline mb-2">
+                  <input [type]="show ? 'text' : 'password'"  class="inputPswrd w-100 pl-4 py-2" formControlName="password" placeholder="{{'PLACEHOLDER.Enter-yr-password' | translate }}" required>
+                  <span (click)="show = !show" class="material-icons m-auto pr-2">{{show ? 'visibility' : 'visibility_off'}}</span>
+                </div>
+                <span class="forgotPswrd" (click)="openP(contentPassword)">{{'LOGIN-REGISTRER.Forgot-password-?' | translate}}</span>
+                </div>
+                <div class="text-left error-message" *ngIf="f.password.value">
+                  <span *ngIf="f.password.errors" class="text-danger">{{'ERROR-MESSAGE.Please-type-yr-password'| translate}}</span>
+                </div>
+              </div>
+            </fieldset>
+            </div>
+            <!--Picture profile-->
+            <div class="col-4 d-flex align-items-center">
+              <div class="profile-img d-flex justify-content-center">
+                <img class="rounded-circle w-50 img-profile" [src]="(myprofile | async).pictureprofile" alt="picture_profile">
               </div>
             </div>
           </div>
@@ -39,32 +97,73 @@
       </div>
     </div>
   </div>
-  <!-- Second Row -->
+  <!-- Modal for Pseudo-->
+  <ng-template #contentPseudo let-modal>
+    <div class="backgroundModal">
+    <div class="modal-header d-flex align-items-baseline">
+      <h4 class="modal-title text-white" id="modal-basic-title">{{'PROFILE.Pseudo' | translate}}</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span class="text-white" aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+     <p class="text-center mb-3">{{'SETTING.Pseudo.Pseudo-change-no-turning-back' | translate}}</p>
+     <p class="text-center pseudoModal">{{f.pseudo.value}}</p>
+    </div>
+    <div class="modal-footer d-flex justify-content-center">
+      <button type="button" class="btn btnTrutMe" (click)="modal.close('Save click'); udapteInfo()">{{'VALID-MESSAGE.Yes-im-sur' | translate}}</button>
+    </div>
+  </div>
+  </ng-template>
+  <!-- Modal for Email-->
+  <ng-template #contentMail let-modal>
+    <div class="backgroundModalM">
+      <div class="modal-header d-flex align-items-baseline">
+        <h4 class="modal-title" id="modal-basic-title">{{'PROFILE.Email' | translate}}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <p class="text-center mb-3">{{'SETTING.Email.7-days-request-change' | translate}}</p>
+      </div>
+      <div class="col d-flex justify-content-center mb-3">
+        <img class="checked mb-4" src="assets/img/checked.svg" alt="Mail Sent">
+      </div>
+    </div>
+  </ng-template>
+  <!-- Modal for Password-->
+  <ng-template #contentPassword let-modal>
+    <div class="modal-header pb-0 d-flex align-items-baseline">
+      <h4 class="modal-title" id="modal-basic-title">{{'CORE.Password' | translate}}</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <app-forgot-password></app-forgot-password>
+  </ng-template>
+  <!--Confidentiality-->
   <div class="row mx-0">
     <div class="col">
-      <div class="card">
-        <div class="card-header">
-          <h5 class="title pl-3">{{'PROFILE.Followers-And-Friends'|translate}}</h5>
-          <div class="btn-footer float-right">
-          </div>
-        </div>
-        <div class="card-body pt-0">
-          <div class="container">
-            <div class="row my-3">
-              <div class="col-1">
-                <mat-slide-toggle [checked]="p.follow.friend" (change)="changeFriendOption($event.checked)"></mat-slide-toggle>
-              </div>
-              <div class="col-11">{{'SETTING.profile.btn-friend'|translate}}</div>
-            </div>
-            <div class="row my-3">
-              <div class="col-1">
-                <mat-slide-toggle [checked]="p.follow.following" (change)="changeViewverOption($event.checked)"></mat-slide-toggle>
-              </div>
-              <div class="col-11">{{'SETTING.profile.btn-followers'|translate}}"</div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <app-confidentiality></app-confidentiality>
+    </div>
+  </div>
+  <!-- Langage-->
+  <div class="row mx-0">
+    <div class="col">
+      <app-langage></app-langage>
+    </div>
+  </div>
+  <!--Download Data-->
+  <div class="row mx-0">
+    <div class="col">
+      <app-download-data></app-download-data>
+    </div>
+  </div>
+  <!--Notification-->
+  <div class="row mx-0">
+    <div class="col">
+      <app-notifications></app-notifications>
     </div>
   </div>
 </div>

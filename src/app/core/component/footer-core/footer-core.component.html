@@ -1,9 +1,9 @@
 <div class="container-footer w-100">
-  <div class="row w-100 h-100 mx-0">
+  <div class="row w-100 h-100 mx-0 d-flex justify-content-center">
     <!-- Music Bar -->
-    <div class="d-none d-sm-none d-md-block col-md-4 col-xl-3 h-100">
+    <div class="d-none d-sm-none d-md-block col-md-4 col-xl-3 h-100" *ngIf="(audio$|async)">
       <div class="bar-container h-100">
-        <app-mini-player-music *ngIf="(audio$|async)"></app-mini-player-music>
+        <app-mini-player-music></app-mini-player-music>
       </div>
     </div>
     <!-- Lastest Room -->

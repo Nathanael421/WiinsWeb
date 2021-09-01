@@ -15,7 +15,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-thread-message',
   templateUrl: './thread-message.component.html',
-  styleUrls: ['./thread-message.component.scss']
+  styleUrls: ['./thread-message.component.scss'],
 })
 
 export class ThreadMessageComponent implements OnInit {
@@ -46,6 +46,7 @@ export class ThreadMessageComponent implements OnInit {
   // ref
   @ViewChildren('messagesMain') messages: QueryList<any>;
   @ViewChild('contentMain', { static: false }) content: ElementRef;
+  @ViewChild('newComment', { static: false }) commentWrited: ElementRef;
 
   // my user
   user: UserModel
