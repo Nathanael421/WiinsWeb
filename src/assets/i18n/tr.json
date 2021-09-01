@@ -93,7 +93,8 @@
     "Enable-notification": "Bildirimleri etkinleştirin",
     "Group-creation": "Grubun oluşturulması",
     "Mute": "Sessiz",
-    "Send": "Gönder"
+    "Send": "Gönder",
+    "days-message-delete-two-weeks": "Mesajlarınız 14 gün sonra otomatik olarak silinir"
   },
   "CONFIRMATION": {
     "Delete-Room": "Bu tartışmayı silmek istediğinizden emin misiniz?"
@@ -260,7 +261,17 @@
     "Save-in-phone": "Telefona kaydet",
     "No": "Hayır",
     "Yes": "Evet",
-    "Block-t-user": "Bu kullanıcıyı engelle"
+    "Block-t-user": "Bu kullanıcıyı engelle",
+    "Message": "İleti",
+    "Friend-request": "Arkadaşlık isteği",
+    "feed": "akı",
+    "tube": "tüp",
+    "Music": "Müzik",
+    "Page": "Sayfa",
+    "Music-Project": "Müzik Projesi",
+    "Group": "Grup",
+    "Earlier": "Daha erken",
+    "Notifications": "Bildirimler"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -620,7 +631,10 @@
     "Y-dont-have-a-conversation-yet": "Henüz konuşmadınız.",
     "Date-cannot-be-in-the-past": "Çıkış tarihi geçmiş bir tarih olamaz",
     "You-cannot-add-yourself": "Kendini ekleyemezsin",
-    "T-content-does-not-exist-anymore": "Bu içerik artık mevcut değil"
+    "T-content-does-not-exist-anymore": "Bu içerik artık mevcut değil",
+    "T-publication-no-longer-exists": "Bu yayın artık mevcut değil",
+    "Could-not-play-video": "Video oynatılamadı",
+    "Please-type-yr-pseudo-or-mail": "Lütfen sahte bir adres veya e-posta adresi girin"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Fotoğraf alındı",
@@ -641,7 +655,6 @@
   },
   "LOGIN-REGISTRER": {
     "Already-have-an-account": "Zaten hesabınız var mı",
-    "ForgotPassword": "Şifremi Unuttum",
     "Log-In": "Oturum aç",
     "Login": "Oturum aç",
     "Password-recovery": "Şifre kurtarma",
@@ -654,7 +667,33 @@
     "Create-yr-account": "hesabını oluştur",
     "Creating-yr-account": "Hesabınız oluşturuluyor",
     "Login-first-to-continue": "Devam etmek için önce giriş yapın",
-    "Checking-yr-infos": "Bilgilerinizi kontrol etme"
+    "Checking-yr-infos": "Bilgilerinizi kontrol etme",
+    "Welcome-back": "Tekrar hoş geldiniz",
+    "Hello-wiinser": "Merhaba Wiinser, devam etmek için oturum açın!",
+    "Dont-have-an-account-?": "Hesabın yok mu? Hesap oluşturma",
+    "Enter-yr-mail-adress-to-receive-yr-password": "Parolanızı almak için e-posta adresinizi girin",
+    "Forgot-password-?": "Şifreyi mi unuttun?",
+    "I-forgot-my-password": "Şifremi Unuttum",
+    "Forgot-password": "Parolayı unuttum",
+    "Email-adress-sent": "Gönderilen e-posta adresi",
+    "Checking-yr-mail": "Lütfen e-postanızı kontrol edin. Spam'inize bakmaktan çekinmeyin",
+    "Welcome": "hoş geldin",
+    "Hello-nice-to-meet-you-wiinser": "Merhaba, tanıştığımıza memnun oldum Wiinser.",
+    "Login-again": "",
+    "To-Discord": {
+      "Wiinser-community": "",
+      "We-need-yr-help": "",
+      "Join-us-in-this-adventure": "",
+      "We-need-yr-help-2": ""
+    },
+    "To-Stripe": {
+      "Coming-Soon": "",
+      "We-need-yr-help": "",
+      "We-need-yr-help-2": "",
+      "Cryptocurrency": "",
+      "Credit-Card": ""
+    },
+    "Inscription-successful": ""
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "En son proje",
@@ -733,7 +772,13 @@
     "Your-Email": "E-posta adresiniz",
     "Your-Password": "Şifreniz",
     "Your-Pseudo": "Kullanıcı adınızı",
-    "Your-message": "Mesajın"
+    "Your-message": "Mesajın",
+    "Confirm-your-password": "Parolanızı doğrulayın",
+    "Password-not-matching": "Şifreler eşleşmiyor",
+    "Enter-yr-username-or-mail-adresse": "Kullanıcı adınızı veya e-posta adresinizi girin",
+    "Enter-yr-password": "Parolanızı girin",
+    "Enter-yr-mail": "E-postanızı girin",
+    "Enter-yr-username": "Kullanıcı adınızı girin"
   },
   "PLEASE": {
     "Password": "Şifrenizi giriniz Lütfen"
@@ -892,14 +937,15 @@
     "password": {
       "C-new-password": "Yeni şifrenin onayı",
       "Edit-t-password": "Şifreyi değiştir",
-      "Erorr-password-different": "Şifreler farklı",
       "Error-min-5-char": "Yeni şifre en az 5 karakter içermelidir",
       "New-password": "Yeni Şifre",
       "New-password-r": "Yeni şifre gerekli",
       "Old-password": "Eski şifre",
       "Old-password-is-invalid": "Eski şifre geçersiz",
       "Old-password-r": "Eski şifre gerekli",
-      "Setting-password": "Parola değişikliği"
+      "Setting-password": "Parola değişikliği",
+      "C-new-password-subtitle": "",
+      "Error-password-different": "Şifreler farklı"
     },
     "profile": {
       "Edit-t-profile": "Profilinizi düzenleyin",
@@ -930,12 +976,12 @@
       "T-b-accepted-b-t-administration": "İdare tarafından kabul edilmek",
       "This-feature-requires-verification-to-use.": "Bu özelliğin kullanılması için doğrulama gerekiyor",
       "Upload-a-photo-holding-t-ID-D": "Üzerinde bugünün tarihi olan ve üzerinde \"Wiins\" yazan bir kağıt parçası olan kimliği taşıyan bir fotoğraf yükleyin.",
-      "Upload-yr-password-id-identity-or-driver-license": "Şifrenizi, kimlik kimliğinizi veya ehliyetinizi yükleyin.",
       "Verification": "Doğrulama",
       "Verified-zone": "Doğrulanmış bölge",
       "Y-m-complet-t-following-cdt-t-b-certified": "Sertifika almak için aşağıdaki koşulları yerine getirmelisiniz.",
       "Yr-profil-is-currently-being-checked-D": "Profiliniz şu anda kontrol ediliyor. 48 saat içinde sizinle e-posta yoluyla iletişime geçeceğiz.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Ulusal kimlik kartı ise kartın arka yüzünü yüklediğinizden emin olun (sadece ulusal kart için)"
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Ulusal kimlik kartı ise kartın arka yüzünü yüklediğinizden emin olun (sadece ulusal kart için)",
+      "Upload-yr-passport-id-identity-or-driver-license": "Pasaportunuzu, kimlik kimliğinizi veya ehliyetinizi yükleyin."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Yayınlarım sadece arkadaşlarım tarafından görülebilir",
@@ -965,32 +1011,44 @@
     "Better-reference": "Daha iyi referans"
   },
   "TERMS-OF-USE": {
-    "1-REGISTRATION-d": "Belirli hizmetlere erişim, kullanıcı kaydına tabidir. Sitenin hizmetlerine kayıt ve erişim, yalnızca Piin'in sitesinde çevrimiçi olarak bulunan kayıt formunu ve bu Genel Kullanım Koşullarını dolduran ve onaylayan yetenekli gerçek kişilere ayrılmıştır. kayıt, kullanıcı, kişiliği ve medeni durumu hakkında kesin, samimi ve güncel bilgi vermeyi taahhüt eder. Kullanıcı, doğruluğunu korumak için kendisiyle ilgili verileri düzenli olarak kontrol etmek zorundadır.\n\nKullanıcı zorunlu olarak geçerli bir e-posta adresi sağlamalıdır ve bu adrese sitenin hizmetleri için kaydının onayını göndermesi gerekir. Bir e-posta adresi, aynı hesap üzerinden hizmetlere kaydolmak için birden fazla kullanılamaz. Her gerçek kişi için site hizmetleri için yalnızca bir kayda izin verilir. Kullanıcıya, şifresini girmenin yanı sıra, erişimin rezerve edildiği bir alana erişmesine izin veren bir tanımlayıcı atanır. Tanımlayıcı her kullanıcı için benzersizdir, ancak şifre, kullanıcı tarafından Kişisel Alanında çevrimiçi olarak değiştirilebilir.\nŞifre kişisel ve gizlidir, kullanıcı bunu üçüncü şahıslara iletmemeyi taahhüt eder. Piin, her durumda, kullanıcının bu Genel Kullanım Koşullarının hükümlerine uymaması durumunda hizmetlere abonelik talebini reddetme olasılığını saklı tutar.",
-    "2-UNSUBSCRIBE-d": "Kayıtlı kullanıcı, istediği zaman kişisel alanındaki özel sayfaya giderek abonelikten çıkma talebinde bulunabilir. Siteden herhangi bir abonelik iptali, kullanıcı bu amaç için sağlanan formu doldurduktan hemen sonra geçerli olacaktır.",
-    "3-DELETION-OF-PERSONAL-SPACE-d": "Editörün, kullanım koşullarını ihlal eden herhangi bir kullanıcının kişisel alanını silme hakkını saklı tuttuğu ve özellikle aşağıdaki durumlarda kullanıcıya bildirilmiştir:\n\n● Kullanıcı siteyi yasa dışı bir şekilde kullanırsa\n● Kullanıcı kişisel alan oluştururken, gönüllü olarak siteye yanlış bilgi iletirse\n● Kullanıcı kişisel alanında en az 5 yıldır aktif değilse.\n\nEditörün bu nedenlerden biriyle kullanıcının kişisel alanını kaldırmaya karar vermesi durumunda, hesabı silinen kullanıcıya zarar vermez. Bu silme işlemi, yayıncının bu kuralları ihlal eden kullanıcıya karşı alabileceği yasal işlemlerden feragat teşkil etmez.",
-    "About-plateform": "Espace-Piin’s Inc., kullanıcıları için sezgisel ve ücretsiz bir şekilde içindeki çeşitli işlevleri merkezileştirmeyi sunan çevrimiçi bir medyadır. Bunun için medya, kullanıcıların sohbet edebileceği ve diğer kullanıcılarla içerik paylaşabileceği bir platformdur. Ayrıca, sürekli olarak müzik dinlemek için bir işlevi de barındırır, böylece kullanıcılar, durum ve zaman ne olursa olsun iyi bir atmosfer yaşayabilir. Espace-Piin’s Inc. ayrıca kullanıcılarını eğlendirmek ve eğitmek için videoları sürekli olarak izleme işlevine ev sahipliği yapmaktadır.",
-    "Access-&-nav-d": "Siteye erişim ve sitenin kullanımı yetişkinlere ayrılmıştır. Yayıncı, herhangi bir şekilde kullanıcının yaşının kanıtını talep etme hakkına sahip olacaktır. Editör, siteye haftanın 7 günü 24 saat erişime izin vermek için elindeki teknik çözümleri uygular. Bununla birlikte, güncellemelere, içeriğinde değişikliklere veya sitenin düzgün çalışması için gerekli görülen diğer işlemlere devam etmek için siteye veya bu sitenin belirli sayfalarına erişimi istediği zaman askıya alabilir, sınırlayabilir veya kesintiye uğratabilir.\nEspace Piin'in sitesinde bağlantı ve gezinme, teknik erişim araçları ve kullanılan terminaller ne olursa olsun bu Genel Kullanım Koşullarının kayıtsız şartsız kabulünü teşkil eder. Bu Genel Kullanım Koşulları, Espace Piins Inc. tarafından yönetilen mevcut veya gelecekteki sosyal ve / veya topluluk ağlarında sitenin herhangi bir varyasyonu veya uzantısı için geçerlidir.",
-    "Confidentiality-d": "Bu Hüküm ve Koşullara ek olarak, site, kullanıcı siteyi ziyaret ettiğinde kişisel verilerin nasıl işlendiğini ve çerezlerin nasıl kullanıldığını açıklayan bir gizlilik politikasına sahiptir. Siteye göz atarak, kullanıcı ayrıca yukarıdaki gizlilik politikasını okuduğunu iddia eder.",
-    "Generality-d": "\"Www.espace-piins.com\" sitesine tüm erişim yöntemleri bu gizlilik politikasına tabidir. Espace Piins Inc, platformda toplanan kişisel verilerden sorumludur. Bu, kişisel bilgilerinizin kullanımı, depolanması, korunması ve yayılmasıyla ilgilidir. Espace Piins'e erişim tamamen ücretsizdir ve platformun tüm işlevleri (reklamların yayınlanması hariç) faturalandırılmaz.\nEditör, herhangi bir zamanda ve önceden haber vermeksizin, siteyi ve hizmetleri ve bu Genel Kullanım Koşullarını, özellikle de yeni işlevlere veya mevcut işlevlerin silinmesine veya değiştirilmesine uyum sağlamak için değiştirme hakkını saklı tutar. platform. Bu nedenle, kullanıcının herhangi bir navigasyondan önce, sitede herhangi bir zamanda erişilebilen Genel Kullanım Koşullarının en son sürümüne başvurması önerilir. Genel Kullanım Koşullarına uyulmaması durumunda kullanıcı tarafından site kullanımı yapılamaz.",
-    "Hyperlinks-d": "Site, Piin’in kontrolünün olmadığı diğer web sitelerine işaret eden hipermetin bağlantıları içerebilir. Yayıncı tarafından önceden ve düzenli olarak gerçekleştirilen doğrulamalara rağmen, ikincisi bu sitelerde bulunabilecek içerikle ilgili tüm sorumluluğu reddeder. Yayıncı, sitenin herhangi bir sayfasına veya belgesine hipermetin bağlantılarının kurulmasına, bu bağlantıların ticari veya reklam amaçlı yapılmaması koşuluyla izin verir. Ayrıca, herhangi bir hipermetin bağlantısı kurulmadan önce sitenin yayıncısının ön bilgileri gereklidir. Yasadışı, şiddet içeren, tartışmalı, pornografik, yabancı düşmanı nitelikte veya en fazla sayıda hassasiyeti etkileyebilecek bilgileri yayan bu yetkilendirme sitelerinden hariç tutulur.\nSon olarak, Piin’in, sitenin içerik politikasına uymadığını düşünmesi durumunda, herhangi bir zamanda kendi sitesine işaret eden bir hipermetin bağlantısının silinmesi hakkını saklı tutar. Platform yayıncısı tarafından önerilmeyen platform dışındaki tüm hiper metinler önerilmez.",
-    "Intellectual-property-d": "Sitenin yapısı ve ayrıca onu oluşturan metinler, grafikler, resimler, fotoğraflar, sesler, videolar ve bilgisayar uygulamaları yayıncının mülkiyetindedir ve fikri mülkiyet kapsamında yürürlükte olan yasalarca korunmaktadır.\n\nSite tarafından sunulan içeriklerin, tescilli ticari markaların ve hizmetlerin herhangi bir işlemle, yayıncının önceden açık yazılı izni olmaksızın çoğaltılması, uyarlanması veya kısmen veya tamamen kullanılması kesinlikle yasaktır ve L. 335-2 ve devamı. Fikri Mülkiyet Kodu. Ve bu, sitede açıkça haklardan muaf olarak belirtilen unsurlar haricinde.\n\nSiteye erişim, bir hakkın tanınması anlamına gelmez ve genel olarak, yayıncının münhasır mülkü olarak kalan sitenin bir unsuruyla ilgili herhangi bir fikri mülkiyet hakkı vermez. Kullanıcının siteye içeriğini veya görünümünü değiştirebilecek veya değiştirebilecek verileri girmesi yasaktır.",
-    "Our-plateforme": "Platformumuz",
-    "Responsability-d": "Yayıncı, yalnızca kendisinin düzenlediği içerikten sorumludur. Yayıncı şunlardan sorumlu değildir:\n\n● Sitede herhangi bir donanım veya yazılımla ilgili sorunlar veya teknik, BT veya muhasebe arızaları olması durumunda\n● Sitenin veya hizmetlerinin kullanımından veya kullanımının zorluklarından kaynaklanan doğrudan veya dolaylı, maddi veya önemsiz, öngörülebilir veya öngörülemeyen hasar\n● İnternetin kendine özgü özellikleri, özellikle de orada dolaşan bilgilerin güvenilmezliği ve güvenliğinin olmaması ile ilgili olanlar\n● Kişisel verilerin işlenmesine ilişkin Kanun kapsamında usulüne uygun olarak haberdar edilmeden siteyi kullanan yasadışı içerik veya faaliyetler.\n\nAyrıca site, orada yayılan bilgilerin doğruluğunu, eksiksizliğini ve güncelliğini garanti edemez.\n\nKullanıcı şunlardan sorumludur:\n● Ekipmanının korunması ve platform üzerindeki manipülasyonu Espace Piins'e ait olmayan bir cihazdan\n● Sitenin veya verilerinin kullanımı\n● Bu genel kullanım koşullarının lafzına veya ruhuna saygı göstermiyorsa.",
-    "Responsability-d-extra": "Hizmete içerik sağlayarak, Piin'e hizmet ve faaliyetlerle bağlantılı olarak bu içeriği kullanması için devredilebilir (çoğaltma, dağıtma, türev çalışmalar hazırlama, yayma ve çalıştırma dahil) dünya çapında, münhasır olmayan, telifsiz, devredilebilir bir alt lisans verirsiniz. Piin (ve halefleri ve bağlı şirketleri), Hizmeti tamamen veya kısmen tanıtmak ve yeniden dağıtmak dahil.",
-    "Site-management-d": "Sitenin düzgün yönetimi için yayıncı her zaman şunları yapabilir:\n\n● Sitenin tamamına veya bir kısmına erişimi askıya alın, kesintiye uğratın veya sınırlayın, siteye veya sitenin belirli bölümlerine erişimi belirli bir İnternet kullanıcıları kategorisine ayırın.\n● Çalışmasını aksatabilecek veya ulusal veya uluslararası yasalara ya da Netiquette kurallarına aykırı tüm bilgileri silin.\n● Güncellemeleri gerçekleştirmek için siteyi askıya alın. Platformdaki içeriği değiştirmeye yönelik herhangi bir istek, bakım dönemlerinde kullanılamayacaktır.",
     "TITLE": {
-      "1-REGISTRATION": "1. KAYIT",
-      "2-UNSUBSCRIBE": "2. ABONELİĞİ İPTAL ET",
-      "3-DELETION-OF-PERSONAL-SPACE": "3. SİTE YAYINCISININ GİRİŞİMİNDE KİŞİSEL ALANIN SİLİNMESİ",
-      "Access-&-nav": "Erişim ve gezinme",
-      "Confidentiality": "Gizlilik",
-      "Generality": "Genellikler",
-      "Hyperlinks": "Köprü metni bağlantıları",
-      "Intellectual-property": "Fikri mülkiyet",
-      "Responsability": "Sorumlulukları",
-      "Services": "Hizmetler",
-      "Site-management": "Site yönetimi"
-    }
+      "Term-Of-Use": "",
+      "Definition-of-the-Tou": "",
+      "Agreement-to-the-Tou": "",
+      "Modification-of-the-Tou": "",
+      "Legal-information": "",
+      "Definitions": "",
+      "Access-to-the-site": "",
+      "Price": "",
+      "Unsubscribe": "",
+      "General-restriction-of-use": "",
+      "Personal-information": "",
+      "Intellectual-property-rights": "",
+      "Responsibility": "",
+      "Hypertext-links": "",
+      "Publication-by-user": "",
+      "Applicable-law-and-jurisdiction": ""
+    },
+    "Effective-Date": "",
+    "Tips": "",
+    "About-definition-of-the-Tou": "",
+    "About-agreement-to-the-Tou": "",
+    "About-modification-of-the-Tou": "",
+    "About-legal-information": "",
+    "About-legal-information-adress": "",
+    "About-definitions": "",
+    "About-access-to-the-site": "",
+    "About-payment-confirmation-unsubscribe": "",
+    "About-price": "",
+    "About-unsubscribe": "",
+    "About-price-early-access": "",
+    "About-general-restriction-of-use": "",
+    "About-personal-information": "",
+    "About-intellectual-property-rights": "",
+    "About-responsibility": "",
+    "About-hypertext-links": "",
+    "About-publication-by-user": "",
+    "About-applicable-law-and-jurisdiction": ""
   },
   "THIS-IS": {
     "id-of-t-music": "Müzik tanımlayıcınız"
@@ -1049,7 +1107,9 @@
     "T-content-has-been-reported": "Bu içerik bildirildi. Moderatörlerimiz incelemek için 24 saat sonra göz atacak. Topluluğun kurallarına uymaması halinde bir yaptırım uygulanacaktır.",
     "T-user-has-been-blocked-D": "Bu kullanıcı hesabınızdan engellendi. Bu profilin hiçbir içeriği hesabınızda görünmeyecek.",
     "W-is-t-reason-to-report-t-post": "Bu gönderiyi bildirmenin nedeni nedir?",
-    "W-is-t-reason-to-report-t-post-D": "Raporunuz anonimdir. Lütfen moratorlara yardımcı olacak bir kategori seçin"
+    "W-is-t-reason-to-report-t-post-D": "Raporunuz anonimdir. Lütfen moratorlara yardımcı olacak bir kategori seçin",
+    "A-y-s-to-unfollow-this-profile": "Bu profili takip etmeyi bırakacağına emin misin?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Bu arkadaşı arkadaş listenden silmek istediğinden emin misin?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Uyarı. Doğru adrese sahip olduğunuzdan emin olun"
@@ -1433,5 +1493,17 @@
       "Video-name": "Video adı",
       "Visualisation-of-the-video": "Videonun görselleştirilmesi"
     }
+  },
+  "TEMPORARY": {
+    "Join-us-on-discord": "Discord topluluğuna katılın",
+    "Ty": "teşekkür ederim",
+    "Why-this-early-access": "Neden bu erken erişim? Wiin's, telefonunuzla olan ilişkinizde devrim yaratmak istiyor. Ayrıca, hizmetlerimizi iyileştirmek ve bu dönemde tamamen ücretsiz olacak özel bir deneyim sunmak için yardımınıza ihtiyacımız var. Ek olarak, ilk Wiinser olarak, gelecekteki aboneliğinizde bir indirimden yararlanacaksınız.",
+    "W-does-early-access-offer": "Erken erişim ne sunuyor? Erken Erişim, Wiin'in şu anda mevcut tüm özelliklerini kullanmanıza izin verir. Henüz yapmadıysanız, video aracılığıyla daha fazlasını keşfetmeyi size bırakacağız.",
+    "H-lg-ll-t-platform-be-in-early-access": "Platform ne kadar süreyle erken erişimde kalacak? 9 ay boyunca, belki 6 veya 3. Oynayacak bir rolünüz var !! Ancak en geç 1 Ocak 2022'ye kadar kesin.",
+    "H-ll-t-full-version-b-diff-frm-t-early-access-version": "Tam sürüm erken erişim sürümünden nasıl farklı olacak? Platform, \"iyileştirme öner\" menüsünde formüle edebileceğiniz taleplerinize göre geliştirilecektir. Sanatçılar ayrıca yeteneklerine yakışır bir ücret alabilecekler. Bununla birlikte, Wiin’deki ücretsiz ayrıcalığın süresi dolacak. Haberdar olmak için bizi sosyal ağlarda takip edin.",
+    "H-much-ll-t-full-version-cost-after-Early-Access": "Erken Erişimden sonra tam sürümün fiyatı ne olacak? Fiyat açıklanacak. Erken erişim, hizmetlerimizi en iyi fiyata sunmamızı sağlayacaktır. Elbette ödeme yapmadan önce bu konuda bilgilendirileceksiniz.",
+    "H-d-y-plan-to-involve-t-community-in-t-dev-process": "Topluluğu geliştirme sürecine nasıl dahil etmeyi planlıyorsunuz? Sadece onu kullanarak. Desteklemek istediğinizi duymaktan mutluluk duyarız! Lütfen deneyimlerinizi paylaşmaktan çekinmeyin, çünkü sonuçta bu aynı zamanda sizin platformunuzdur. Fikirlerinizi ve geri bildirimlerinizi gerçekten takdir etsek de, bağış yaparak Wiin'in gelişimine de katılabilirsiniz.",
+    "Tell-m-more": "Bana daha fazlasını anlat!",
+    "On-first-may-d": "1 Mayıs'ta hizmetlerimize erken erişime sahip olacaksınız. Bu büyük devrimi beklerken sabırlı olmanız gerekecek! Lütfen bu erişimin ilk 1000 kayıt için geçerli olacağını unutmayın."
   }
 }

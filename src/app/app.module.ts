@@ -52,7 +52,6 @@ import { CreateTubePublicationComponent } from './space-creative/create-tube-pub
 import { CreateMusicProjectComponent } from './space-creative/create-music-project/create-music-project.component'
 import { NotfoundComponent } from './notfound/notfound.component'
 import { NoprofileComponent } from './notfound/noprofile/noprofile.component'
-import { SiPipeModule } from 'ng-si'
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core'
 import { TranslateHttpLoader } from '@ngx-translate/http-loader'
 import { RegisterConfirmationComponent } from './sign/register-confirmation/register-confirmation.component'
@@ -111,7 +110,6 @@ import { QRCodeModule } from 'angularx-qrcode';
 import { ForgotPasswordComponent } from './sign/forgot-password/forgot-password.component';
 import { ChangingPasswordComponent } from './sign/changing-password/changing-password.component';
 import { FeedPageAdminStandardComponent } from './mypage/feed-page-admin-standard/feed-page-admin-standard.component';
-import { DeviceDetectorModule } from 'ngx-device-detector';
 import { CommunityListComponent } from './core/component/community-list/community-list.component'
 import { ReportModalComponent } from './core/modal/report-modal/report-modal.component'
 import { ReportMessageComponent } from './core/modal/report-message/report-message.component';
@@ -131,6 +129,12 @@ import * as Sentry from '@sentry/angular'
 import { Router } from '@angular/router'
 import { APP_INITIALIZER, ErrorHandler } from "@angular/core";
 import { GlobalErrorHandler } from './core/interceptors/globalErrorHandler.interceptor'
+import { PlyrModule } from 'ngx-plyr';
+import { OnboardingComponent } from './sign/onboarding/onboarding.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { ToDiscordComponent } from './sign/to-discord/to-discord.component';
+import { ToStripeComponent } from './sign/to-stripe/to-stripe.component';
+import { ForgotPasswordConfirmationComponent } from './sign/forgot-password-confirmation/forgot-password-confirmation.component';
 
 
 // AoT requires an exported function for factories
@@ -162,14 +166,13 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     ManagementTeamComponent, GroupValidationComponent, ReportMessageComponent, FooterCoreComponent,
     ForgotPasswordComponent, CommunityListComponent, ReportModalComponent, VerificationSpaceUnlockedComponent,
     CertificationMenuComponent, LedgerComponent, CreateMusicProjectComponent, NotfoundComponent, 
-    VeritificationStepsComponent, MyProfileBodyComponent, ProfileBodyComponent, CreditMusicComponent
+    VeritificationStepsComponent, MyProfileBodyComponent, ProfileBodyComponent, CreditMusicComponent, OnboardingComponent, ToDiscordComponent, ToStripeComponent, ForgotPasswordConfirmationComponent
   ],
   imports: [
     RootStoreModule, BrowserModule, NgxMasonryModule, AppRoutingModule, NgbModule, HttpClientModule,
     HttpClientJsonpModule, CoreModule, BrowserAnimationsModule, FormsModule, AutosizeModule,
-    MaterialModule, ReactiveFormsModule, SiPipeModule, ClickOutsideModule, GooglePlaceModule,
-    InfiniteScrollModule, RoundProgressModule, DragDropModule, ImageCropperModule, QRCodeModule,
-    DeviceDetectorModule.forRoot(),
+    MaterialModule, ReactiveFormsModule, ClickOutsideModule, GooglePlaceModule,
+    InfiniteScrollModule, RoundProgressModule, DragDropModule, MatProgressSpinnerModule, PlyrModule, ImageCropperModule, QRCodeModule,
     TranslateModule.forRoot({ 
       loader: { 
         provide: TranslateLoader,
