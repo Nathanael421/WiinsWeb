@@ -1,15 +1,73 @@
 <!-- Search Bar-->
-<div class="input-group col-md-11 mx-auto my-1 searchBar">
-  <input [formControl]="searchField" type="text" class="form-control input-lg"
-    [placeholder]="'MINI-CHAT.text-a-friend'| translate" />
-  <span class="input-group-btn my-auto">
-    <button class="btn btn-info btn-lg" type="button">
-      <i class="fa fa-commenting-o"></i>
-    </button>
-  </span>
+<div class="col-md-12 d-flex py-3 align-items-center justify-content-center">
+  <div class="col-md-6 p-0 searchBar mr-3">
+    <input type="text" class="w-100" placeholder="Search friends/Create group chat">
+  </div>
+  <div class="col-md-1 p-0">
+    <img class="add-someone pb-2" src="../../../assets/img/Star.svg" alt="Add-someone">
+  </div>
 </div>
 
-<!-- List of profile -->
+<!-- Best & Second-->
+<div class="col-md-12 d-flex justify-content-between px-4 py-3 closest">
+  <p class="p-0 col-md-4">Best</p>
+  <p class="p-0 col-md-4">Second</p>
+  <p class="p-0 col-md-2">0 Request</p>
+</div>
+
+<!-- Expansion panel-->
+<mat-accordion multi>
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header class="pr-0" (click)="hideOrShowUser()">
+      <mat-panel-title class="d-flex justify-content-between mr-0">
+        <div class="d-flex align-items-center">
+          <p class="p-0 mr-2">Users</p>
+          <span class="material-icons">
+            {{panelProfile ? 'arrow_right' : 'arrow_drop_down'}}
+          </span>
+        </div>
+        <div>
+          <button type="submit" class="btn" [disabled]="nobodySelected">Ready</button>
+        </div>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    
+<!-- List of New Discussions -->
+<div class="container p-0" *ngIf="(profiles$|async) && searchField.value !== ''">
+    <div *ngFor="let item of profiles$ | async" class="newDiscuss d-flex col-md-12 py-4 p-0">
+      <div class="col-md-2 p-0 ml-1">
+        <a class="px-0 container-avatar">
+          <img class="avatar rounded-circle" [src]="item.pictureprofile">
+        </a>
+      </div>
+      <div class="px-1 col-md-8 pt-1 newDiscussFriend">
+        <p class="mb-2">Pseudo</p>
+        <p class="last-msg">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque, commodi sequi distinctio ipsam, aspernatur rem et, iste quaerat quasi cum amet fugit libero at soluta nam quia quibusdam temporibus ducimus?</p>
+      </div>
+      <div class="col-md-2 d-flex align-items-center">
+        <div class="round">
+          <input type="checkbox" id="checkbox" (click)="selectThisFriend()" />
+          <label for="checkbox"></label>
+        </div>
+      </div>
+    </div>
+</div>
+
+    
+  </mat-expansion-panel>
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false"
+                       hideToggle>
+    <mat-expansion-panel-header (click)="hideOrShowDiscuss()">
+      <mat-panel-title>
+        <p class="p-0 mr-2">Discussions</p>
+        <span class="material-icons">
+          {{panelDiscuss ? 'arrow_right' : 'arrow_drop_down'}}
+        </span>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+<!-- List of Discussion -->
 <div class="container" *ngIf="(resultsProfile$ | async) && searchField.value !== ''">
   <div class="row">
     <div *ngFor="let p of resultsProfile$ | async" class="col-md-3 mx-auto">
@@ -20,12 +78,12 @@
   </div>
 </div>
 
-<!-- List of room -->
+<!-- List of Discussion room -->
 <div class="list-user" *ngIf="(room$| async); let room">
-  <div *ngFor="let r of room; let i = index" class="mini-conversation row py-2 mx-0"
+  <div *ngFor="let r of room; let i = index" class="mini-conversation row py-4 mx-0"
     [ngClass]="{'highlight': (roomSelected$ | async)?._id === r._id}" (click)="selectRoom(i, r._id)">
-    <div class="col-md-3 pr-0">
-      <div [ngSwitch]="r.participants.length" class="w-100 h-100">
+    <div class="col-md-2 p-0">
+      <div [ngSwitch]="r.participants.length" class="w-100 h-100 d-flex justify-content-center">
         <div class="container-avatar" *ngSwitchCase="1">
           <img class="img-responsive d-flex mx-auto rounded-circle"
             [src]="r.participants[0].pictureprofile">
@@ -38,21 +96,21 @@
         </div>
       </div>
     </div>
-    <div class="col-md-6">
-      <div class="pt-1">
-        <p *ngIf="r.participants.length == 1">{{r.participants[0]._meta.pseudo}}</p>
+    <div class="col-md-7">
+      <div class="currentFriendName pt-1">
+        <p class="mb-2" *ngIf="r.participants.length == 1">{{r.participants[0]._meta.pseudo}}</p>
         <p *ngIf="r.participants.length == 2">{{r.participants[0]._meta.pseudo}}, {{r.participants[1]._meta.pseudo}}</p>
         <p *ngIf="r.participants.length > 2">{{r.participants[0]._meta.pseudo}}, {{r.participants[1]._meta.pseudo}}...
         </p>
-        <p class="last-msg">{{r.lastMessage.text}}</p>
+        <p class="last-msg">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam, laborum? A nostrum pariatur illum odit illo at velit reprehenderit dignissimos. Autem deleniti repellat repellendus cumque maxime est quam earum tempora.</p>
       </div>
     </div>
-    <div class="col-md-3 mt-4 px-0" *ngIf="r.roomOption.participants[0].notification == 0">
+    <div class="col-md-3 pt-1 px-0 d-flex justify-content-end pr-3" *ngIf="r.roomOption.participants[0].notification == 0">
       <div class="date">
         <p>{{translateService.getDateTranslated(r.updatedAt)}}</p>
       </div>
     </div>
-    <div class="col-md-3 mt-4 px-0" *ngIf="r.roomOption.participants[0].notification > 0">
+    <div class="col-md-3 mt-4 px-0 d-flex justify-content-end pr-3" *ngIf="r.roomOption.participants[0].notification > 0">
       <div class="badge-notif mx-auto">
         <div class="number-msg">
           <span>{{r.roomOption.participants[0].notification}}</span>
@@ -61,3 +119,6 @@
     </div>
   </div>
 </div>
+
+  </mat-expansion-panel>
+</mat-accordion>

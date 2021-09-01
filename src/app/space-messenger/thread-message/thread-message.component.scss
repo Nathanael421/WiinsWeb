@@ -1,9 +1,11 @@
 .header-conversation {
   border-bottom: 1px solid #e7e7e7;
-  height: 70px;
+  height: 62px;
 
   p {
     font-size: 1.2rem;
+    font-weight: 500;
+    color: black;
   }
 
   i {
@@ -11,11 +13,6 @@
   }
 
   .container-btn-header {
-    .fa-cogs {
-      font-size: 22px;
-      color: #68adf4;
-    }
-
     .fa-bell-slash {
       color: #f4687b;
       font-size: 20px;
@@ -32,6 +29,12 @@
     }
   }
 
+}
+
+.bi-three-dots {
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
 }
 
 .dropdown-menu {
@@ -52,11 +55,12 @@
 
 .trend-conversation {
   height: calc(100% - 169px);  
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
 
   img {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border: white solid 1px;
     padding: 1px;
     object-fit: cover;
@@ -73,11 +77,6 @@
   }
 
   .message-received {
-    img {
-      bottom: 0;
-      position: absolute;
-      right: 0;
-    }
 
     p {
       border-radius: 20px 20px 20px 5px;
@@ -114,31 +113,35 @@
     cursor: pointer;
   }
 
-  .message-box .message-input {
-    background: none;
-    border: none;
-    resize: none;
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 16px;
-    height: 24px;
-    margin: 0;
-    padding-right: 20px;
-    width: 265px;
-    color: #444;
+  .message-writte {
+    border-radius: 15px;
+    border: 1px solid #C9C9C9;
   }
 
-  .message-submit {
-    z-index: 1;
-    color: #4A90E2;
-    border: none;
-    background: #fff;
-    font-size: 14px;
-    text-transform: uppercase;
-    line-height: 1;
-    border-radius: 5px;
-    outline: none !important;
-    cursor: pointer;
+  .bi-paperclip {
+    transform: rotate(33deg);
   }
+
+  .sendMessage {
+    border-radius: 15px;
+    background: linear-gradient(#167DCE,#3E56D4);
+    border: none;
+    color: white;
+    padding: 0.7rem;
+  }
+
+  .bi-cursor-fill {
+    transition: all 0.3s;
+  }
+
+  .sendMessage:hover .bi-cursor-fill {
+    transform: rotate(47deg);
+  }
+
+  textarea {
+    border: none;
+  }
+
 }
 
 .container-avatar {
@@ -151,9 +154,7 @@
     width: 60px;
     height: 60px;
     overflow: hidden;
-    border: white solid 2px;
-    box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.175);
-    -webkit-box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.175);
+    border: 2px solid white;
   }
 
 }
@@ -165,8 +166,6 @@
   position: relative;
   overflow: hidden;
   border: white solid 2px;
-  box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.175);
-  -webkit-box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.175);
   cursor: pointer;
 
 
@@ -220,7 +219,9 @@
 }
 
 .container-bubble-message {
-  position: relative;
+  span {
+    color: black;
+  }
 }
 
 .container-message-deletion span {
@@ -313,3 +314,30 @@
   font-size: 1.5rem;
 }
 
+::ng-deep .mat-form-field {
+
+  .mat-form-field-label-wrapper {
+    display: none !important;
+    padding: 0;
+  }
+
+  .mat-form-field-wrapper {
+    padding: 0;
+  }
+
+  .mat-form-field-underline,
+  .mat-form-field-label {
+    display: none;
+  }
+
+  .mat-form-field-infix {
+    border: none;
+    width: 40rem;
+    padding: 0;
+  }
+
+}
+
+.messageOfUser {
+  overflow-wrap: anywhere;
+}
