@@ -38,23 +38,12 @@ p {
 }
 
 .badge-notif {
-  background: red;
+  background: #6245D8;
   border-radius: 50%;
-  height: 20px;
-  width: 20px;
+  height: 14px;
+  width: 14px;
   box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.175);
-  border: 2px solid #fff;
   position: relative;
-
-
-  .number-msg {
-    color: white;
-    font-size: 13px;
-    position: absolute;
-    left: 4px;
-    top: -1px;
-
-  }
 }
 
 .currentFriendName p:first-child,
@@ -123,6 +112,14 @@ p {
   font-size: 17px;
   font-weight: 500;
   background: linear-gradient(90deg,#58AED2,#4A85D1,#545DD5,#6245D8);
+  width: 9rem;
+  border-radius: 15px;
+}
+.mat-expansion-panel-header-title button:disabled {
+  color: #fff;
+  font-size: 17px;
+  font-weight: 500;
+  background: linear-gradient(90deg,#888888,#909090);
   width: 9rem;
   border-radius: 15px;
 }

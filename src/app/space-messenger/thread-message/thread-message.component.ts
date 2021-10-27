@@ -11,11 +11,36 @@ import { ActivatedRoute } from '@angular/router';
 import { Room } from 'src/app/core/models/messenger/room.model';
 import { TranslateService } from '@ngx-translate/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { animate, state, style, transition, trigger } from '@angular/animations';
+import { resetFakeAsyncZone } from '@angular/core/testing';
 
 @Component({
   selector: 'app-thread-message',
   templateUrl: './thread-message.component.html',
   styleUrls: ['./thread-message.component.scss'],
+  animations: [
+    trigger('sendMessage', [
+      state('initial', style({
+        opacity: 1,
+      })),
+      state('move', style ({
+        transform: 'translateX(100px) rotate(47deg)', opacity: 0
+      })),
+      state('return', style({
+        transform: 'translateX(0px)', opacity: 1
+      })),
+      state('hide', style ({
+        opacity: 0
+      })),
+      state('show', style ({
+        opacity: 1
+      })),
+      transition('initial => move', animate('7000ms ease-out')),
+      transition('move => return', animate('1ms ease-out')),
+      transition('move => hide', animate('7000ms ease-out')),
+      transition('show => hide', animate('7000ms ease-out')),
+    ])
+  ],
 })
 
 export class ThreadMessageComponent implements OnInit {
@@ -42,6 +67,10 @@ export class ThreadMessageComponent implements OnInit {
   addingContainer = false
   participantAdded: ProfileModel[] = []
   resultsProfile$: Observable<ProfileModel[]>
+
+  // Send Message Animation
+  position: string;
+  showSubmit: string;
 
   // ref
   @ViewChildren('messagesMain') messages: QueryList<any>;
@@ -243,5 +272,14 @@ export class ThreadMessageComponent implements OnInit {
     })
 
     errorModal.onAction().subscribe(() => window.open('https://discord.gg/jMyc443', '_blank'))
+  }
+
+  animationSendMessage() {
+    this.position = 'return';
+    this.showSubmit = 'show';
+    setTimeout(() => { this.position = 'return' }, 800);
+    setTimeout(() => { this.showSubmit = 'show' }, 800);
+    this.position = 'move';
+    this.showSubmit = 'hide';
   }
 }

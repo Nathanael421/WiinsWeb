@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, Input } from '@angular/core'
 import { Observable } from 'rxjs'
 import { Store, select } from '@ngrx/store'
 import {
@@ -15,6 +15,8 @@ import { RequestProfile } from 'src/app/core/models/request/request.model'
 })
 
 export class RequestListComponent implements OnInit {
+
+  @Input() svgIcon: boolean; // svgIcon Request
 
   // request list
   requestList$: Observable<RequestProfile[]>;

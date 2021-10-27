@@ -17,7 +17,6 @@ import { PageModel } from 'src/app/core/models/page/page.model'
 })
 
 export class UserListMessageComponent implements OnInit {
-
   // search bar
   searchField: FormControl;
   resultsProfile$: Observable<ProfileModel[]>;

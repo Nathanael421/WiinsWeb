@@ -194,11 +194,11 @@
             </svg>
           </div>
           <div class="col-8 pr-0">
-            <button type="submit" (click)="send(mainRoomID.value)" class="sendMessage d-flex justify-content-around align-items-center w-100">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cursor-fill" viewBox="0 0 16 16">
+            <button type="submit" (click)="send(mainRoomID.value);animationSendMessage()" class="sendMessage d-flex justify-content-around align-items-center w-100">
+              <svg xmlns="http://www.w3.org/2000/svg" [@sendMessage]="position" width="20" height="20" fill="currentColor" class="bi bi-cursor-fill" viewBox="0 0 16 16">
                 <path d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103z"/>
               </svg>
-              <p class="m-0">{{'CHAT.Send'|translate}}</p>
+              <p class="m-0" [@sendMessage]="showSubmit">{{'CHAT.Send'|translate}}</p>
             </button>
           </div>
           
