@@ -16,14 +16,15 @@
             </mat-expansion-panel-header>
             <div *ngFor="let profile of profilesBlocked | paginate: { itemsPerPage: 5, currentPage: page, id: 'first', totalItems: totalLength}; let i = index" class="profileHover d-flex justify-content-center align-items-baseline my-2">
                 <div class="containerPicture">
-                <img class="w-100 h-100 pictureExemple" [src]="profile.picture" alt="">
+                <img class="w-100 h-100 pictureExemple" [src]="profile.picture" alt="Profile Blocked">
             </div>
             <p class="col-1">{{profile.name}}</p>
             <div class="row my-3 d-flex align-items-baseline">
                 <div class="col-1">
                   <mat-slide-toggle [checked]="profile.status"></mat-slide-toggle>
                 </div>
-                <p class="col ml-3">{{ profile.status === true ? 'Blocked' : 'Unlock'}}</p>
+                <!-- i18n -->
+                <p class="col ml-3">Blocked</p> 
             </div>
             <mat-panel-description class="d-flex justify-content-center">
                 <p>{{'SETTING.profile.Blocked-since' | translate}} {{profile.date}}</p>
@@ -43,14 +44,15 @@
             </mat-expansion-panel-header>
             <div *ngFor="let profileFriends of closeFriends | paginate: { itemsPerPage: 5, currentPage: page2, id: 'second', totalItems: totalLength} ;let i = index" class="profileHover d-flex justify-content-center align-items-baseline my-2">
               <div class="containerPicture">
-                <img class="w-100 h-100 pictureExemple" [src]="profileFriends.picture" alt="">
+                <img class="w-100 h-100 pictureExemple" [src]="profileFriends.picture" alt="Close Friends">
               </div>
               <p class="col-1">{{profileFriends.name}}</p>
               <div class="row my-3 d-flex align-items-baseline">
                 <div class="col-1">
-                  <mat-slide-toggle [checked]="closeFriend" (change)="toggleClose()"></mat-slide-toggle>
+                  <mat-slide-toggle [checked]="profileFriends.status"></mat-slide-toggle>
                 </div>
-                <p class="col ml-3">{{closeFriend ? 'Close friend' : 'Remove my close friend'}}</p>
+                <!-- i18n -->
+                <p class="col ml-3">Close Friend</p>
               </div>
               <mat-panel-description class="d-flex justify-content-center">
                 <p>{{'SETTING.profile.CloseFriend-since' | translate}} {{profileFriends.date}}</p>
