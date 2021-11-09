@@ -469,11 +469,8 @@ $table-body-font-size:        .8125rem !default;
 $table-dark-bg:               theme-color("default") !default;
 $table-dark-accent-bg:        rgba($white, .05) !default;
 $table-dark-hover-bg:         rgba($white, .075) !default;
-$table-dark-border-color:     lighten(theme-color("default"), 7%) !default;
 $table-dark-color:            $body-bg !default;
 
-$table-dark-head-bg:          lighten(theme-color("default"), 4%) !default;
-$table-dark-head-color:       lighten(theme-color("default"), 35%) !default;
 
 // Buttons + Forms
 
@@ -482,7 +479,6 @@ $input-btn-padding-x:         .75rem !default;
 $input-btn-line-height:       $shape-height-base !default;
 
 $input-btn-focus-width:       0 !default;
-$input-btn-focus-color:       rgba($component-active-bg, 1) !default;
 $input-btn-focus-box-shadow:  none !default;
 
 $input-btn-padding-y-sm:      .25rem !default;
@@ -618,7 +614,6 @@ $custom-control-indicator-checked-color:        $component-active-color !default
 $custom-control-indicator-checked-bg:           $component-active-bg !default;
 $custom-control-indicator-checked-border-color: $component-active-border-color !default;
 $custom-control-indicator-checked-box-shadow:   $custom-control-indicator-box-shadow !default;
-$custom-control-indicator-checked-disabled-bg:  rgba(theme-color("primary"), .5) !default;
 
 $custom-control-indicator-disabled-bg:          $gray-200 !default;
 $custom-control-label-disabled-color:           $gray-600 !default;
@@ -711,7 +706,6 @@ $nav-pills-border-color:            theme-color("primary") !default;
 $nav-pills-border-radius:           $border-radius !default;
 
 $nav-pills-link-color:              theme-color("primary") !default;
-$nav-pills-link-hover-color:        darken(theme-color("primary"), 5%) !default;
 $nav-pills-link-active-color:       color-yiq(theme-color("primary")) !default;
 $nav-pills-link-active-bg:          theme-color("primary") !default;
 $nav-pills-box-shadow:              $btn-box-shadow !default;
@@ -980,7 +974,6 @@ $datepicker-active-background: theme-color("primary") !default;
 $datepicker-active-box-shadow:      none !default;
 
 $datepicker-range-background: theme-color("primary") !default;
-$datepicker-range-cell-focused-background: darken($datepicker-range-background, 5%);
 $datepicker-range-color: $white !default;
 $datepicker-range-highlighted-bg: $gray-200 !default;
 

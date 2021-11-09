@@ -1,6 +1,6 @@
 <!-- Search Bar-->
 <div class="col-md-12 d-flex py-3 align-items-center justify-content-center">
-  <div class="col-md-6 p-0 searchBar mr-3">
+  <div class="col-md-6 p-0 searchBar me-3">
     <input type="text" class="w-100" placeholder="Search friends/Create group chat">
   </div>
   <div class="col-md-1 p-0">
@@ -21,7 +21,7 @@
     <mat-expansion-panel-header class="pr-0" (click)="hideOrShowUser()">
       <mat-panel-title class="d-flex justify-content-between mr-0">
         <div class="d-flex align-items-center">
-          <p class="p-0 mr-2">Users</p>
+          <p class="p-0 me-2">Users</p>
           <span class="material-icons">
             {{panelProfile ? 'arrow_right' : 'arrow_drop_down'}}
           </span>
@@ -35,7 +35,7 @@
 <!-- List of New Discussions -->
 <div class="container p-0" *ngIf="(profiles$|async) && searchField.value !== ''">
     <div *ngFor="let item of profiles$ | async" class="newDiscuss d-flex col-md-12 py-4 p-0">
-      <div class="col-md-2 p-0 ml-1">
+      <div class="col-md-2 p-0 ms-1">
         <a class="px-0 container-avatar">
           <img class="avatar rounded-circle" [src]="item.pictureprofile">
         </a>
@@ -60,7 +60,7 @@
                        hideToggle>
     <mat-expansion-panel-header (click)="hideOrShowDiscuss()">
       <mat-panel-title>
-        <p class="p-0 mr-2">Discussions</p>
+        <p class="p-0 me-2">Discussions</p>
         <span class="material-icons">
           {{panelDiscuss ? 'arrow_right' : 'arrow_drop_down'}}
         </span>
@@ -105,12 +105,12 @@
         <p class="last-msg">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam, laborum? A nostrum pariatur illum odit illo at velit reprehenderit dignissimos. Autem deleniti repellat repellendus cumque maxime est quam earum tempora.</p>
       </div>
     </div>
-    <div class="col-md-3 pt-1 px-0 d-flex justify-content-end pr-3" *ngIf="r.roomOption.participants[0].notification == 0">
+    <div class="col-md-3 pt-1 px-0 d-flex justify-content-end pe-3" *ngIf="r.roomOption.participants[0].notification == 0">
       <div class="date">
         <p>{{translateService.getDateTranslated(r.updatedAt)}}</p>
       </div>
     </div>
-    <div class="col-md-3 mt-4 px-0 d-flex justify-content-end pr-3" *ngIf="r.roomOption.participants[0].notification > 0">
+    <div class="col-md-3 mt-4 px-0 d-flex justify-content-end pe-3" *ngIf="r.roomOption.participants[0].notification > 0">
       <div class="badge-notif mx-auto">
         <div class="number-msg">
           <span>{{r.roomOption.participants[0].notification}}</span>

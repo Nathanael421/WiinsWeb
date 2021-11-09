@@ -3,7 +3,7 @@
 <div class="container-dialog w-100 h-100" *ngIf="(room$ | async) let r">
   <div class="row header-conversation">
     <div class="col-md-8 row mx-0 my-auto" [ngSwitch]="r.participants.length">
-      <div *ngSwitchCase="1" class="container-avatar col-md-2 text-center pl-4 pr-0">
+      <div *ngSwitchCase="1" class="container-avatar col-md-2 text-center ps-4 pr-0">
         <img class="img-responsive rounded-circle" [src]="r.participants[0].pictureprofile">
       </div>
       <div *ngSwitchCase="2" class="col-md-2 row mx-0">
@@ -25,7 +25,7 @@
       </div>
     </div>
     <div *ngIf="((room$ | async)?._id != null) && !search" class="col-md-4 row mx-0 my-auto" ngbDropdown>
-      <div class="ml-auto mr-5 container-btn-header">
+      <div class="ms-auto me-5 container-btn-header">
         <i *ngIf="(room$|async)?.roomOption.participants[0].mute === true" class="mx-2 fa fa-bell-slash"
           (click)="unMuteRoom()"></i>
           <div ngbDropdownToggle class="icon-Setting">
@@ -68,7 +68,7 @@
     </div>
     <div *ngIf="search" class="col-md-4 row mx-0 my-auto container-search">
       <div class="col-md-9 my-auto pr-0">
-        <input [matAutocomplete]="auto" matInput class="w-100 py-1 pl-3 pr-2" type="text"
+        <input [matAutocomplete]="auto" matInput class="w-100 py-1 ps-3 pe-2" type="text"
          [placeholder]="'CORE.Search'|translate" [formControl]="searchField">
         <mat-autocomplete #auto="matAutocomplete">
           <mat-option *ngFor="let p of (resultsProfile$ | async)" class="suggest-friend" (click)="addParticipant(p)">
@@ -85,7 +85,7 @@
           </mat-option>
         </mat-autocomplete>
       </div>
-      <div class="col-md-3 my-auto pr-0 pl-2">
+      <div class="col-md-3 my-auto pr-0 ps-2">
         <button class="btn btn-outline-primary shadow" (click)="toogleSearch()">{{'CORE.Cancel'|translate}}</button>
       </div>
     </div>
@@ -142,7 +142,7 @@
                 <img [src]="getAvatarChat(r.participants, m.owner)" class="rounded-circle shadow">
               </div>
             </figure>
-            <span class="col-md-7 mr-auto content-text pl-0 messageOfUser" [ngClass]="{
+            <span class="col-md-7 me-auto content-text pl-0 messageOfUser" [ngClass]="{
              'pt-0': first == false && r.message[i-1].owner == m.owner,
              'mb-0': last == true
               }">
@@ -150,7 +150,7 @@
             </span>
           </div>
           <div class="row my-1 message message-sended" *ngSwitchDefault>
-            <span class="col-md-9 ml-auto row content-text">
+            <span class="col-md-9 ms-auto row content-text">
               <div ngbDropdown class="col-md-2 row mx-0 btn-delete-message">
                 <button ngbDropdownToggle class="m-auto rounded-circle">
                   <i class="fa fa-ellipsis-h"></i>
@@ -183,7 +183,7 @@
             class="form-control message-input col-md-12 my-auto" [placeholder]="'PLACEHOLDER.Your-message'|translate"></textarea>
           </mat-form-field>
         </div>
-        <div class="col-md-3 px-0 d-flex justify-content-between align-items-center pr-1">
+        <div class="col-md-3 px-0 d-flex justify-content-between align-items-center pe-1">
           <div class="col-4 pr-0">
             <svg disabled xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="mx-2 bi bi-person-plus" viewBox="0 0 16 16">
               <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>

@@ -82,7 +82,7 @@
         </div>
         <!-- Open button -->
         <div class="col-3 col-md-3 my-auto">
-          <button (click)="openpublication()" class="ml-auto mr-2 btn btn-rotation"
+          <button (click)="openpublication()" class="ms-auto me-2 btn btn-rotation"
             [ngClass]="{'button_close': firstcard, 'button-open': !firstcard }" type="button">
             <em class="fa fa-plus"></em>
           </button>
@@ -105,7 +105,7 @@
                 <div *ngIf="postedposter">
                   <button type="button" class="fa fa-check photo-valid"></button>
                   <span *ngIf="editedposter">
-                    <h5 class="ml-2 mt-1">{{'FEED-PUBLICATION.Picture-received'|translate}}</h5>
+                    <h5 class="ms-2 mt-1">{{'FEED-PUBLICATION.Picture-received'|translate}}</h5>
                   </span>
                 </div>
               </div>
@@ -113,7 +113,7 @@
                 <source [src]="videoURL" [type]="videoType">
               </video>
               <div class="border-comment cardbox-comments m-1">
-                <span class="comment-logo mr-2">
+                <span class="comment-logo me-2">
                   <button class="m-1"><i class="fa fa-comment"></i></button>
                 </span>
                 <div class="search">
@@ -136,7 +136,7 @@
                   <textarea autosize formControlName="text" [placeholder]="'PLACEHOLDER.Start-to-write'|translate"
                     class="content-title pt-4 w-100 text-center" maxlength="220"></textarea>
                   <div class="row mx-0 mb-3">
-                    <div class="ml-auto col-md-5 pl-0">
+                    <div class="ms-auto col-md-5 pl-0">
                       <div class="container-hastag row mx-0">
                         <div class="col-1 my-auto"><span class="hastag-icon">#</span></div>
                         <div class="col-9 px-0">
@@ -196,7 +196,7 @@
               </div>
               <div class="d-inline mx-2">
                 <button (click)="postmode()" class="btn btn-flat btn-flat-icon btn-choice" type="button">
-                  <em class="fa fa-pencil-square-o pl-1"></em>
+                  <em class="fa fa-pencil-square-o ps-1"></em>
                 </button>
               </div>
             </div>
@@ -214,7 +214,7 @@
 
             <button class="btn btn-send" (click)="createFeedPublication()">{{'FEED-PUBLICATION.Post-it'|translate}}</button>
 
-            <div ngbDropdown class="dropdown menu-visibility my-auto ml-3" #myDrop="ngbDropdown">
+            <div ngbDropdown class="dropdown menu-visibility my-auto ms-3" #myDrop="ngbDropdown">
               <button id="openSearch" ngbDropdownToggle class="btn btn-flat btn-flat-icon" type="button"
                 aria-haspopup="true" aria-expanded="false">
                 <em class="fa fa-users"></em>

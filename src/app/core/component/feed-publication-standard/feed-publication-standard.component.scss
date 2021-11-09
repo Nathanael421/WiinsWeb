@@ -4,6 +4,10 @@
   object-fit: cover;
 }
 
+.comment-share {
+  text-align: right;
+}
+
 .btn-like,
 .btn-liked {
   cursor: pointer;
@@ -32,7 +36,7 @@
 .commented {
   position: relative;
   border: 2px solid #f4f4f4;
-  background-color: #a0d5572e;
+  background-color: #3035292e;
   width: 100%;
   overflow: hidden;
   border-radius: 15px;

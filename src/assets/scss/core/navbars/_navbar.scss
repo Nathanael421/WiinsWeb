@@ -124,10 +124,6 @@
                 .nav-link {
                     color: $navbar-dark-color;
 
-                    @include hover-focus {
-                        color: $navbar-dark-hover-color;
-                    }
-
                     &.disabled {
                         color: $navbar-dark-disabled-color;
                     }
@@ -144,9 +140,6 @@
             .navbar-brand {
                 color: $navbar-dark-color;
 
-                @include hover-focus {
-                    color: $navbar-dark-color;
-                }
             }
         }
     }

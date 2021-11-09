@@ -13,9 +13,9 @@
       </div>
     </div>
 
-    <button *ngIf="!chargedBtnCliked" type="button" class="m-2 btn btn-gradient-color mr-4"
+    <button *ngIf="!chargedBtnCliked" type="button" class="m-2 btn btn-gradient-color me-4"
       (click)="showChargeInput()">Recharge</button>
-    <button *ngIf="chargedBtnCliked" type="button" class="m-2 btn btn-gradient-color mr-4"
+    <button *ngIf="chargedBtnCliked" type="button" class="m-2 btn btn-gradient-color me-4"
       (click)="generatePayment()">Pay</button>
 
   </div>
@@ -29,7 +29,7 @@
   <div *ngIf="transfertsRequests.length > 0">
     <div class="card container-fluid px-0 container-transfert-request text-center">
       <div class="row mx-0 py-3 bg-header">
-        <h3 class="pl-4 mb-0 header-color-title">{{'SETTING.ledger.Pending-Transfert-Request'|translate}}</h3>
+        <h3 class="ps-4 mb-0 header-color-title">{{'SETTING.ledger.Pending-Transfert-Request'|translate}}</h3>
       </div>
       <div class="row mx-0 bg-sub-header py-3">
         <div class="col">{{'SETTING.ledger.Address'|translate}}</div>
@@ -97,7 +97,7 @@
       <div class="row">
         <div class="card w-100 py-4">
           <div class="row mx-0">
-            <div class="col-12 pl-4 col-md-8 mb-4">
+            <div class="col-12 ps-4 col-md-8 mb-4">
               <span>{{'SETTING.ledger.Card-description-payment-subscription'|translate}}</span>
             </div>
             <div class="col-12 col-md-4 my-auto text-center">
