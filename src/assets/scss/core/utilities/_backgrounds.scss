@@ -11,13 +11,6 @@
 }
 
 
-// Background colors with transparency
-
-@each $color, $value in $theme-colors {
-    @include bg-translucent-variant(".bg-translucent-#{$color}", $value);
-}
-
-
 // Sections backgrounds
 
 

@@ -4,9 +4,9 @@
   <div class="cover-picture">
     <div class="row w-100 mx-0 container-header py-3 position-absolute">
       <div class="col-9">
-        <h2 class="pseudo ml-3">{{page.name}}</h2>
+        <h2 class="pseudo ms-3">{{page.name}}</h2>
       </div>
-      <div class="col-md-3 my-auto pr-5 row mx-0">
+      <div class="col-md-3 my-auto pe-5 row mx-0">
         <div [ngSwitch]="page.followed" class="col-md-9 text-right">
           <button *ngSwitchCase="true" class="btn btn-outline-grey no-cursor-hand">
             <i class="px-2 py-auto fa fa-user"></i>
@@ -52,7 +52,7 @@
 
 <!-- Btn Navigation -->
 <div class="row w-100 mx-0 container-btn-nav">
-  <div class="ml-auto col-2 my-auto d-flex justify-content-center">
+  <div class="ms-auto col-2 my-auto d-flex justify-content-center">
     <div class="container-stat shadow px-4 py-2">
       <span>{{(page$|async)?.followers}} {{'CORE.followers'|translate}}</span>
     </div>

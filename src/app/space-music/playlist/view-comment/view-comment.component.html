@@ -5,12 +5,12 @@
     <div class="row mx-0 my-2">
       <div class="col-4">
         <span class="row">
-          <p class="ml-4">{{"CORE.Filter"|translate}}</p>
+          <p class="ms-4">{{"CORE.Filter"|translate}}</p>
         </span>
       </div>
       <div class="col-8 btn-filter">
         <div class="row mx-0">
-          <div class="ml-auto">
+          <div class="ms-auto">
            <div class="row mx-0">
             <div class="mx-2 row">
               <i class="fa fa-heart mx-2 mt-1"></i>
@@ -42,7 +42,7 @@
             <div class="col-8 px-0 my-auto">
               <span>
                 <h4 class="d-inline pseudo-comment" [routerLink]="'/profile/' + c.idProfil._id">{{c.idProfil._meta.pseudo}}</h4>
-                <p class="d-inline ml-1">{{c.text}}</p>
+                <p class="d-inline ms-1">{{c.text}}</p>
                 <div class="d-inline mx-2 btn-response" (click)="createResponse(i)">
                   <span class="d-inline-block">{{"CORE.reply.."|translate}}</span>
                 </div>

@@ -18,7 +18,7 @@
           </label>
           <img *ngIf="pictureImg" [src]="pictureImg">
           <div class="edit-picture row" *ngIf="pictureImg">
-            <label for="pic" class="ml-2 my-auto">
+            <label for="pic" class="ms-2 my-auto">
               <span>{{'CORE.Edit'|translate}}</span>
             </label>
           </div>
@@ -30,11 +30,11 @@
             <div class="col-md-8">
               <div class="form-group">
                 <label>{{'WIINS-MUSIC.Album-name'|translate}}</label>
-                <input type="text" class="form-control pl-4" formControlName="title">
+                <input type="text" class="form-control ps-4" formControlName="title">
               </div>
             </div>
             <div class="d-flex mt-4">
-              <i class="ml-auto pt-1 fa fa-2x fa-check-circle-o" [ngClass]="{'is-valid': !f.title.errors}"></i>
+              <i class="ms-auto pt-1 fa fa-2x fa-check-circle-o" [ngClass]="{'is-valid': !f.title.errors}"></i>
             </div>
           </div>
           <div class="row">
@@ -53,14 +53,14 @@
                       </div>
                     </div>
                     <div *ngIf="f.dateVisibility.errors?.date && f.dateVisibility.touched">
-                      <span class="ml-3 ml-1 alert-date">{{'ERROR-MESSAGE.Date-cannot-be-in-the-past'|translate}}</span>
+                      <span class="ms-3 ms-1 alert-date">{{'ERROR-MESSAGE.Date-cannot-be-in-the-past'|translate}}</span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             <div class="d-flex mt-4">
-              <i class="ml-auto pt-1 fa fa-2x fa-check-circle-o" [ngClass]="{'is-valid': !f.dateVisibility.errors}"></i>
+              <i class="ms-auto pt-1 fa fa-2x fa-check-circle-o" [ngClass]="{'is-valid': !f.dateVisibility.errors}"></i>
             </div>
           </div>
         </div>
@@ -84,7 +84,7 @@
                 </div>
               </div>
               <div class="col-md-4 mt-1 my-auto">
-                <input class="p-2 pl-4 w-100 h-100" formControlName="name" type="text"
+                <input class="p-2 ps-4 w-100 h-100" formControlName="name" type="text"
                   [placeholder]="('CORE.music'|translate)+ ' ' +(i+1)"
                   [ngClass]="{'border-red': submited && music.controls.name.errors}"
                   [ngClass]="{'no-border': !music.controls.name.errors}">
@@ -128,7 +128,7 @@
             <button class="btn button-open" type="button" (click)="addArray()">
               <em class="fa fa-plus"></em>
             </button>
-            <span class="ml-3">{{'WIINS-MUSIC.Add-a-music'|translate}}</span>
+            <span class="ms-3">{{'WIINS-MUSIC.Add-a-music'|translate}}</span>
           </div>
         </div>
         <div class="col-md-4 mx-0 my-auto errorMessage">

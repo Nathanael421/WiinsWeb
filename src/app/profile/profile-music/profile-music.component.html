@@ -8,8 +8,8 @@
         </div>
         <div class="col-md-9 my-auto py-2">
           <div class="row my-3 mx-0">
-            <span class="col-md-3 mr-auto">{{p.visibilityDate | date}}</span>
-            <span class="album-span col-md-5 ml-auto text-center">{{p.name}}</span>
+            <span class="col-md-3 me-auto">{{p.visibilityDate | date}}</span>
+            <span class="album-span col-md-5 ms-auto text-center">{{p.name}}</span>
           </div>
           <div class="row mx-0 py-3 oneMusic" *ngFor="let m of p.musicList">
             <div class="col-md-1 my-auto">
@@ -26,13 +26,13 @@
               </div>
             </div>
             <div class="col-md-4 name my-auto">
-              <span class="ml-1 row title" [id]="'music' + m._id">
+              <span class="ms-1 row title" [id]="'music' + m._id">
                 <p>{{m.name}}</p>
               </span>
             </div>
             <div class="col-md-4">
               <div class=" row mx-0 feat" *ngIf="m.feat !== null && m.feat?.length !== 0">
-                <span class="my-auto mr-4">
+                <span class="my-auto me-4">
                   <p>{{'CORE.With'|translate}} :</p>
                 </span>
                 <div class="avatar" *ngFor="let p of m.feat">
@@ -96,8 +96,8 @@
         </div>
         <div class="col-md-9 my-auto py-2">
           <div class="row my-3 mx-0">
-            <span class="col-md-3 mr-auto">{{p.visibilityDate | date}}</span>
-            <span class="album-span col-md-5 ml-auto text-center">{{p.name}}</span>
+            <span class="col-md-3 me-auto">{{p.visibilityDate | date}}</span>
+            <span class="album-span col-md-5 ms-auto text-center">{{p.name}}</span>
           </div>
           <div class="row mx-0 py-3 oneMusic" *ngFor="let m of p.musicList">
             <div class="col-md-1 my-auto">
@@ -114,17 +114,17 @@
               </div>
             </div>
             <div class="col-md-4 name my-auto">
-              <span class="ml-1 row title" [hidden]="editNameMusic == m._id" [id]="'music' + m._id">
+              <span class="ms-1 row title" [hidden]="editNameMusic == m._id" [id]="'music' + m._id">
                 <p>{{m.name}}</p>
               </span>
-              <span class="ml-1 row title" *ngIf="editNameMusic == m._id">
-                <input #text class="pl-2 py-1" type="text" [placeholder]="m.name"
+              <span class="ms-1 row title" *ngIf="editNameMusic == m._id">
+                <input #text class="ps-2 py-1" type="text" [placeholder]="m.name"
                   (keyup.enter)="sendNewName(text.value, m._id, p._id)">
               </span>
             </div>
             <div class="col-md-4">
               <div class=" row mx-0 feat" *ngIf="m.feat !== null && m.feat?.length !== 0">
-                <span class="my-auto mr-4">
+                <span class="my-auto me-4">
                   <p>{{'CORE.With'|translate}} :</p>
                 </span>
                 <div class="avatar" *ngFor="let p of m.feat">
@@ -198,7 +198,7 @@
         </div>
         <div class="col-md-9 my-auto py-2">
           <div class="row my-3 mx-0">
-            <span *ngIf="dateVisibilitySitting !== p._id" class="col-md-3 mr-auto">{{p.visibilityDate | date}}</span>
+            <span *ngIf="dateVisibilitySitting !== p._id" class="col-md-3 me-auto">{{p.visibilityDate | date}}</span>
             <div *ngIf="dateVisibilitySitting == p._id" class="col-md-7 row mx-0 container-setting-date">
               <div class="col-md-7 px-0">
                 <mat-datepicker-toggle matSuffix [for]="picker" class="container-logo-date"></mat-datepicker-toggle>
@@ -215,10 +215,10 @@
                 </button>
               </div>
             </div>
-            <span *ngIf="titleSetting !== p._id" class="album-span col-md-5 ml-auto text-center">{{p.name}}</span>
+            <span *ngIf="titleSetting !== p._id" class="album-span col-md-5 ms-auto text-center">{{p.name}}</span>
             <div *ngIf="titleSetting === p._id" class="row mx-0 container-setting-title">
               <div class="col-md-8 px-0">
-                <input #titleSetting class="setting-title album-span ml-auto text-center h-100 w-100"
+                <input #titleSetting class="setting-title album-span ms-auto text-center h-100 w-100"
                   [placeholder]="p.name">
               </div>
               <div class="col-md-4">
@@ -243,17 +243,17 @@
               </div>
             </div>
             <div class="col-md-4 name my-auto">
-              <span class="ml-1 row title" [hidden]="editNameMusic == m._id" [id]="'music' + m._id">
+              <span class="ms-1 row title" [hidden]="editNameMusic == m._id" [id]="'music' + m._id">
                 <p>{{m.name}}</p>
               </span>
-              <span class="ml-1 row title" *ngIf="editNameMusic == m._id">
-                <input #text class="pl-2 py-1" type="text" [placeholder]="m.name"
+              <span class="ms-1 row title" *ngIf="editNameMusic == m._id">
+                <input #text class="ps-2 py-1" type="text" [placeholder]="m.name"
                   (keyup.enter)="sendNewName(text.value, m._id, p._id)">
               </span>
             </div>
             <div class="col-md-4">
               <div class=" row mx-0 feat" *ngIf="m.feat !== null && m.feat?.length !== 0">
-                <span class="my-auto mr-4">
+                <span class="my-auto me-4">
                   <p>{{'CORE.With'|translate}} :</p>
                 </span>
                 <div class="avatar" *ngFor="let p of m.feat">

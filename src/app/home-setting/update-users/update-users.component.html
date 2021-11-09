@@ -7,8 +7,8 @@
         <form [formGroup]="registerForm">
           <div class="card-header">
             <div class="d-flex align-items-baseline">
-            <h5 class="title pl-3">{{'SETTING.profile.General-information'|translate}}</h5>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" (click)="collapse.toggle(); editProfil()" [attr.aria-expanded]="isCollapsed" aria-controls="collapseExample" class="ml-3 bi bi-pen-fill text-black" viewBox="0 0 16 16">
+            <h5 class="title ps-3">{{'SETTING.profile.General-information'|translate}}</h5>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" (click)="collapse.toggle(); editProfil()" [attr.aria-expanded]="isCollapsed" aria-controls="collapseExample" class="ms-3 bi bi-pen-fill text-black" viewBox="0 0 16 16">
               <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001z"/>
             </svg>
           </div>
@@ -38,7 +38,7 @@
                   </button>
                 </div>
                 </div>
-                  <input #pseudo type="text" [ngClass]="{'input-invalid': f.pseudo.errors && f.pseudo.touched }" class="inputPseudo w-100 pl-4 py-2" formControlName="pseudo" [placeholder]="p._meta.pseudo">
+                  <input #pseudo type="text" [ngClass]="{'input-invalid': f.pseudo.errors && f.pseudo.touched }" class="inputPseudo w-100 ps-4 py-2" formControlName="pseudo" [placeholder]="p._meta.pseudo">
                 </div>
                 <div class="text-left error-message" *ngIf="f.pseudo.value">
                   <span *ngIf="f.pseudo.value.length < 4" class="text-danger">{{'ERROR-MESSAGE.Your-username-must-have-at-least-4-char'|translate}}</span>
@@ -64,7 +64,7 @@
                 </button>
                   </div>
                 </div>
-                  <input type="email" class="inputMail w-100 pl-4 py-2" [ngClass]="{'input-invalid': f.email.errors && f.email.value === ''}" formControlName="email" [placeholder]="p._meta.email">
+                  <input type="email" class="inputMail w-100 ps-4 py-2" [ngClass]="{'input-invalid': f.email.errors && f.email.value === ''}" formControlName="email" [placeholder]="p._meta.email">
                 </div>
                 <div class="text-left error-message" *ngIf="f.email.value">
                   <span *ngIf="f.email.errors" class="text-danger">{{'ERROR-MESSAGE.Email-invalid'|translate}}</span>
@@ -75,8 +75,8 @@
                 <div class="form-group">
                   <label for="password">{{'PLACEHOLDER.Password-required'|translate}}</label>
                   <div class="inputIcon d-flex align-items-baseline mb-2">
-                  <input [type]="show ? 'text' : 'password'"  class="inputPswrd w-100 pl-4 py-2" formControlName="password" placeholder="{{'PLACEHOLDER.Enter-yr-password' | translate }}" required>
-                  <span (click)="show = !show" class="material-icons m-auto pr-2">{{show ? 'visibility' : 'visibility_off'}}</span>
+                  <input [type]="show ? 'text' : 'password'"  class="inputPswrd w-100 ps-4 py-2" formControlName="password" placeholder="{{'PLACEHOLDER.Enter-yr-password' | translate }}" required>
+                  <span (click)="show = !show" class="material-icons m-auto pe-2">{{show ? 'visibility' : 'visibility_off'}}</span>
                 </div>
                 <span class="forgotPswrd" (click)="openP(contentPassword)">{{'LOGIN-REGISTRER.Forgot-password-?' | translate}}</span>
                 </div>

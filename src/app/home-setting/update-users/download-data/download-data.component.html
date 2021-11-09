@@ -2,7 +2,7 @@
     <form [formGroup]="registerForm">
         <div class="card-header">
             <div class="d-flex align-items-baseline">
-            <h5 class="title pl-3">{{'SETTING.Download-data.Download-data-title' | translate}}</h5>
+            <h5 class="title ps-3">{{'SETTING.Download-data.Download-data-title' | translate}}</h5>
         </div>
         <!--Update and Cancel-->
           <div class="btn-footer float-right">
@@ -11,10 +11,10 @@
         </div>
         <div class="card-body d-flex w-100">
           <div class="mt-4 row w-100 mx-0 d-flex flex-column">
-              <p class="ml-4 mb-4">{{'SETTING.Download-data.Descriptions' | translate}}</p>
+              <p class="ms-4 mb-4">{{'SETTING.Download-data.Descriptions' | translate}}</p>
             <fieldset>
             <!--Email-->
-            <div class="col-12 col-xs-12 col-md-12 col-lg-7 pr-5">
+            <div class="col-12 col-xs-12 col-md-12 col-lg-7 pe-5">
               <div class="form-group">
                 <div class="w-100 d-flex justify-content-between px-2">
                 <label for="exampleInputEmail1">{{'PROFILE.Email'|translate}}</label>
@@ -24,16 +24,16 @@
                 </svg>
               </button>
               </div>
-                <input type="email" class="inputMail w-100 pl-4 py-2" disabled formControlName="email" [placeholder]="p._meta.email">
+                <input type="email" class="inputMail w-100 ps-4 py-2" disabled formControlName="email" [placeholder]="p._meta.email">
               </div>
             </div>
             <!--Password-->
-            <div class="col-12 col-xs-12 col-md-12 col-lg-7 pr-5">
+            <div class="col-12 col-xs-12 col-md-12 col-lg-7 pe-5">
               <div class="form-group">
                 <label for="password">{{'PLACEHOLDER.Your-Password'|translate}}</label>
                 <div class="inputIcon d-flex align-items-baseline mb-2">
-                <input [type]="show ? 'text' : 'password'"  class="inputPswrd w-100 pl-4 py-2" formControlName="password" placeholder="{{'PLACEHOLDER.Enter-yr-password' | translate }}" required>
-                <span (click)="show = !show" class="material-icons m-auto pr-2">{{show ? 'visibility' : 'visibility_off'}}</span>
+                <input [type]="show ? 'text' : 'password'"  class="inputPswrd w-100 ps-4 py-2" formControlName="password" placeholder="{{'PLACEHOLDER.Enter-yr-password' | translate }}" required>
+                <span (click)="show = !show" class="material-icons m-auto pe-2">{{show ? 'visibility' : 'visibility_off'}}</span>
               </div>
               </div>
               <div class="text-left error-message" *ngIf="f.password.value">

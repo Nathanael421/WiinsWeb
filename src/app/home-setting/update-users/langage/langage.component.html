@@ -4,7 +4,7 @@
     <div class="card-body row">
       <div class="col mx-3 mt-2 p-0">
         <h5 class="card-title mb-5">{{'SETTING.lang.lang-of-plateforme'|translate}}</h5>
-        <div class="row justify-content-between ml-3">
+        <div class="row justify-content-between ms-3">
           <div class="">
           <p class="col-md-12 card-text m-0 p-0">{{'SETTING.lang.lang-of-btn-title-others'|translate}}</p>
           <p class="m-0 p-0">{{'SETTING.lang.Langage-not-available-here-?' | translate}} <a href="https://discord.gg/UT49Fhy3R2" target="_blank">{{'SETTING.lang.Help-us-to-add-it' | translate}}</a></p>
@@ -22,6 +22,6 @@
   </div>
   <!-- Save Btn -->
   <div class="row saveContainer" *ngIf="(user$|async)?.config.language !== selectedLanguage">
-    <button (click)="save()" type="button" class="ml-auto mr-4 btn btn-primary">{{'CORE.Save'|translate}}</button>
+    <button (click)="save()" type="button" class="ms-auto me-4 btn btn-primary">{{'CORE.Save'|translate}}</button>
   </div>
 

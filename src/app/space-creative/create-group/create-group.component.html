@@ -28,13 +28,13 @@
             <div class="col-md-8">
               <div class="form-group">
                 <label>{{'GROUP.Name-group'|translate}}</label>
-                <input formControlName="name" type="text" class="form-control pl-3"
+                <input formControlName="name" type="text" class="form-control ps-3"
                   [placeholder]="'CORE.Name'|translate">
               </div>
             </div>
             <div class="mx-2">
               <div class="d-flex mt-4">
-                <i [ngClass]="{ 'is-valid': !f.name.errors }" class="ml-auto pt-2 fa fa-2x fa-check-circle-o"></i>
+                <i [ngClass]="{ 'is-valid': !f.name.errors }" class="ms-auto pt-2 fa fa-2x fa-check-circle-o"></i>
               </div>
             </div>
           </div>
@@ -50,7 +50,7 @@
             </div>
             <div class="mx-2">
               <div>
-                <i [ngClass]="{ 'is-valid': !f.visibility.errors }" class="ml-auto pt-2 fa fa-2x fa-check-circle-o"></i>
+                <i [ngClass]="{ 'is-valid': !f.visibility.errors }" class="ms-auto pt-2 fa fa-2x fa-check-circle-o"></i>
               </div>
             </div>
           </div>
@@ -67,7 +67,7 @@
   </div>
   <div class="row form-group">
     <div class="input-group col-4 h-100 mt-3 mb-2">
-      <input [matAutocomplete]="auto" matInput type="text" class="form-control pl-3"
+      <input [matAutocomplete]="auto" matInput type="text" class="form-control ps-3"
         [placeholder]="'PLACEHOLDER.Pseudo'|translate" [formControl]="searchField">
       <mat-autocomplete #auto="matAutocomplete">
         <mat-option *ngFor="let profile of (resultsProfile$|async)" (click)="addAdmin(profile)">

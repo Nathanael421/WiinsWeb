@@ -1,6 +1,6 @@
 <div class="card" *ngIf="(profile$|async); let p">
     <div class="card-header">
-        <h5 class="title pl-3">{{'SETTING.profile.Confidentiality'|translate}}</h5>
+        <h5 class="title ps-3">{{'SETTING.profile.Confidentiality'|translate}}</h5>
         <div class="btn-footer float-right"></div>
     </div>
         <!-- Expansion Panel-->
@@ -23,7 +23,7 @@
                 <div class="col-1">
                   <mat-slide-toggle [checked]="profile.status"></mat-slide-toggle>
                 </div>
-                <p class="col ml-3">{{ profile.status === true ? 'Blocked' : 'Unlock'}}</p>
+                <p class="col ms-3">{{ profile.status === true ? 'Blocked' : 'Unlock'}}</p>
             </div>
             <mat-panel-description class="d-flex justify-content-center">
                 <p>{{'SETTING.profile.Blocked-since' | translate}} {{profile.date}}</p>
@@ -50,7 +50,7 @@
                 <div class="col-1">
                   <mat-slide-toggle [checked]="closeFriend" (change)="toggleClose()"></mat-slide-toggle>
                 </div>
-                <p class="col ml-3">{{closeFriend ? 'Close friend' : 'Remove my close friend'}}</p>
+                <p class="col ms-3">{{closeFriend ? 'Close friend' : 'Remove my close friend'}}</p>
               </div>
               <mat-panel-description class="d-flex justify-content-center">
                 <p>{{'SETTING.profile.CloseFriend-since' | translate}} {{profileFriends.date}}</p>

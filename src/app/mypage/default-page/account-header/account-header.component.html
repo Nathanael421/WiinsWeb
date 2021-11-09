@@ -2,10 +2,10 @@
 <div *ngIf="(page$ | async) let p" class="container-cover-picture position-relative"
   [style.background-image]="'url(' + p.picturecover + ')'">
   <div class="container-header-bar row mx-0 w-100 position-absolute pt-1">
-    <div class="col-3 ml-3 mr-auto text-left">
+    <div class="col-3 ms-3 me-auto text-left">
       <span class="content-title">{{p.name}}</span>
     </div>
-    <div class="col-3 mr-auto text-left"></div>
+    <div class="col-3 me-auto text-left"></div>
   </div>
   <img class="cover-picture" [src]="p.picturecover">
 </div>
