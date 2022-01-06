@@ -9,7 +9,7 @@
               <img class="w-100 h-100" [src]="(myprofile | async).pictureprofile">
             </div>
           </div>
-          <div class="col-8 col-md-8 pl-0 description my-auto">
+          <div class="col-8 col-md-8 ps-0 description my-auto">
             <p class="m-0">{{mp._meta.pseudo}}</p>
             <small><span><i class="icon ion-md-time"></i> {{'CORE.Now'|translate}}</span></small>
           </div>
@@ -136,11 +136,11 @@
                   <textarea autosize formControlName="text" [placeholder]="'PLACEHOLDER.Start-to-write'|translate"
                     class="content-title pt-4 w-100 text-center" maxlength="220"></textarea>
                   <div class="row mx-0 mb-3">
-                    <div class="ms-auto col-md-5 pl-0">
+                    <div class="ms-auto col-md-5 ps-0">
                       <div class="container-hastag row mx-0">
                         <div class="col-1 my-auto"><span class="hastag-icon">#</span></div>
                         <div class="col-9 px-0">
-                          <input class="col-md-11 py-1 pl-0" type="text" [placeholder]="'PLACEHOLDER.Hastags'|translate"
+                          <input class="col-md-11 py-1 ps-0" type="text" [placeholder]="'PLACEHOLDER.Hastags'|translate"
                             maxlength="12">
                         </div>
                       </div>

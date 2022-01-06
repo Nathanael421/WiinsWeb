@@ -30,7 +30,7 @@
 
 <!-- Sub Header -->
 <div class="information-profil row mx-0 my-3 px-5">
-  <div class="nav-space me-auto">
+  <div class="nav-space col-10">
     <button *ngIf="(myprofile$|async)?.actifSpace !== 1" type="button" class="mx-2 p-2 btn" [routerLink]="['Story']"
       routerLinkActive="active">
       <i class="fa fa-bolt"></i>
@@ -47,8 +47,8 @@
       <span class="mx-2">{{'PROFILE.my-videos'|translate}}</span>
     </button>
   </div>
-  <div class="nav-space ms-auto">
-    <div class="mx-2 py-2 px-3 btn-community" [routerLink]="['Community']">
+  <div class="nav-space col-2">
+    <div class="mx-2 py-2 px-3 btn-community text-center" [routerLink]="['Community']">
       {{'CORE.My-community'|translate}}
     </div>
   </div>

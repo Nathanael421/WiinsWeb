@@ -65,6 +65,7 @@ nav {
 
 .btn-collapse {
   border: 0;
+  text-align: left;
 }
 
 @media screen and (max-width: 991px) {
@@ -238,6 +239,13 @@ nav {
   .active .line {
     display: block;
   }
+
+  @media screen and (max-width: 768px) {
+    .active .line {
+      display: none;
+    }
+    }
+  
 }
 
 .bi {

@@ -21,7 +21,7 @@
       <div *ngFor="let r of request" class="new-request my-2" [ngSwitch]="r.type">
         <!-- Profile  -->
         <div class="row pb-2 w-100" *ngSwitchCase="'FriendRequest'">
-          <div class="col-3 pr-0">
+          <div class="col-3 pe-0">
             <img class="d-flex mx-auto mt-1" [src]="r.from.pictureprofile">
           </div>
           <div class="col-6 px-0 my-auto pt-1">
@@ -45,7 +45,7 @@
         </div>
         <!-- Group -->
         <div class="row pb-2 w-100" *ngSwitchCase="'GroupRequest'">
-          <div class="col-3 pr-0">
+          <div class="col-3 pe-0">
             <img class="d-flex mx-auto mt-1" [src]="r.group.pictureprofile">
           </div>
           <div class="col-6 px-0 my-auto pt-1">

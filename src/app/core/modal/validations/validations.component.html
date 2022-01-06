@@ -6,6 +6,11 @@
   </div>
   <!-- Card Body -->
   <div class="card-body">
+    <div class="d-flex justify-content-center mb-3" [ngSwitch]="data.type">
+      <div *ngSwitchCase="'leave-group'">
+        <img src="../../../../assets/svg/LeaveGroup.svg" alt="Leave Group">
+      </div>
+    </div>
     <div [ngSwitch]="data.type">
       <div *ngSwitchCase="'demote'">
         <span>{{'VALIDATION.this-user-will-be-'|translate}} {{'ADMIN.one-moderator'|translate}}. {{'VALIDATION.Are-you-sure'|translate}}</span>
@@ -40,8 +45,8 @@
       <div *ngSwitchCase="'delete-comment'">
         <span>{{'VALIDATION.A-y-s-to-delete-t-comment'|translate}}</span>
       </div>
-      <div *ngSwitchCase="'leave-group'">
-        <span>{{'VALIDATION.A-y-s-to-leave-t-group'|translate}}</span>
+      <div class="text-center" *ngSwitchCase="'leave-group'">
+        <span class="leaveGroup">{{'VALIDATION.A-y-s-to-leave-t-group'|translate}}</span>
       </div>
       <div *ngSwitchCase="'delete-tube'">
         <span>{{'VALIDATION.A-y-s-to-delete-t-video'|translate}}</span>
@@ -58,11 +63,11 @@
   <div class="card-footer">
     <div class="row">
       <div class="ms-auto me-2">
-        <button class="btn btn-outline-primary mx-2" (click)="closeModal()">
-          <span>{{'CORE.Cancel'|translate}}</span>
+        <button class="col-12 btn btnConfirm mb-3" (click)="confirm()">
+          <span>Yes please, trust my choices</span>
         </button>
-        <button class="btn btn-light mx-2" (click)="confirm()" >
-          <span>{{'CORE.Confirm'|translate}}</span>
+        <button class="col-12 btn btnClose border-0" (click)="closeModal()" >
+          <span>No, hum...Give me more time</span>
         </button>
       </div>
     </div>

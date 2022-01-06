@@ -35,6 +35,8 @@
   }
 }
 
+
+
 .fa-paper-plane {
   font-size: 1.2rem;
   background: #fe8c00;
@@ -70,5 +72,12 @@
     position: absolute;
     padding-right: 1px;
     text-align: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .one-room {
+  width: 3rem;
+  height: auto;
   }
 }

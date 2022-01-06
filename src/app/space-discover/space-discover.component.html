@@ -17,7 +17,7 @@
       <span>{{'CORE.Trend'|translate}}</span>
     </div>
     <div class="col-md-11 my-auto container-list-hastag">
-      <div class="row mx-0 container-scroll">
+      <div class="mx-0 container-scroll">
         <div class="mx-3 oneHastag btn" *ngFor="let item of suggest">
           <a (click)="resetTag(item)" [ngClass]="{'active': item == seletedHastag}">
             <span>#{{item}}</span>

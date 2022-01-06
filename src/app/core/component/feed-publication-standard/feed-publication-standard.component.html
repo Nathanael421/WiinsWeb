@@ -52,8 +52,8 @@
                   <span>{{publication.text}}</span>
                 </div>
               </div>
-              <div class="row container-oneHastag px-4 py-2 float-right">
-                <div class="oneHastag py-1 mx-1 my-1" *ngFor="let item of publication.hastags"
+              <div class="row row-cols-auto container-oneHastag px-4 py-2 float-right">
+                  <div class="oneHastag py-1 mx-1 my-1" *ngFor="let item of publication.hastags"
                   (click)="redirectionToHastag(item)">
                   <span class="col">#{{item}}</span>
                 </div>
