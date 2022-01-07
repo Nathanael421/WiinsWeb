@@ -1,5 +1,5 @@
 <!-- Component Body -->
-<div class="card">
+<div class="card d-block">
   <div class="cardbox bg-white">
     <!-- Heading Card -->
     <div class="cardbox-heading p-3 row mx-0">
@@ -42,13 +42,13 @@
     <div [ngSwitch]="publication.type">
       <!-- Picture Mode -->
       <div *ngSwitchCase="'PicturePublication'" class="cardbox-item container-picture-publication">
-        <img (click)="openModal()" class="img-fluid clickModal img-picture-publication w-100" [src]="publication.file"
+        <img (click)="openModal()" class="img-fluid clickModal img-picture-publication w-100 img-responsive" [src]="publication.file"
           alt="Image">
         <div *ngIf="publication.text || publication.hastags?.length > 0" class="container-description w-100">
           <div class="display-hover">
             <div class="container py-4">
               <div class="row">
-                <div class="mx-auto px-4">
+                <div class="mx-auto px-4 text-center">
                   <span>{{publication.text}}</span>
                 </div>
               </div>

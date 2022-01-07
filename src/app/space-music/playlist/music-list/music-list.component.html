@@ -5,7 +5,7 @@
     <div class="col-md-1 my-auto">
       <span class="row index">
         <!-- Index -->
-        <p class="mx-auto"
+        <p class="mx-auto text-center"
           *ngIf="(audioPlaying$|async)?.file !== item.file || ((musicPlaying$ | async) === false)">{{i+1}}</p>
         <!-- Icon Play -->
         <i *ngIf="(audioPlaying$|async)?.file !== item.file || ((musicPlaying$ | async) === false)"
@@ -17,7 +17,7 @@
     </div>
     <div class="col-md-1">
       <div class="avatar row">
-        <img [routerLink]="'/profile/' + item.profile._id" class="img-fluid mx-auto"
+        <img [routerLink]="'/profile/' + item.profile._id" class="img-fluid mx-auto p-0"
           [src]="item.profile.pictureprofile" alt="">
       </div>
     </div>
