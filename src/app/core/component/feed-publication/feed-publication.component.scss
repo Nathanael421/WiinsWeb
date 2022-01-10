@@ -141,11 +141,15 @@
 .bi-hash {
     color: #3A3A45;
     cursor: pointer;
+    border-radius: 50%;
+    border: none;
 }
 
-.bi-info-circle-fill {
+.bi-info {
     color: #515EDD;
     cursor: pointer;
+    border-radius: 50%;
+    border: none;
 }
 
 // Comment & Submit Button 

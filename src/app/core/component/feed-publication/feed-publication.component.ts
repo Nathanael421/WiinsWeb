@@ -84,6 +84,32 @@ import { state, style, trigger } from '@angular/animations'
         transition: 'all 1s'
       }))
     ]),
+    // Hashtag Button
+    trigger('hashtagState', [
+      state('staticHashtag', style({
+        backgroundColor: '#ffffff00',
+        color: '#3A3A45',
+        transition: 'all .2s'
+      })),
+      state('transitionHashtag', style({
+        backgroundColor: '#525fdd',
+        color: '#ffffff',
+        transition: 'all .2s'
+      }))
+    ]),
+    // Info Button
+    trigger('infoState', [
+      state('staticInfo', style({
+        backgroundColor: '#525fdd',
+        color: '#ffffff',
+        transition: 'all .2s'
+      })),
+      state('transitionInfo', style({
+        backgroundColor: '#ffffff00',
+        color: '#3A3A45',
+        transition: 'all .2s'
+      }))
+    ]),
      // Input Comment
      trigger('commentState', [
       state('staticComment', style({
@@ -128,6 +154,12 @@ export class FeedPublicationComponent implements OnInit, OnDestroy {
   //Other Button Before Animation
   otherBtnBefore: string = 'staticOtherBtn';
 
+  //Hashtag Button Before Animation
+  hashtagBefore: string = 'staticHashtag';
+
+  //Info Button Before Animation
+  infoBefore: string = 'staticInfo';
+
   //Input Comment Before Animation
   inputBefore: string = 'staticComment';
 
@@ -146,7 +178,7 @@ export class FeedPublicationComponent implements OnInit, OnDestroy {
   // Img Url is false by Default
   noPicture: boolean = false;
 
-  // NgModel Comment on Footer Card
+  // Comment on Footer Card
   comment: string = '';
 
   // Input
@@ -277,8 +309,6 @@ export class FeedPublicationComponent implements OnInit, OnDestroy {
       this.comment = '';
       this.btnAdd = false;
       this.noPicture = false;
-      this.feedPublicationForm.reset();
-      this.hastagList = [];
     }
 
     // Background Cover
@@ -286,7 +316,6 @@ export class FeedPublicationComponent implements OnInit, OnDestroy {
       this.coverBefore = 'transitionCover';
     } else {
       this.coverBefore = 'staticCover';
-      this.hastagList = [];
     }
 
     // Svg Image
@@ -294,7 +323,6 @@ export class FeedPublicationComponent implements OnInit, OnDestroy {
       this.svgBefore = 'transitionSvg';
     } else {
       this.svgBefore = 'staticSvg';
-      this.hastagList = [];
     }
 
     // User Profile (avatar & pseudo)
@@ -302,7 +330,6 @@ export class FeedPublicationComponent implements OnInit, OnDestroy {
       this.profileBefore = 'transitionProfile';
     } else {
       this.profileBefore = 'staticProfile';
-      this.hastagList = [];
     }
 
     // Hashtag Button & Info Button
@@ -310,7 +337,6 @@ export class FeedPublicationComponent implements OnInit, OnDestroy {
       this.otherBtnBefore = 'transitionOtherBtn';
     } else {
       this.otherBtnBefore = 'staticOtherBtn';
-      this.hastagList = [];
     }
 
     // Input Comment
@@ -318,7 +344,6 @@ export class FeedPublicationComponent implements OnInit, OnDestroy {
       this.inputBefore = 'transitionComment';
     } else {
       this.inputBefore = 'staticComment';
-      this.hastagList = [];
     }
 
     // Submit Button
@@ -326,7 +351,17 @@ export class FeedPublicationComponent implements OnInit, OnDestroy {
       this.submitBefore = 'transitionSubmit';
     } else {
       this.submitBefore = 'staticSubmit';
-      this.hastagList = [];
+    }
+  }
+
+  slideOption():void {
+    // Hashtag Button & Info Button
+    if (this.infoBefore === 'staticInfo') {
+      this.infoBefore = 'transitionInfo';
+      this.hashtagBefore = 'transitionHashtag';
+    } else {
+      this.infoBefore = 'staticInfo';
+      this.hashtagBefore = 'staticHashtag';
     }
   }
 
@@ -437,11 +472,7 @@ export class FeedPublicationComponent implements OnInit, OnDestroy {
       this.background = this.defaultBackground;
       this.updateForm(this.publicationType);
   }
-
-    console.log(this.publicationType);
-    console.log(this.feedPublicationForm.value);
-    
-
+  
     // Build the publications
     const publication: FeedPublication = this.constructPublication()
 
@@ -466,8 +497,8 @@ export class FeedPublicationComponent implements OnInit, OnDestroy {
       case 'video': return new VideoPublication(this.hastagList, listIdTagged, this.feedPublicationForm.get('text').value, this.videoUrl, this.pictureUrl, 'profile')
       default: return null
     }
-  
   }
+
 
   // Check verification
   checkVerification(type: string): Boolean {
@@ -527,7 +558,7 @@ export class FeedPublicationComponent implements OnInit, OnDestroy {
   sendPublication(publication:FeedPublication): void {
     this.addInStore(publication)
     this.activeZone = 'defaultZone'
-    this.feedPublicationForm.reset()
+    this.collapseCard();
     this.hastagList = []
   }
 
@@ -694,7 +725,7 @@ export class FeedPublicationComponent implements OnInit, OnDestroy {
           default: break
         }
         return null
-      case 'picture':
+      case 'image':
         switch (event.type) {
           case HttpEventType.UploadProgress: { this.uploadPicture = Math.round((100 * event.loaded) / event.total); break }
           case HttpEventType.Response: { this.updateUrl(urlSigned.Bucket, urlSigned.Key, type); break }
@@ -707,7 +738,7 @@ export class FeedPublicationComponent implements OnInit, OnDestroy {
   // Update url
   updateUrl(bucketName: string, key: string, type: string): void {
     switch (type) {
-      case 'picture': { this.pictureUrl = this.uploadService.getFileUrlAfterUpload(bucketName, key); break; }
+      case 'image': { this.pictureUrl = this.uploadService.getFileUrlAfterUpload(bucketName, key); break; }
       case 'video': { this.videoUrl = this.uploadService.getFileUrlAfterUpload(bucketName, key); break; }
       default: break
     }
