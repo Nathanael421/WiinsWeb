@@ -85,14 +85,14 @@
           </div>
         </div>
         <div class="d-flex">
-          <div class="otherButton me-4" [@otherBtnState]="otherBtnBefore">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-hash" (click)="slideOption()" [@hashtagState]="hashtagBefore"
+          <div class="otherButton me-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-info" (click)="slideToInfo()" [@infoState]="infoBefore" viewBox="0 0 16 16">
+              <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-hash" (click)="slideToHashtag()" [@hashtagState]="hashtagBefore"
               viewBox="0 0 16 16">
               <path
                 d="M8.39 12.648a1.32 1.32 0 0 0-.015.18c0 .305.21.508.5.508.266 0 .492-.172.555-.477l.554-2.703h1.204c.421 0 .617-.234.617-.547 0-.312-.188-.53-.617-.53h-.985l.516-2.524h1.265c.43 0 .618-.227.618-.547 0-.313-.188-.524-.618-.524h-1.046l.476-2.304a1.06 1.06 0 0 0 .016-.164.51.51 0 0 0-.516-.516.54.54 0 0 0-.539.43l-.523 2.554H7.617l.477-2.304c.008-.04.015-.118.015-.164a.512.512 0 0 0-.523-.516.539.539 0 0 0-.531.43L6.53 5.484H5.414c-.43 0-.617.22-.617.532 0 .312.187.539.617.539h.906l-.515 2.523H4.609c-.421 0-.609.219-.609.531 0 .313.188.547.61.547h.976l-.516 2.492c-.008.04-.015.125-.015.18 0 .305.21.508.5.508.265 0 .492-.172.554-.477l.555-2.703h2.242l-.515 2.492zm-1-6.109h2.266l-.515 2.563H6.859l.532-2.563z" />
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-info" (click)="slideOption()" [@infoState]="infoBefore" viewBox="0 0 16 16">
-              <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
             </svg>
           </div>
         </div>
@@ -100,17 +100,44 @@
       <!-- Footer Card -->
       <!-- Comment & Submit Button -->
       <div class="commentSubmit col-9 mx-auto mt-5">
+        <div class="inputTextArea d-flex" [@textAreaState]="textAreaBefore">
           <textarea 
-          class="form-control px-0" 
-          name="text" 
-          id="text" 
+          class="form-control px-0 col-12" 
+          name="info" 
+          id="info" 
           cols="30" 
           rows="3" 
           type="text"
           placeholder="Your comment..." 
-          [@commentState]="inputBefore" 
           [(ngModel)]="comment"
-          [ngModelOptions]="{standalone: true}"></textarea>
+          [ngModelOptions]="{standalone: true}"
+          ></textarea>
+
+          <div class="hashtagContainer col-12">
+
+            <textarea 
+            class="form-control px-0 col-12 hashtagList" 
+            name="hashtag" 
+            id="hashtag" 
+            cols="30" 
+            rows="1" 
+            type="text"
+            maxlength="12"
+            #hashtagContent
+            (keydown.enter)="addHashtag(); false"
+            (keypress)="omit_special_char($event)"
+            placeholder="Your hashtags..."
+            ></textarea>
+
+            <div class="row row-cols-3">
+              <div class="itemHashtag" *ngFor="let item of hashtagList">
+                <span class="pr-0">#{{item}}</span>
+                <i (click)="removeHashtag(item)" class="fa fa-times ml-2 mr-3"></i>
+              </div>
+            </div>
+          </div>
+
+        </div>
         <button 
         class="btn w-100 grayDis"  
         *ngIf="!comment && !noPicture" 

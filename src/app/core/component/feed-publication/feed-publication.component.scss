@@ -7,6 +7,7 @@
 }
 .cardBefore {
     position: relative;
+    overflow: hidden;
     height: 80px;
     border-radius: 20px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset -30.4px 30.4px 30.4px rgba(255, 255, 255, 0.17), inset 30.4px -30.4px 30.4px rgba(149, 149, 149, 0.17);
@@ -161,8 +162,15 @@
     flex-direction: column;
 }
 
-.commentSubmit textarea {
+.inputTextArea {
     position: relative;
+    top: 0;
+    left: 0;
+}
+
+.inputTextArea textarea {
+    position: relative;
+    top: -1rem;
     border: none;
     border-radius: 0;
     background: transparent;
@@ -173,6 +181,11 @@
     font-weight: 400;
     color: #000;
     cursor: auto;
+}
+
+.hashtagContainer {
+    position: relative;
+    left: 4rem;
 }
 
 // Scroll
@@ -193,7 +206,7 @@
     background: #555; 
 }
 
-.commentSubmit textarea::placeholder {
+.inputTextArea textarea::placeholder {
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
     font-size: 15px;
@@ -215,6 +228,7 @@ input:-webkit-autofill:active{
 
 .commentSubmit button {
     position: relative;
+    bottom: -1.5rem;
     border-radius: 20px;
     border: none;
     font-size: 17px;

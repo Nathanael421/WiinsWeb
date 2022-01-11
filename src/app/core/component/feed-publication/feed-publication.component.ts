@@ -29,7 +29,6 @@ import { state, style, trigger } from '@angular/animations'
       state('staticCard', style({
         position: 'relative',
         height: '80px',
-        transition: 'all 1s'
       })),
       state('transitionCard', style({
         height: '560px',
@@ -41,7 +40,6 @@ import { state, style, trigger } from '@angular/animations'
       state('staticCover', style({
         height: '0',
         opacity: '0',
-        transition: 'all 1s'
       })),
       state('transitionCover', style({
         height: '275px',
@@ -53,7 +51,6 @@ import { state, style, trigger } from '@angular/animations'
     trigger('svgState', [
       state('staticSvg', style({
         opacity: '0',
-        transition: 'all 1s'
       })),
       state('transitionSvg', style({
         opacity: '1',
@@ -65,7 +62,6 @@ import { state, style, trigger } from '@angular/animations'
       state('staticProfile', style({
         height: '80px',
         top: '0',
-        transition: 'all 1s'
       })),
       state('transitionProfile', style({
         height: '60px',
@@ -73,28 +69,15 @@ import { state, style, trigger } from '@angular/animations'
         top: '-1rem'
       }))
     ]),
-     // Other Button
-     trigger('otherBtnState', [
-      state('staticOtherBtn', style({
-        opacity: '0',
-        transition: 'all 1s'
-      })),
-      state('transitionOtherBtn', style({
-        opacity: '1',
-        transition: 'all 1s'
-      }))
-    ]),
     // Hashtag Button
     trigger('hashtagState', [
       state('staticHashtag', style({
         backgroundColor: '#ffffff00',
         color: '#3A3A45',
-        transition: 'all .2s'
       })),
       state('transitionHashtag', style({
         backgroundColor: '#525fdd',
         color: '#ffffff',
-        transition: 'all .2s'
       }))
     ]),
     // Info Button
@@ -102,36 +85,31 @@ import { state, style, trigger } from '@angular/animations'
       state('staticInfo', style({
         backgroundColor: '#525fdd',
         color: '#ffffff',
-        transition: 'all .2s'
       })),
       state('transitionInfo', style({
         backgroundColor: '#ffffff00',
         color: '#3A3A45',
-        transition: 'all .2s'
       }))
-    ]),
-     // Input Comment
-     trigger('commentState', [
-      state('staticComment', style({
-        opacity: '0',
-        top: '-1rem',
-      })),
-      state('transitionComment', style({
-        opacity: '1',
-        top: '-1rem',
-        transition: 'all 2s'
-      }))
-    ]),
+    ]),     
+    // Text Area Info & Hashtag
+    trigger('textAreaState', [
+     state('staticTextArea', style({
+        left: '0',
+        transition: 'all 1s'
+     })),
+     state('transitionTextArea', style({
+        left: '-26.4em',
+        transition: 'all 1s'
+     }))
+   ]),
     // Submit Button
     trigger('submitState', [
       state('staticSubmit', style({
         opacity: '0',
-        bottom: '-1.5rem',
       })),
       state('transitionSubmit', style({
-        opacity: '1',
         position: 'relative',
-        bottom: '-1.5rem',
+        opacity: '1',
         transition: 'all 6s'
       }))
     ]),
@@ -151,17 +129,14 @@ export class FeedPublicationComponent implements OnInit, OnDestroy {
   //Profile Before Animation
   profileBefore: string = 'staticProfile';
 
-  //Other Button Before Animation
-  otherBtnBefore: string = 'staticOtherBtn';
-
   //Hashtag Button Before Animation
   hashtagBefore: string = 'staticHashtag';
 
   //Info Button Before Animation
   infoBefore: string = 'staticInfo';
 
-  //Input Comment Before Animation
-  inputBefore: string = 'staticComment';
+  //Textarea Before Animation
+  textAreaBefore: string = 'staticTextArea';
 
   //Submit Button Before Animation
   submitBefore: string = 'staticSubmit';
@@ -238,9 +213,9 @@ export class FeedPublicationComponent implements OnInit, OnDestroy {
   friendTagged: ProfileModel[] = [];
   listProfilTagged: boolean;
 
-  // Hastag
-  hastagList: string[]
-  @ViewChild('hastagContent', { static: false }) hastagContent: ElementRef;
+  // Hashtag
+  hashtagList: string[]
+  @ViewChild('hashtagContent', { static: false }) hashtagContent: ElementRef;
 
   constructor(
     private store$: Store<RootStoreState.State>,
@@ -296,6 +271,10 @@ export class FeedPublicationComponent implements OnInit, OnDestroy {
     // Card Height
     if (this.cardBefore === 'staticCard') {
       this.cardBefore = 'transitionCard';
+      this.coverBefore = 'transitionCover';
+      this.svgBefore = 'transitionSvg';
+      this.profileBefore = 'transitionProfile';
+      this.submitBefore = 'transitionSubmit';
       this.openCollapse = 'closeForm';
       this.activeZone = 'defaultZone';
       this.background = this.choice4;
@@ -303,65 +282,33 @@ export class FeedPublicationComponent implements OnInit, OnDestroy {
       this.btnAdd = true;
     } else {
       this.cardBefore = 'staticCard';
-      this.activeZone = 'defaultZone';
+      this.coverBefore = 'staticCover';
+      this.svgBefore = 'staticSvg';
+      this.profileBefore = 'staticProfile';
+      this.submitBefore = 'staticSubmit';
       this.openCollapse = 'openForm';
+      this.activeZone = 'defaultZone';
       this.imgURL = '';
       this.comment = '';
       this.btnAdd = false;
       this.noPicture = false;
-    }
-
-    // Background Cover
-    if (this.coverBefore === 'staticCover') {
-      this.coverBefore = 'transitionCover';
-    } else {
-      this.coverBefore = 'staticCover';
-    }
-
-    // Svg Image
-    if (this.svgBefore === 'staticSvg') {
-      this.svgBefore = 'transitionSvg';
-    } else {
-      this.svgBefore = 'staticSvg';
-    }
-
-    // User Profile (avatar & pseudo)
-    if (this.profileBefore === 'staticProfile') {
-      this.profileBefore = 'transitionProfile';
-    } else {
-      this.profileBefore = 'staticProfile';
-    }
-
-    // Hashtag Button & Info Button
-    if (this.otherBtnBefore === 'staticOtherBtn') {
-      this.otherBtnBefore = 'transitionOtherBtn';
-    } else {
-      this.otherBtnBefore = 'staticOtherBtn';
-    }
-
-    // Input Comment
-    if (this.inputBefore === 'staticComment') {
-      this.inputBefore = 'transitionComment';
-    } else {
-      this.inputBefore = 'staticComment';
-    }
-
-    // Submit Button
-    if (this.submitBefore === 'staticSubmit') {
-      this.submitBefore = 'transitionSubmit';
-    } else {
-      this.submitBefore = 'staticSubmit';
+      this.hashtagList = []
     }
   }
 
-  slideOption():void {
-    // Hashtag Button & Info Button
+  slideToInfo():void {
+    if (this.hashtagBefore === 'transitionHashtag') {
+      this.hashtagBefore = 'staticHashtag';
+      this.infoBefore = 'staticInfo';
+      this.textAreaBefore = 'staticTextArea';
+    }
+  }
+
+  slideToHashtag():void {
     if (this.infoBefore === 'staticInfo') {
       this.infoBefore = 'transitionInfo';
       this.hashtagBefore = 'transitionHashtag';
-    } else {
-      this.infoBefore = 'staticInfo';
-      this.hashtagBefore = 'staticHashtag';
+      this.textAreaBefore = 'transitionTextArea';
     }
   }
 
@@ -492,9 +439,9 @@ export class FeedPublicationComponent implements OnInit, OnDestroy {
   
     // Construct the publications
     switch (this.publicationType) {
-      case 'post': return new PostPublication(this.hastagList, listIdTagged, this.background, this.feedPublicationForm.get('text').value, 'profile')
-      case 'picture': return new PicturePublication(this.hastagList, listIdTagged,this.feedPublicationForm.get('text').value, this.pictureUrl, 'profile')
-      case 'video': return new VideoPublication(this.hastagList, listIdTagged, this.feedPublicationForm.get('text').value, this.videoUrl, this.pictureUrl, 'profile')
+      case 'post': return new PostPublication(this.hashtagList, listIdTagged, this.background, this.feedPublicationForm.get('text').value, 'profile')
+      case 'picture': return new PicturePublication(this.hashtagList, listIdTagged,this.feedPublicationForm.get('text').value, this.pictureUrl, 'profile')
+      case 'video': return new VideoPublication(this.hashtagList, listIdTagged, this.feedPublicationForm.get('text').value, this.videoUrl, this.pictureUrl, 'profile')
       default: return null
     }
   }
@@ -557,9 +504,7 @@ export class FeedPublicationComponent implements OnInit, OnDestroy {
   // finaly post the publications
   sendPublication(publication:FeedPublication): void {
     this.addInStore(publication)
-    this.activeZone = 'defaultZone'
     this.collapseCard();
-    this.hastagList = []
   }
 
   // Add in the store
@@ -611,16 +556,16 @@ export class FeedPublicationComponent implements OnInit, OnDestroy {
     if (this.uploadVideoSub) this.uploadVideoSub.unsubscribe()
   }
 
-  // Add hastag
-  addHastag() {
+  // Add hashtag
+  addHashtag() {
 
     // Intialize the arraylist if it's not exist
-    if (!this.hastagList) this.hastagList = []
+    if (!this.hashtagList) this.hashtagList = []
 
-    // Not more than 5 hastag
-    if (this.hastagList.length >= 5) {
+    // Not more than 5 hashtag
+    if (this.hashtagList.length >= 5) {
       return this._snackBar.open(
-        this.translate.instant('ERROR-MESSAGE.not-more-5-hastags'),
+        this.translate.instant('ERROR-MESSAGE.not-more-5-hashtags'),
         this.translate.instant('CORE.close'), {
         horizontalPosition: 'center',
         verticalPosition: 'bottom',
@@ -629,7 +574,7 @@ export class FeedPublicationComponent implements OnInit, OnDestroy {
     }
 
     // Check if we already have the same
-    if (!this.hastagList.indexOf(String(this.hastagContent.nativeElement.value))) {
+    if (!this.hashtagList.indexOf(String(this.hashtagContent.nativeElement.value))) {
       return this._snackBar.open(
         this.translate.instant('ERROR-MESSAGE.T-hashtag-is-already-there'),
         this.translate.instant('CORE.close'), {
@@ -640,16 +585,16 @@ export class FeedPublicationComponent implements OnInit, OnDestroy {
     }
 
     // Push in the list
-    this.hastagList.push(this.hastagContent.nativeElement.value)
+    this.hashtagList.push(this.hashtagContent.nativeElement.value)
 
     // Reset the search 
-    this.hastagContent.nativeElement.value = null
+    this.hashtagContent.nativeElement.value = null
 
   }
 
-  // Delete an hastag
-  removeHastag(hastag: string) {
-    this.hastagList.splice(this.hastagList.indexOf(hastag), 1)
+  // Delete an hashtag
+  removeHashtag(hashtag: string) {
+    this.hashtagList.splice(this.hashtagList.indexOf(hashtag), 1)
   }
 
   // Check if the keyboard touch is valid
