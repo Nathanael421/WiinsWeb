@@ -440,7 +440,7 @@ export class FeedPublicationComponent implements OnInit, OnDestroy {
     // Construct the publications
     switch (this.publicationType) {
       case 'post': return new PostPublication(this.hashtagList, listIdTagged, this.background, this.feedPublicationForm.get('text').value, 'profile')
-      case 'picture': return new PicturePublication(this.hashtagList, listIdTagged,this.feedPublicationForm.get('text').value, this.pictureUrl, 'profile')
+      case 'picture': return new PicturePublication(this.hashtagList, listIdTagged,this.pictureUrl,this.feedPublicationForm.get('text').value, 'profile')
       case 'video': return new VideoPublication(this.hashtagList, listIdTagged, this.feedPublicationForm.get('text').value, this.videoUrl, this.pictureUrl, 'profile')
       default: return null
     }

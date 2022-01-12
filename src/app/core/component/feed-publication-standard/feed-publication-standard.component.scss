@@ -1,7 +1,96 @@
-.clickModal, .cursor-pointer {
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap');
+
+// Card
+.card {
+  position: relative;
+  min-height: 300px;
+  max-height: 610px;
+  border-radius: 20px;
+  border: none;
+  overflow: hidden;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset -30.4px 30.4px 30.4px rgba(255, 255, 255, 0.17), inset 30.4px -30.4px 30.4px rgba(149, 149, 149, 0.17);
+}
+
+.cardbox-item, .cardbox-item img {
+  position: relative;
+  border-radius: 20px;
+  z-index: 1;
+  min-height: 300px;
+  max-height: 610px;
+}
+
+// Header Card
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 80px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background-color: rgba(57, 57, 57, 63%);
+  z-index: 10;
+}
+
+.avatar-owner, .avatar-owner img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
   cursor: pointer;
-  max-height: 25rem;
-  object-fit: cover;
+}
+
+.description p:first-child {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  color: #fff;
+}
+
+.description small span {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 12px;
+  color: #fff;
+}
+
+.dropdown-menu {
+  min-width: 6rem;
+  text-align: center;
+}
+
+// Picture Mode
+
+
+// Info Stat
+.cardbox-base {
+  position: absolute;
+  bottom: .5rem;
+  left: .9rem;
+  width: 27em;
+  font-weight: 300;
+  z-index: 10;
+  padding: .4rem;
+  border-radius: 20px;
+  background-color: rgba(57, 57, 57, 63%);
+}
+
+.cardbox-base span {
+  font-size: 1.1rem;
+  font-weight: 300;
+  position: relative;
+  z-index: 1;
+  color: #fff;
+}
+
+.cardbox-base .comment_hashtag span{
+  background-color: #929292;
+  border-radius: 15px;
+  padding: .2rem 1rem; 
+  font-size: 1.1rem;
+  font-weight: 300;
+  position: relative;
+  z-index: 1;
+  color: #fff;
 }
 
 .comment-share {
@@ -21,57 +110,22 @@
   width: 1.75rem;
 }
 
-.cardbox-base {
-  font-weight: 300;
+.seeMore {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+
 }
 
-.btn-see-more a {
-  color: white;
+.buttons {
+  position: absolute;
+  z-index: 10;
+  left: 0;
+  bottom: .4rem;
 }
 
-.card {
-  border: 0;
-}
-
-.commented {
-  position: relative;
-  border: 2px solid #f4f4f4;
-  background-color: #3035292e;
-  width: 100%;
-  overflow: hidden;
-  border-radius: 15px;
-  min-height: 55px;
-
-  span {
-    font-size: 1rem;
-    color: #97d543;
-  }
-
-  .fa {
-    font-size: 1.5rem;
-    color: #8ed433;
-  }
-}
-
-.dropdown-menu {
-  top: 40px !important;
-  left: -126px !important;
-  overflow: hidden;
-  opacity: 0;
-  transform: translate3d(0, 0, 0) !important;
-  display: block;
-  visibility: hidden;
-  transition: .5s ease all;
-  box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175) !important;
-}
-
-.dropdown-menu.show {
-  display: block;
-  visibility: visible;
-  opacity: 1;
-  transform: translateY(0px);
-  transition: .3s ease all;
-}
+// Video Mode
 
 .container-btn-play {
   position: absolute;
@@ -97,6 +151,7 @@
   height: 69%;
 }
 
+// Write a Comment
 .content-list-tag {
   cursor: pointer;
   position: absolute;

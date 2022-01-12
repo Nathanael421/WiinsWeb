@@ -29,7 +29,7 @@
         [style.backgroundImage]="background" [@coverState]="coverBefore">
         <img class="img-fluid w-100" *ngIf="noPicture" [src]="imgURL" />
         <input hidden id="upload_picture" #picture type="file" accept='image/* | video/*'
-          (change)="preview(picture.files)" />
+        (change)="preview(picture.files)" />
         <label for="upload_picture">
           <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-image"
             viewBox="0 0 16 16" [@svgState]="svgBefore">

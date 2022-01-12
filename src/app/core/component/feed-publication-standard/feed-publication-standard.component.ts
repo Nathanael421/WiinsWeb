@@ -20,12 +20,36 @@ import { ProfileListComponent } from '../../modal/profile-list/profile-list.comp
 import { ReportModalComponent } from '../../modal/report-modal/report-modal.component'
 import { CommentModel } from '../../models/comment/comment.model'
 import { MatDialog, MatDialogRef } from '@angular/material/dialog'
+import { state, style, trigger } from '@angular/animations'
 
 @Component({
   selector: 'app-feed-publication-standard',
   templateUrl: './feed-publication-standard.component.html',
   styleUrls: ['./feed-publication-standard.component.scss'],
-  animations: [IconAnimation]
+  animations: [
+     // Buttons Bottom Height
+     trigger('buttonsState', [
+      state('staticButtons', style({
+        height: '75px',
+        transition: 'all 1s'
+      })),
+      state('transitionButtons', style({
+        height: '200px',
+        transition: 'all 1s'
+      }))
+    ]),
+    // Publication Bottom Text 
+    trigger('infoHoverState', [
+      state('staticInfoHover', style({
+        opacity: '0',
+        transition: 'all 1s'
+      })),
+      state('transitionInfoHover', style({
+        opacity: '1',
+        transition: 'all 1s'
+      }))
+    ])
+  ]
 })
 
 export class FeedPublicationStandardComponent implements OnInit, OnDestroy {
@@ -38,6 +62,12 @@ export class FeedPublicationStandardComponent implements OnInit, OnDestroy {
   ownerId: string
   mypageId = false
   mygroup = false
+
+  // Buttons Bottom  State Animation
+  buttonsBefore: string = 'staticButtons';
+
+  // Publication Text State Animation
+  infoHoverBefore: string = "staticInfoHover";
 
   // pageOrProfile
   pageOrProfile: string
@@ -422,6 +452,17 @@ export class FeedPublicationStandardComponent implements OnInit, OnDestroy {
       })
     } else return null
 
+  }
+
+  // Box Buttons Bottom Animation
+  displayView() {
+    if (this.buttonsBefore === 'staticButtons') {
+      this.buttonsBefore = 'transitionButtons';
+      this.infoHoverBefore = 'transitionInfoHover';
+    } else {
+      this.buttonsBefore = 'staticButtons';
+      this.infoHoverBefore = 'staticInfoHover';
+    }
   }
 
 }
