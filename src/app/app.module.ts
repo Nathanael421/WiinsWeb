@@ -139,6 +139,7 @@ import { DownloadDataComponent } from './home-setting/update-users/download-data
 import { ToBecomeWiinserProComponent } from './home-setting/update-users/to-become-wiinser-pro/to-become-wiinser-pro.component';
 import { NotificationsComponent } from './home-setting/update-users/notifications/notifications.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { SharedPublicationModalComponent } from './core/modal/shared-publication-modal/shared-publication-modal.component';
 
 
 // AoT requires an exported function for factories
@@ -169,9 +170,10 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     ContentIdComponent, PasswordValidationsComponent, ModalTOUComponent, ChangingPasswordComponent,
     ManagementTeamComponent, GroupValidationComponent, ReportMessageComponent, FooterCoreComponent,
     ForgotPasswordComponent, CommunityListComponent, ReportModalComponent, VerificationSpaceUnlockedComponent,
-    LedgerComponent, CreateMusicProjectComponent, NotfoundComponent, 
-    VeritificationStepsComponent, MyProfileBodyComponent, ProfileBodyComponent, CreditMusicComponent, OnboardingComponent, ToDiscordComponent, ToStripeComponent, ForgotPasswordConfirmationComponent,
-    ConfidentialityComponent, LangageComponent, DownloadDataComponent, ToBecomeWiinserProComponent, NotificationsComponent
+    LedgerComponent, CreateMusicProjectComponent, NotfoundComponent, VeritificationStepsComponent, MyProfileBodyComponent, 
+    ProfileBodyComponent, CreditMusicComponent, OnboardingComponent, ToDiscordComponent, ToStripeComponent, 
+    ForgotPasswordConfirmationComponent, ConfidentialityComponent, LangageComponent, DownloadDataComponent, 
+    ToBecomeWiinserProComponent, NotificationsComponent, SharedPublicationModalComponent
   ],
   imports: [
     RootStoreModule, BrowserModule, NgxMasonryModule, AppRoutingModule, NgbModule, HttpClientModule,

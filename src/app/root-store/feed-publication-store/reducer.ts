@@ -80,6 +80,15 @@ export function featureReducer(state = initialState, action: ActionsFeedPublicat
         error: null
       });
     }
+    case ActionTypes.SHARE_FEED_PUBLICATION: {
+      state.room.nbMessage = state.room.nbMessage + 1
+      state.room.message.push(action.payload)
+      return {
+        ...state,
+        isLoading: false,
+        error: null
+      }
+    }
     case ActionTypes.RESET_FEED_PUBLICATION:
     case '@user/log_out' as any: return initialState
     default: return state

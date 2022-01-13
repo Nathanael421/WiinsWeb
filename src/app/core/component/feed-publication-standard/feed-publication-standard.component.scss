@@ -93,10 +93,7 @@
   color: #fff;
 }
 
-.comment-share {
-  text-align: right;
-}
-
+// Like
 .btn-like,
 .btn-liked {
   cursor: pointer;
@@ -108,6 +105,15 @@
 
 .btn-liked {
   width: 1.75rem;
+}
+
+// Comment
+.commentBtn:hover .bi-chat, .commentBtn .bi-chat-fill {
+  display: none;
+}
+
+.commentBtn:hover .bi-chat-fill {
+  display: block;
 }
 
 .seeMore {
@@ -123,6 +129,13 @@
   z-index: 10;
   left: 0;
   bottom: .4rem;
+}
+
+.buttonsNotSeeMore {
+  position: absolute;
+  z-index: 10;
+  left: 0;
+  bottom: 1rem;
 }
 
 // Video Mode

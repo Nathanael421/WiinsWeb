@@ -21,6 +21,7 @@ import { ReportModalComponent } from '../../modal/report-modal/report-modal.comp
 import { CommentModel } from '../../models/comment/comment.model'
 import { MatDialog, MatDialogRef } from '@angular/material/dialog'
 import { state, style, trigger } from '@angular/animations'
+import { SharedPublicationModalComponent } from '../../modal/shared-publication-modal/shared-publication-modal.component'
 
 @Component({
   selector: 'app-feed-publication-standard',
@@ -30,7 +31,7 @@ import { state, style, trigger } from '@angular/animations'
      // Buttons Bottom Height
      trigger('buttonsState', [
       state('staticButtons', style({
-        height: '75px',
+        height: '65px',
         transition: 'all 1s'
       })),
       state('transitionButtons', style({
@@ -183,7 +184,6 @@ export class FeedPublicationStandardComponent implements OnInit, OnDestroy {
   }
 
   openModal(): void {
-
     // play pause if it's a video
     if (this.playVideo) this.myVideo.nativeElement.pause()
 
@@ -218,7 +218,15 @@ export class FeedPublicationStandardComponent implements OnInit, OnDestroy {
 
     // unsubscribe the modal after to close the dialog
     dialogRef.afterClosed().subscribe(() => sub.unsubscribe())
+  }
 
+  // Open Share Modal
+  shareModal(publication: FeedPublication): MatDialogRef<SharedPublicationModalComponent> {
+    return this.dialog.open(SharedPublicationModalComponent, {
+      panelClass: ['col-md-10'],
+      data: { publication, type: 'feed-publication' }
+    })
+    
   }
 
   btnLike(): void {

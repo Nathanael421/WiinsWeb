@@ -1,0 +1,32 @@
+
+<h2 mat-dialog-title>1-2 Teste</h2>
+<mat-dialog-content class="mat-typography">
+
+  <!-- Teste -->
+  <h3>Search Profile</h3>
+  <input type="text"  [formControl]="searchField" class="form-control">
+
+  <div class="suggestion-search col-7 col-sm-7 col-md-6 col-xl-4" *ngIf="(resultsProfile$|async)">
+  <div class="mx-0 mx-0 list-user my-auto">
+    <div *ngIf="resultsProfile$ | async; let resultsProfile">
+      <li class="row list-group-item mx-0 py-3" *ngFor="let profile of resultsProfile">
+        <div class="col-4">
+          <img class="img-fluid img-user" [src]="profile.pictureprofile" alt="User">
+        </div>
+        <div class="col-8 content-text px-0">
+          <a>{{profile?._meta?.pseudo}}</a>
+          <p *ngIf="profile.mutalFriends !== 0" class="mb-0">{{profile.mutalFriends}} amis en communs</p>
+          <p *ngIf="profile.mutalFriends == 0" class="mb-0">0 {{'CORE.mutual-friends'|translate}}</p>
+          <textarea autosize [(ngModel)]="text" (keyup.enter)="send(roomID.value)" (keydown.enter)="false"  type="text"
+           class="message-input ps-2 pe-4 pt-4 form-control"  [placeholder]="'PLACEHOLDER.Your-message'|translate"></textarea>
+        </div>
+      </li>
+    </div>
+  </div>
+</div>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="share(publication,room)">Send</button>
+</mat-dialog-actions>
