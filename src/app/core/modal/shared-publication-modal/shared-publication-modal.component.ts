@@ -3,11 +3,12 @@ import { FormControl } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { debounceTime, distinctUntilChanged, filter, skipWhile } from 'rxjs/operators';
-import { AllRoomsStoreActions, CurrentRoomStoreActions, FeedPublicationStoreActions, RoomByIdStoreActions, RoomByIdStoreSelectors, RootStoreState, SearchProfileStoreActions, SearchProfileStoreSelectors } from 'src/app/root-store';
+import { debounceTime, distinctUntilChanged, filter, skipWhile, take } from 'rxjs/operators';
+import { CurrentRoomStoreActions, CurrentRoomStoreSelectors, RoomByIdStoreActions, RoomByIdStoreSelectors, RootStoreState, SearchProfileStoreActions, SearchProfileStoreSelectors } from 'src/app/root-store';
 import { ProfileModel } from '../../models/baseUser/profile.model';
+import { MessageText } from '../../models/messenger/message.model';
 import { Room } from '../../models/messenger/room.model';
-import { FeedPublication, PicturePublication, PostPublication, VideoPublication } from '../../models/publication/feed/feed-publication.model';
+import { PicturePublication, PostPublication, VideoPublication } from '../../models/publication/feed/feed-publication.model';
 
 @Component({
   selector: 'app-shared-publication-modal',
@@ -24,26 +25,24 @@ export class SharedPublicationModalComponent implements OnInit {
   text: string;
 
   // Room
-  room$: Observable<Room>
-  infoRoom$: Observable<String>
+  room$: Observable<Room[]>;
+
+  // Checked
+  checked: boolean = false;
 
   constructor(
     private store$: Store<RootStoreState.State>,
     private dialogRef: MatDialogRef<SharedPublicationModalComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: { publication: PicturePublication | PostPublication | VideoPublication | any, ownerId: string },
-    @Inject(MAT_DIALOG_DATA) public dataRoom: DataRoom,
-  ) { }
+    @Inject(MAT_DIALOG_DATA) public data: { publication: PicturePublication | PostPublication | VideoPublication | any, ownerId: string }
+  ) {}
 
   ngOnInit(): void {
 
-    // to load the room by the room id
-    this.store$.dispatch(new RoomByIdStoreActions.loadRoomById(this.dataRoom.currentRoom._id, 1, null))
-
-    // to select the room
+    // to select all the rooms
     this.room$ = this.store$.pipe(
-      select(RoomByIdStoreSelectors.select),
-      skipWhile(val => val === null),
-      filter(val => val !== undefined),
+      select(CurrentRoomStoreSelectors.selectCurrentRooms),
+      skipWhile(val => val.length === 0),
+      filter(value => value !== undefined)
     )
 
   // Search Friends Input
@@ -69,24 +68,34 @@ export class SharedPublicationModalComponent implements OnInit {
     this.resultsProfile$.subscribe(console.log)
   }
 
-  share(publication: FeedPublication,  roomID: string) {
-  // Collect Publication ID
-  console.log(this.data.publication);
-    
-  // Collect RoomID
-  console.log();
-  
-    
-  // Send
-    this.store$.dispatch(new FeedPublicationStoreActions.ShareFeedPublication(publication, roomID))
-    this.text = null
-    return null
-  }
-}
 
-interface DataRoom {
-  cardHeader: ProfileModel[]
-  currentRoom: Room
-  myProfileID: string
-  searching: boolean
+  onChange(room: Room) {
+      console.log(room);
+  }
+
+  send(roomID: string) {
+    // Publication
+    console.log(this.data.publication.file);
+    // Room ID
+    console.log(roomID);
+
+    // To Construct The Message 
+    const message = new MessageText('text', this.data.publication)
+
+    switch (roomID) {
+      // First Message in a New Group
+      case 'undefined':
+        return null
+      // Create a New Discution
+      case '':
+      case null:
+        return null
+      // Juste a Respond
+      default:
+        this.store$.dispatch(new RoomByIdStoreActions.sendMessage(message, roomID))
+        this.text = null
+        return null
+    }
+  }
+
 }

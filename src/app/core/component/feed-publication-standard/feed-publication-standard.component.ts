@@ -7,7 +7,6 @@ import {
   SearchProfileStoreActions, SearchProfileStoreSelectors, FeedPublicationStoreActions
 } from 'src/app/root-store'
 import { PublicationModalComponent } from '../../modal/publication-modal/publication-modal.component'
-import { IconAnimation } from 'src/assets/route-animation/icon-animation'
 import { Router } from '@angular/router';
 import { ProfileModel } from '../../models/baseUser/profile.model'
 import { PicturePublication, PostPublication, VideoPublication, FeedPublication } from '../../models/publication/feed/feed-publication.model'
@@ -22,6 +21,8 @@ import { CommentModel } from '../../models/comment/comment.model'
 import { MatDialog, MatDialogRef } from '@angular/material/dialog'
 import { state, style, trigger } from '@angular/animations'
 import { SharedPublicationModalComponent } from '../../modal/shared-publication-modal/shared-publication-modal.component'
+import { Room } from '../../models/messenger/room.model'
+import { UserModel } from '../../models/baseUser/user.model'
 
 @Component({
   selector: 'app-feed-publication-standard',
@@ -70,15 +71,15 @@ export class FeedPublicationStandardComponent implements OnInit, OnDestroy {
   // Publication Text State Animation
   infoHoverBefore: string = "staticInfoHover";
 
-  // pageOrProfile
+  // PageOrProfile
   pageOrProfile: string
 
-  // comment
+  // Comment
   comment: CommentModel
   numberComment: number
   defaultComment: string
 
-  // new comment
+  // New comment
   validComment = false
   friendTag: any[] = []
   activeSearch = false
@@ -87,20 +88,26 @@ export class FeedPublicationStandardComponent implements OnInit, OnDestroy {
   @ViewChild('newComment', { static: false }) commentWrited: ElementRef
   spotSearch$: Observable<string>
 
-  // like
+  // Like
   numberLike: number
   isLiked: boolean
   btnLikeClicked = false
 
-  // link page or profile
+  // Link page or profile
   link: string
   name: string
   avatarPublication: string
   taggedProfile: ProfileModel[] = []
 
-  // play
+  // Play
   playVideo = false
   @ViewChild('video', { static: false }) myVideo: ElementRef
+
+  // Room
+   room$: Observable<Room[]>;
+
+  // User
+  user: UserModel;
 
   constructor(
     private store$: Store<RootStoreState.State>,
@@ -111,7 +118,7 @@ export class FeedPublicationStandardComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-
+  
     // information to update after actions
     this.numberComment = this.publication.commentNumber
     this.numberLike = this.publication.like.likeNumber
@@ -224,9 +231,8 @@ export class FeedPublicationStandardComponent implements OnInit, OnDestroy {
   shareModal(publication: FeedPublication): MatDialogRef<SharedPublicationModalComponent> {
     return this.dialog.open(SharedPublicationModalComponent, {
       panelClass: ['col-md-10'],
-      data: { publication, type: 'feed-publication' }
+      data: { publication }
     })
-    
   }
 
   btnLike(): void {

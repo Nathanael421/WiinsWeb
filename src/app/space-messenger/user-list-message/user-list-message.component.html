@@ -34,7 +34,7 @@
     
 <!-- List of New Discussions -->
 <div class="container p-0" *ngIf="(profiles$|async) && searchField.value !== ''">
-    <div *ngFor="let item of profiles$ | async" class="newDiscuss d-flex col-md-12 py-4 p-0">
+    <div *ngFor="let item of profiles$ | async, let i = index" class="newDiscuss d-flex col-md-12 py-4 p-0">
       <div class="col-md-2 p-0 ms-1">
         <a class="px-0 container-avatar">
           <img class="avatar rounded-circle" [src]="item.pictureprofile">
@@ -46,7 +46,7 @@
       </div>
       <div class="col-md-2 d-flex align-items-center">
         <div class="round">
-          <input type="checkbox" id="checkbox" (click)="selectThisFriend()" />
+          <input type="checkbox" [(ngModel)]="item.checked" (click)="selectThisFriend(i)" />
           <label for="checkbox"></label>
         </div>
       </div>

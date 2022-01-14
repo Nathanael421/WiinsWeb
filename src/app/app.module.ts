@@ -140,6 +140,7 @@ import { ToBecomeWiinserProComponent } from './home-setting/update-users/to-beco
 import { NotificationsComponent } from './home-setting/update-users/notifications/notifications.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SharedPublicationModalComponent } from './core/modal/shared-publication-modal/shared-publication-modal.component';
+import { MatRadioModule } from '@angular/material/radio';
 
 
 // AoT requires an exported function for factories
@@ -178,7 +179,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   imports: [
     RootStoreModule, BrowserModule, NgxMasonryModule, AppRoutingModule, NgbModule, HttpClientModule,
     HttpClientJsonpModule, CoreModule, BrowserAnimationsModule, FormsModule, AutosizeModule,
-    MaterialModule, ReactiveFormsModule, ClickOutsideModule, GooglePlaceModule,
+    MaterialModule, ReactiveFormsModule, ClickOutsideModule, GooglePlaceModule, MatRadioModule,
     InfiniteScrollModule, RoundProgressModule,NgxPaginationModule, DragDropModule, MatProgressSpinnerModule, PlyrModule, ImageCropperModule, QRCodeModule,
     TranslateModule.forRoot({ 
       loader: { 

@@ -7,8 +7,6 @@ export const getError = (state: State): any => state.error;
 
 export const getIsLoading = (state: State): boolean => state.isLoading;
 
-export const getRoom = (state: State): Room => state.room
-
 export const getSuggestList = (state: State): string[] => state.suggestList;
 
 export const getGroupSelected = (state: State): string[] => state.groupSelected;

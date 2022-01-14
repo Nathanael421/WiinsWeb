@@ -111,11 +111,6 @@ export class LoadFeedPublicationByGroupID implements Action {
   constructor(public page: string, public groups: string[]) { }
 }
 
-export class ShareFeedPublication implements Action {
-  readonly type = ActionTypes.SHARE_FEED_PUBLICATION
-  constructor(public payload:FeedPublication, public roomID: string) { }
-}
-
 export type ActionsFeedPublication =
   | AddFeedPublication
   | AddFeedPublicationSuccess
@@ -134,5 +129,4 @@ export type ActionsFeedPublication =
   | LoadSuggestHastagSuccess
   | LoadSuggestHastagFail
   | LoadFeedPublicationByGroupID
-  | ShareFeedPublication
 
