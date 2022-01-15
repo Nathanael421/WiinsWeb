@@ -141,6 +141,7 @@ import { NotificationsComponent } from './home-setting/update-users/notification
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SharedPublicationModalComponent } from './core/modal/shared-publication-modal/shared-publication-modal.component';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 // AoT requires an exported function for factories
@@ -179,7 +180,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   imports: [
     RootStoreModule, BrowserModule, NgxMasonryModule, AppRoutingModule, NgbModule, HttpClientModule,
     HttpClientJsonpModule, CoreModule, BrowserAnimationsModule, FormsModule, AutosizeModule,
-    MaterialModule, ReactiveFormsModule, ClickOutsideModule, GooglePlaceModule, MatRadioModule,
+    MaterialModule, ReactiveFormsModule, ClickOutsideModule, GooglePlaceModule, MatRadioModule, MatCheckboxModule,
     InfiniteScrollModule, RoundProgressModule,NgxPaginationModule, DragDropModule, MatProgressSpinnerModule, PlyrModule, ImageCropperModule, QRCodeModule,
     TranslateModule.forRoot({ 
       loader: { 

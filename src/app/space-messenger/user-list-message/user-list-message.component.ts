@@ -114,6 +114,7 @@ export class UserListMessageComponent implements OnInit {
   hideOrShowUser() {
     this.panelProfile = !this.panelProfile;
   }
+  
   hideOrShowDiscuss() {
     this.panelDiscuss = !this.panelDiscuss;
   }

@@ -15,10 +15,10 @@
   <p class="p-0 col-md-2">0 Request</p>
 </div>
 
-<!-- Expansion panel-->
+<!-- Expansion panel New Discussions -->
 <mat-accordion multi>
   <mat-expansion-panel hideToggle>
-    <mat-expansion-panel-header class="pr-0" (click)="hideOrShowUser()">
+    <!-- <mat-expansion-panel-header class="pr-0" (click)="hideOrShowUser()">
       <mat-panel-title class="d-flex justify-content-between mr-0">
         <div class="d-flex align-items-center">
           <p class="p-0 me-2">Users</p>
@@ -30,9 +30,8 @@
           <button type="submit" class="btn" [disabled]="nobodySelected">Ready</button>
         </div>
       </mat-panel-title>
-    </mat-expansion-panel-header>
+    </mat-expansion-panel-header> -->
     
-<!-- List of New Discussions -->
 <div class="container p-0" *ngIf="(profiles$|async) && searchField.value !== ''">
     <div *ngFor="let item of profiles$ | async, let i = index" class="newDiscuss d-flex col-md-12 py-4 p-0">
       <div class="col-md-2 p-0 ms-1">
@@ -46,7 +45,7 @@
       </div>
       <div class="col-md-2 d-flex align-items-center">
         <div class="round">
-          <input type="checkbox" [(ngModel)]="item.checked" (click)="selectThisFriend(i)" />
+          <input type="checkbox" (click)="selectThisFriend(i)" />
           <label for="checkbox"></label>
         </div>
       </div>
@@ -54,6 +53,7 @@
 </div>
 
     
+<!-- Expansion panel List of Discussion -->
   </mat-expansion-panel>
   <mat-expansion-panel (opened)="panelOpenState = true"
                        (closed)="panelOpenState = false"
@@ -67,7 +67,6 @@
       </mat-panel-title>
     </mat-expansion-panel-header>
 
-<!-- List of Discussion -->
 <div class="container" *ngIf="(resultsProfile$ | async) && searchField.value !== ''">
   <div class="row">
     <div *ngFor="let p of resultsProfile$ | async" class="col-md-3 mx-auto">
