@@ -12,6 +12,7 @@ import { TranslationService } from 'src/app/core/services/translation/translatio
 import { TranslateService } from '@ngx-translate/core'
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'
 import { MatSnackBar } from '@angular/material/snack-bar'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-card-chat',
@@ -57,6 +58,7 @@ export class CardChatComponent implements OnInit, OnDestroy {
     private _snackBar: MatSnackBar,
     private translate: TranslateService,
     public translateService: TranslationService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -327,6 +329,34 @@ export class CardChatComponent implements OnInit, OnDestroy {
     const newRoom = new Room(this.participantAdded, null)
     this.store$.dispatch(new RoomByIdStoreActions.createGroupRoomDesign(newRoom))
   }
+
+  isValidText(messageStr : string) {
+    if(((messageStr.indexOf('amazonaws.com')) !== -1) && messageStr.startsWith('https')) {
+      return false;
+    } else {
+      return messageStr;
+    }
+  }
+
+  isValidSrc(imageStr : string) {
+    if(((imageStr.indexOf('amazonaws.com')) !== -1) && imageStr.startsWith('https') ) {
+      return imageStr;
+    } else {
+      return false;
+    }
+  }
+
+  // isValidSrc(imageStr : string) {
+  //   if(((imageStr.indexOf('amazonaws.com')) !== -1) && imageStr.startsWith('https') ) {
+  //     return imageStr;
+  //   }  else if ((imageStr.indexOf('amazonaws.com')) !== -1) {
+  //     const indexOfUrl = imageStr.indexOf('https');
+  //     return this.sanitizer.bypassSecurityTrustResourceUrl(imageStr.slice(indexOfUrl));
+  //   } else {
+  //     return false;
+  //   }
+  // }
+
 
 }
 

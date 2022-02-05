@@ -24,6 +24,10 @@ export class WsService {
     this.ws.send(JSON.stringify(message))
   }
 
+  shareMessage(message: Message | any){
+    this.ws.send(JSON.stringify(message))
+  }
+
   closeConnexion(){
     this.ws.close()
   }

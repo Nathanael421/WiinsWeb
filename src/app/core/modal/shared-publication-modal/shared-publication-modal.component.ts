@@ -6,9 +6,9 @@ import { Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, filter, skipWhile, take } from 'rxjs/operators';
 import { CurrentRoomStoreActions, CurrentRoomStoreSelectors, RoomByIdStoreActions, RoomByIdStoreSelectors, RootStoreState, SearchProfileStoreActions, SearchProfileStoreSelectors } from 'src/app/root-store';
 import { ProfileModel } from '../../models/baseUser/profile.model';
-import { MessageText } from '../../models/messenger/message.model';
+import { Message, MessageShare, MessageText } from '../../models/messenger/message.model';
 import { Room } from '../../models/messenger/room.model';
-import { PicturePublication, PostPublication, VideoPublication } from '../../models/publication/feed/feed-publication.model';
+import { FeedPublication, PicturePublication, PostPublication, VideoPublication } from '../../models/publication/feed/feed-publication.model';
 
 @Component({
   selector: 'app-shared-publication-modal',
@@ -23,6 +23,7 @@ export class SharedPublicationModalComponent implements OnInit {
 
   // Share Publication (Message Form)
   text: string;
+  whenClicked = [false,false];
 
   // Room
   room$: Observable<Room[]>;
@@ -33,7 +34,9 @@ export class SharedPublicationModalComponent implements OnInit {
   constructor(
     private store$: Store<RootStoreState.State>,
     private dialogRef: MatDialogRef<SharedPublicationModalComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: { publication: PicturePublication | PostPublication | VideoPublication | any, ownerId: string }
+    @Inject(MAT_DIALOG_DATA) public data: { 
+      publication: (PicturePublication | PostPublication | VideoPublication | any),
+      ownerId: string }
   ) {}
 
   ngOnInit(): void {
@@ -68,19 +71,24 @@ export class SharedPublicationModalComponent implements OnInit {
     this.resultsProfile$.subscribe(console.log)
   }
 
-
-  onChange(room: Room) {
-      console.log(room);
-  }
-
-  send(roomID: string) {
+  send(roomID: string, inputValue: HTMLInputElement) {
     // Publication
     console.log(this.data.publication.file);
     // Room ID
     console.log(roomID);
+    // Text
+    console.log(this.data.publication.text);
+    
 
-    // To Construct The Message 
-    const message = new MessageText('text', this.data.publication)
+    // To Construct The Message we look for Input value first
+    const messageInput = inputValue.value;
+    let message: MessageShare = new MessageShare('','');
+
+    if(messageInput === ''){
+      message = new MessageShare('publication', this.data.publication.file) 
+    } else {
+     alert('Please wait for Next update');
+    }
 
     switch (roomID) {
       // First Message in a New Group
@@ -92,7 +100,7 @@ export class SharedPublicationModalComponent implements OnInit {
         return null
       // Juste a Respond
       default:
-        this.store$.dispatch(new RoomByIdStoreActions.sendMessage(message, roomID))
+        this.store$.dispatch(new RoomByIdStoreActions.shareMessage(message, roomID))
         this.text = null
         return null
     }

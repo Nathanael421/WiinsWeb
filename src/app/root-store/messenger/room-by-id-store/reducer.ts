@@ -49,7 +49,8 @@ export function Reducer(state: State = initialState, action: ActionsMessage) {
         error: null
       }
     }
-    case ActionTypes.SEND_MESSAGE_SUCCESS: {
+    case ActionTypes.SEND_MESSAGE_SUCCESS:
+    case ActionTypes.SHARE_MESSAGE_SUCCESS: {
       state.room.nbMessage = state.room.nbMessage + 1
       state.room.message.push(action.payload)
       return {
@@ -59,9 +60,10 @@ export function Reducer(state: State = initialState, action: ActionsMessage) {
       }
     }
     case ActionTypes.LOAD_MORE_MESSAGES_BY_ID_ROOM_SUCCESS: {
-      state.room.message = [...action.payload, ...state.room.message]
+      
       return {
         ...state,
+        message: [...state.room.message, ...action.payload],
         isLoading: false,
         error: null
       }
@@ -71,10 +73,12 @@ export function Reducer(state: State = initialState, action: ActionsMessage) {
       state.room.message.push(action.payload)
       return state
     }
-    case ActionTypes.RESET_ROOM: {
-      state = undefined
-      return
-    }
+    // TO DO.. 
+    // to readd soon
+    // case ActionTypes.RESET_ROOM: {
+    //   state = undefined
+    //   return
+    // }
     case ActionTypes.CURRENT_ROOM_MUTE_SUCCESS: {
       if(action.message == 'inactif'){
         state.room.roomOption.participants[0].mute = false
