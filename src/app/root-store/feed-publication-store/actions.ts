@@ -23,7 +23,9 @@ export enum ActionTypes {
   UPDATE_FEED_PUBLICATION_LIKE = '@update_feed/like',
   UPDATE_FEED_PUBLICATION_DISLIKE = '@update_feed/dislike',
   RESET_FEED_PUBLICATION = '@feed_publication/reset',
-  RESET_FEED_PUBLICATION_HASTAG = '@feed_publication_hastag/reset'
+  RESET_FEED_PUBLICATION_HASTAG = '@feed_publication_hastag/reset',
+
+  SHARE_FEED_PUBLICATION = '@share_publication/add',
 
 }
 

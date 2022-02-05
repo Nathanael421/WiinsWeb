@@ -18,8 +18,8 @@
           {{(room$|async)?.participants[0]._meta.pseudo}}
         </p>
       </div>
-      <div class="col-md-4 mt-2 row mx-0 dropdown pl-0 pr-2 cursor-pointer" ngbDropdown>
-        <div class="ml-auto">
+      <div class="col-md-4 mt-2 row mx-0 dropdown pl-0 pe-2 cursor-pointer" ngbDropdown>
+        <div class="ms-auto">
           <i *ngIf="(room$|async)?.roomOption.participants[0].mute===true" (click)="unMuteRoom(room$)"
             class="fa fa-bell-slash mx-1"></i>
           <i id="settingRoom" ngbDropdownToggle class="fa fa-cog mx-1"></i>
@@ -63,8 +63,8 @@
         <p class="mt-2">{{(room$|async)?.participants[0]._meta.pseudo}} et
           {{ (room$|async)?.participants[1]._meta.pseudo }}</p>
       </div>
-      <div class="col-md-4 mt-2 row mx-0 dropdown pl-0 pr-2 cursor-pointer" ngbDropdown>
-        <div class="ml-auto">
+      <div class="col-md-4 mt-2 row mx-0 dropdown pl-0 pe-2 cursor-pointer" ngbDropdown>
+        <div class="ms-auto">
           <i *ngIf="(room$|async)?.roomOption.participants[0].mute===true" (click)="unMuteRoom(room$)"
             class="fa fa-bell-slash mx-1"></i>
           <i id="settingRoom" ngbDropdownToggle class="fa fa-cog mx-1"></i>
@@ -104,8 +104,8 @@
       <div class="col-md-5 px-0 chat-title">
         <p class="mt-2">{{data.cardHeader[0]._meta.pseudo}}</p>
       </div>
-      <div class="col-md-4 mt-2 row mx-0 dropdown pl-0 pr-2 cursor-pointer">
-        <div class="ml-auto">
+      <div class="col-md-4 mt-2 row mx-0 dropdown pl-0 pe-2 cursor-pointer">
+        <div class="ms-auto">
           <i (click)="close()" class="fa fa-times mx-1"></i>
         </div>
       </div>
@@ -136,10 +136,10 @@
       <!-- Search friend -->
       <div *ngIf="addingContainer" class="addingContainer w-100 row mx-0">
         <div class="col-md-9 my-auto pr-0">
-          <input class="w-100 py-1 pl-3 pr-2" type="text" [placeholder]="'CORE.Search'|translate"
+          <input class="w-100 py-1 ps-3 pe-2" type="text" [placeholder]="'CORE.Search'|translate"
             [formControl]="searchField">
         </div>
-        <div class="col-md-3 my-auto pr-0 pl-2">
+        <div class="col-md-3 my-auto pr-0 ps-2">
           <button class="btn btn-outline-primary shadow" (click)="cancelSearch()">{{'CORE.Cancel'|translate}}</button>
         </div>
       </div>
@@ -165,18 +165,20 @@
               </div>
             </figure>
             <div class="col-md-8 pl-0">
-              <span class="mr-auto content-text">{{m.text}}</span>
+              <span class="me-auto content-text">{{m.text}}</span>
             </div>
             <div class="timestamp" *ngIf="last">
               {{translateService.getDateTranslated(m.createdAt)}}
             </div>
           </div>
           <div *ngSwitchDefault class="row message message-personal new my-3 mx-0">
-            <div class=" mr-3 ml-auto row mx-0">
-              <div class="container-btn-message my-auto mr-3">
-                <i class="fa fa-ellipsis-h pt-1"></i>
-              </div>
-              <span class="content-text ml-auto">{{m.text}}</span>
+            <div class="position-relative me-3 ms-auto row mx-0 h-100">
+              <span class="content-text ms-auto" *ngIf="isValidText(m.text)">{{m.text}}
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-three-dots ms-auto text-white" viewBox="0 0 16 16">
+                  <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+                </svg>
+              </span>
+                <img [src]="m.text" class="w-100 h-100 rounded-0 pe-0" *ngIf="isValidSrc(m.text)">
             </div>
             <div class="timestamp" *ngIf="last">
               {{translateService.getDateTranslated(m.createdAt)}}
@@ -192,7 +194,7 @@
     <!-- Create a response -->
     <div class="message-box">
       <textarea autosize [(ngModel)]="text" (keyup.enter)="send(roomID.value)" (keydown.enter)="false"  type="text"
-         class="message-input pl-2 pr-4 pt-4"  [placeholder]="'PLACEHOLDER.Your-message'|translate"></textarea>
+         class="message-input ps-2 pe-4 pt-4"  [placeholder]="'PLACEHOLDER.Your-message'|translate"></textarea>
       <button type="submit" class="message-submit" (click)="send(roomID.value)">{{'CORE.Send'|translate}}</button>
     </div>
   </div>

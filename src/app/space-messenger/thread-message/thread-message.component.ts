@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChildren, ViewChild, QueryList, ElementRef } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { RootStoreState, ProfileFeatureStoreSelectors, FullRoomByIdStoreSelectors,FullRoomByIdStoreActions, SearchProfileStoreActions, SearchProfileStoreSelectors } from '../../root-store';
+import { RootStoreState, ProfileFeatureStoreSelectors, FullRoomByIdStoreSelectors,FullRoomByIdStoreActions, SearchProfileStoreActions, SearchProfileStoreSelectors, RoomByIdStoreActions } from '../../root-store';
 import { Observable, combineLatest } from 'rxjs';
 import { ProfileModel } from '../../core/models/baseUser/profile.model';
 import { filter, skipWhile, take, debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
-import { MessageText } from 'src/app/core/models/messenger/message.model';
+import { MessageShare, MessageText } from 'src/app/core/models/messenger/message.model';
 import { FormControl } from '@angular/forms';
 import { UserModel } from 'src/app/core/models/baseUser/user.model';
 import { ActivatedRoute } from '@angular/router';
@@ -15,7 +15,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-thread-message',
   templateUrl: './thread-message.component.html',
-  styleUrls: ['./thread-message.component.scss']
+  styleUrls: ['./thread-message.component.scss'],
 })
 
 export class ThreadMessageComponent implements OnInit {
@@ -26,6 +26,9 @@ export class ThreadMessageComponent implements OnInit {
   // room
   room$: Observable<Room>
   counterPage = 1
+
+  // Messages
+  messages$: Observable<MessageShare>
 
   // message
   text: string
@@ -46,6 +49,7 @@ export class ThreadMessageComponent implements OnInit {
   // ref
   @ViewChildren('messagesMain') messages: QueryList<any>;
   @ViewChild('contentMain', { static: false }) content: ElementRef;
+  @ViewChild('newComment', { static: false }) commentWrited: ElementRef;
 
   // my user
   user: UserModel

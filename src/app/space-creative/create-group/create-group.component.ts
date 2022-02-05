@@ -138,7 +138,7 @@ export class CreateGroupComponent implements OnInit {
     this.dialogRef = this.dialog.open(CrooperImageValidationComponent, {
       disableClose: true,
       backdropClass: '.no-backdrop',
-      panelClass: ['col-md-4', 'ml-auto', 'mt-auto', 'mb-4'],
+      panelClass: ['col-md-4', 'ms-auto', 'mt-auto', 'mb-4'],
       data: { file, type: 'profile-group' }
     })
 

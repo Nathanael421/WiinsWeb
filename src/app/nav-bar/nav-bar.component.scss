@@ -65,6 +65,7 @@ nav {
 
 .btn-collapse {
   border: 0;
+  text-align: left;
 }
 
 @media screen and (max-width: 991px) {
@@ -186,8 +187,7 @@ nav {
 .rounded-circle {
   border-radius: 50%;
   padding: 2px;
-  background: -webkit-linear-gradient(to bottom, #fcb045, #fd1d1d, #833ab4);
-  background: linear-gradient(to bottom, #fcb045, #fd1d1d, #833ab4);
+  background: linear-gradient(45deg, #fcb045, #fd1d1d, #fcb045);
 }
 
 .list-notif {
@@ -239,6 +239,13 @@ nav {
   .active .line {
     display: block;
   }
+
+  @media screen and (max-width: 768px) {
+    .active .line {
+      display: none;
+    }
+    }
+  
 }
 
 .bi {

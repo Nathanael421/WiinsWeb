@@ -6,7 +6,7 @@
       <a [routerLink]="[b.link]" routerLinkActive="active" *ngFor="let b of btnList">
         <button class="mx-3 my-2" [ngClass]="b.gradientColor">
           <div class="d-flex py-1">
-            <i class=" my-auto ml-2 fa" [ngClass]="b.icon"></i>
+            <i class=" my-auto ms-2 fa" [ngClass]="b.icon"></i>
             <span class="px-2">{{b.name|translate}}</span>
           </div>
         </button>
@@ -14,7 +14,7 @@
       <!-- <a hidden [routerLink]="['event']" routerLinkActive="active">
         <button class="btn-event mx-3 my-2">
           <div class="d-flex py-auto">
-            <i class="my-auto ml-2 fa fa-calendar-check-o"></i>
+            <i class="my-auto ms-2 fa fa-calendar-check-o"></i>
             <span class="px-2">{{'CREATION.Create-event'|translate}}</span>
           </div>
         </button>
@@ -22,7 +22,7 @@
       <a hidden>
         <button class="btn-playlist-video mx-3 my-2">
           <div class="d-flex py-auto">
-            <i class="my-auto ml-2 fa fa-film"></i>
+            <i class="my-auto ms-2 fa fa-film"></i>
             <span class="px-2">{{'CREATION.Create-video-P'|translate}}</span>
           </div>
         </button>

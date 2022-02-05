@@ -18,11 +18,11 @@
                 </div>
                 <div *ngFor="let item of musicCredit.interpreters; let i = index" class="d-inline-flex">
                   <div class="container-tag-p py-2 px-3 m-2 d-inline-flex">
-                    <i class="bi bi-x pr-1" (click)="removeRole('interpreter', i)"></i>
+                    <i class="bi bi-x pe-1" (click)="removeRole('interpreter', i)"></i>
                     <p class="mb-0">{{item}}</p>
                   </div>
                 </div>
-                <div class="container-input d-inline-flex py-1 px-2 ml-2">
+                <div class="container-input d-inline-flex py-1 px-2 ms-2">
                   <input [(ngModel)]="interpreter" [ngModelOptions]="{standalone: true}" type="text" placeholder="Add someone" (keydown.enter)="addNewRole('interpreter')">
                   <i class="bi bi-arrow-return-left"></i>
                 </div>
@@ -43,11 +43,11 @@
                 </div>
                 <div *ngFor="let item of musicCredit.writters; let i = index" class="d-inline-flex">
                   <div class="container-tag-p py-2 px-3 m-2 d-inline-flex">
-                    <i class="bi bi-x pr-1" (click)="removeRole('writter', i)"></i>
+                    <i class="bi bi-x pe-1" (click)="removeRole('writter', i)"></i>
                     <p class="mb-0">{{item}}</p>
                   </div>
                 </div>
-                <div class="container-input d-inline-flex py-1 px-2 ml-2">
+                <div class="container-input d-inline-flex py-1 px-2 ms-2">
                   <input [(ngModel)]="writter" [ngModelOptions]="{standalone: true}" type="text" placeholder="Add someone" (keydown.enter)="addNewRole('writter')">
                   <i class="bi bi-arrow-return-left"></i>
                 </div>
@@ -68,11 +68,11 @@
                 </div>
                 <div *ngFor="let item of musicCredit.producers; let i = index" class="d-inline-flex">
                   <div class="container-tag-p py-2 px-3 m-2 d-inline-flex">
-                    <i class="bi bi-x pr-1" (click)="removeRole('producer', i)"></i>
+                    <i class="bi bi-x pe-1" (click)="removeRole('producer', i)"></i>
                     <p class="mb-0">{{item}}</p>
                   </div>
                 </div>
-                <div class="container-input d-inline-flex py-1 px-2 ml-2">
+                <div class="container-input d-inline-flex py-1 px-2 ms-2">
                   <input [(ngModel)]="producer" [ngModelOptions]="{standalone: true}" type="text" placeholder="Add someone" (keydown.enter)="addNewRole('producer')">
                   <i class="bi bi-arrow-return-left"></i>
                 </div>
@@ -90,11 +90,11 @@
               <div class="container-tag p-2">
                 <div *ngFor="let item of musicCredit.categories; let i = index" class="d-inline-flex">
                   <div class="container-tag-p py-2 px-3 m-2 d-inline-flex">
-                    <i class="bi bi-x pr-1" (click)="removeCategory(i)"></i>
+                    <i class="bi bi-x pe-1" (click)="removeCategory(i)"></i>
                     <p class="mb-0">{{item.name}}</p>
                   </div>
                 </div>
-                <div class="container-input d-inline-flex py-1 px-2 ml-2 position-relative">
+                <div class="container-input d-inline-flex py-1 px-2 ms-2 position-relative">
                   <input [formControl]="category" type="text" placeholder="Add a style">
                   <i class="bi bi-arrow-return-left"></i>
                   <div class="container-categories-list list-group" *ngIf="musicGenres.length > 0 && !!category.value ">
@@ -115,11 +115,11 @@
               <div class="container-tag p-2">
                 <div *ngFor="let item of musicCredit.feat; let i = index" class="d-inline-flex">
                   <div class="container-tag-p py-2 px-3 m-2 d-inline-flex">
-                    <i class="bi bi-x pr-1" (click)="removeFriend(i)"></i>
+                    <i class="bi bi-x pe-1" (click)="removeFriend(i)"></i>
                     <p class="mb-0">{{item._meta.pseudo}}</p>
                   </div>
                 </div>
-                <div class="container-input d-inline-flex py-1 px-2 ml-2 position-relative">
+                <div class="container-input d-inline-flex py-1 px-2 ms-2 position-relative">
                   <input [formControl]="friendSearch" type="text" placeholder="Add someone">
                   <i class="bi bi-arrow-return-left"></i>
                   <div class="container-categories-list list-group" *ngIf="(resultsProfile$|async)?.length > 0 && friendSearch.value.length > 0">

@@ -7,7 +7,6 @@ import {
   SearchProfileStoreActions, SearchProfileStoreSelectors, FeedPublicationStoreActions
 } from 'src/app/root-store'
 import { PublicationModalComponent } from '../../modal/publication-modal/publication-modal.component'
-import { IconAnimation } from 'src/assets/route-animation/icon-animation'
 import { Router } from '@angular/router';
 import { ProfileModel } from '../../models/baseUser/profile.model'
 import { PicturePublication, PostPublication, VideoPublication, FeedPublication } from '../../models/publication/feed/feed-publication.model'
@@ -20,12 +19,39 @@ import { ProfileListComponent } from '../../modal/profile-list/profile-list.comp
 import { ReportModalComponent } from '../../modal/report-modal/report-modal.component'
 import { CommentModel } from '../../models/comment/comment.model'
 import { MatDialog, MatDialogRef } from '@angular/material/dialog'
+import { state, style, trigger } from '@angular/animations'
+import { SharedPublicationModalComponent } from '../../modal/shared-publication-modal/shared-publication-modal.component'
+import { Room } from '../../models/messenger/room.model'
+import { UserModel } from '../../models/baseUser/user.model'
 
 @Component({
   selector: 'app-feed-publication-standard',
   templateUrl: './feed-publication-standard.component.html',
   styleUrls: ['./feed-publication-standard.component.scss'],
-  animations: [IconAnimation]
+  animations: [
+     // Buttons Bottom Height
+     trigger('buttonsState', [
+      state('staticButtons', style({
+        height: '65px',
+        transition: 'all 1s'
+      })),
+      state('transitionButtons', style({
+        height: '200px',
+        transition: 'all 1s'
+      }))
+    ]),
+    // Publication Bottom Text 
+    trigger('infoHoverState', [
+      state('staticInfoHover', style({
+        opacity: '0',
+        transition: 'all 1s'
+      })),
+      state('transitionInfoHover', style({
+        opacity: '1',
+        transition: 'all 1s'
+      }))
+    ])
+  ]
 })
 
 export class FeedPublicationStandardComponent implements OnInit, OnDestroy {
@@ -39,15 +65,21 @@ export class FeedPublicationStandardComponent implements OnInit, OnDestroy {
   mypageId = false
   mygroup = false
 
-  // pageOrProfile
+  // Buttons Bottom  State Animation
+  buttonsBefore: string = 'staticButtons';
+
+  // Publication Text State Animation
+  infoHoverBefore: string = "staticInfoHover";
+
+  // PageOrProfile
   pageOrProfile: string
 
-  // comment
+  // Comment
   comment: CommentModel
   numberComment: number
   defaultComment: string
 
-  // new comment
+  // New comment
   validComment = false
   friendTag: any[] = []
   activeSearch = false
@@ -56,20 +88,26 @@ export class FeedPublicationStandardComponent implements OnInit, OnDestroy {
   @ViewChild('newComment', { static: false }) commentWrited: ElementRef
   spotSearch$: Observable<string>
 
-  // like
+  // Like
   numberLike: number
   isLiked: boolean
   btnLikeClicked = false
 
-  // link page or profile
+  // Link page or profile
   link: string
   name: string
   avatarPublication: string
   taggedProfile: ProfileModel[] = []
 
-  // play
+  // Play
   playVideo = false
   @ViewChild('video', { static: false }) myVideo: ElementRef
+
+  // Room
+   room$: Observable<Room[]>;
+
+  // User
+  user: UserModel;
 
   constructor(
     private store$: Store<RootStoreState.State>,
@@ -80,7 +118,7 @@ export class FeedPublicationStandardComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-
+  
     // information to update after actions
     this.numberComment = this.publication.commentNumber
     this.numberLike = this.publication.like.likeNumber
@@ -153,7 +191,6 @@ export class FeedPublicationStandardComponent implements OnInit, OnDestroy {
   }
 
   openModal(): void {
-
     // play pause if it's a video
     if (this.playVideo) this.myVideo.nativeElement.pause()
 
@@ -188,7 +225,14 @@ export class FeedPublicationStandardComponent implements OnInit, OnDestroy {
 
     // unsubscribe the modal after to close the dialog
     dialogRef.afterClosed().subscribe(() => sub.unsubscribe())
+  }
 
+  // Open Share Modal
+  shareModal(publication: FeedPublication): MatDialogRef<SharedPublicationModalComponent> {
+    return this.dialog.open(SharedPublicationModalComponent, {
+      panelClass: ['col-md-10'],
+      data: { publication }
+    })
   }
 
   btnLike(): void {
@@ -422,6 +466,17 @@ export class FeedPublicationStandardComponent implements OnInit, OnDestroy {
       })
     } else return null
 
+  }
+
+  // Box Buttons Bottom Animation
+  displayView() {
+    if (this.buttonsBefore === 'staticButtons') {
+      this.buttonsBefore = 'transitionButtons';
+      this.infoHoverBefore = 'transitionInfoHover';
+    } else {
+      this.buttonsBefore = 'staticButtons';
+      this.infoHoverBefore = 'staticInfoHover';
+    }
   }
 
 }

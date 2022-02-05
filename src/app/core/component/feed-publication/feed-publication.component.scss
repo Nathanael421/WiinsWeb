@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap');
+
+// Form Card
+.card-publication {
+    position: relative;
+}
+.cardBefore {
+    position: relative;
+    overflow: hidden;
+    height: 80px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset -30.4px 30.4px 30.4px rgba(255, 255, 255, 0.17), inset 30.4px -30.4px 30.4px rgba(149, 149, 149, 0.17);
+}
+
+// ImageCover
+.imageCover, .videoCover {
+    position: relative;
+    width: 100%;
+    height: 275px;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background: linear-gradient(#2BB1D6, #515EDD);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset -30.4px 30.4px 30.4px rgba(255, 255, 255, 0.17), inset 30.4px -30.4px 30.4px rgba(149, 149, 149, 0.17);
+}
+
+.imageCover img {
+    position: absolute;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.videoCover video {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.imageCover label, .imageCover #choice-color {
+    position: relative;
+    z-index: 2;
+}
+
+.bi-image {
+    color: rgba(255, 255, 255, 45%);
+    cursor: pointer;
+}
+
+.videoCover label {
+    position: absolute;
+    cursor: pointer;
+    z-index: 2;
+}
+
+
+
+#choice-color .choice1 {
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(45deg,#014F7B,#7EDF2A);
+    border-radius: 5px;
+    cursor: pointer;
+}
+#choice-color .choice2 {
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(45deg,#D90A5F,#4230BA);
+    border-radius: 5px;
+    cursor: pointer;
+}
+#choice-color .choice3 {
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(45deg,#DACE2E,#F47B87,#A679B2);
+    border-radius: 5px;
+    cursor: pointer;
+}
+#choice-color .choice4 {
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(45deg,#515EDD,#2BB1D6);
+    border-radius: 5px;
+    cursor: pointer;
+}
+#choice-color .choice5 {
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(#000);
+    border-radius: 5px;
+    cursor: pointer;
+}
+#choice-color .choice6 {
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(45deg,#473609,#883C0F,#D81E4C);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+// Profil
+.profile {
+    position: relative;
+}
+
+.profil .avatar, .profil img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    outline: 2px solid #fff;
+    cursor: pointer;
+}
+
+.profil .nameDate p:first-child {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 17px;
+}
+
+.profil .nameDate p:last-child {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+}
+
+.btn-rotation {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 10;
+}
+
+// Other Button
+.bi-hash {
+    color: #3A3A45;
+    cursor: pointer;
+    border-radius: 50%;
+    border: none;
+}
+
+.bi-info {
+    color: #515EDD;
+    cursor: pointer;
+    border-radius: 50%;
+    border: none;
+}
+
+// Comment & Submit Button 
+
+.commentSubmit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.inputTextArea {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.inputTextArea textarea {
+    position: relative;
+    top: -1rem;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #000;
+    cursor: auto;
+}
+
+.hashtagContainer {
+    position: relative;
+    left: 4rem;
+}
+
+// Scroll
+::-webkit-scrollbar {
+    width: 10px;
+}
+  
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+   
+::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 10px;
+}
+  
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+.inputTextArea textarea::placeholder {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    color: #949494;
+}
+
+.form-control:focus {
+    border-color: #FFAA47;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    transition: background-color 600000s 0s, color 600000s 0s;
+}
+
+.commentSubmit button {
+    position: relative;
+    bottom: -1.5rem;
+    border-radius: 20px;
+    border: none;
+    font-size: 17px;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    cursor: pointer;
+}
+
+.blueKing {
+    background-color: #589DDE;
+}
+
+.grayDis {
+    background-color: #8A8A8A;
+}

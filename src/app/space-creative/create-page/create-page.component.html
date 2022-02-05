@@ -10,11 +10,11 @@
   <div class="container-header">
     <div class="container-cover">
       <div class="row mx-0 py-3 header-row position-absolute w-100">
-        <div class="title col mr-auto text-left my-auto">
-          <h2 class="ml-2" *ngIf="titlepage.value.length == 0">{{'PAGE.Name-page'|translate}}</h2>
-          <h2 class="ml-2" *ngIf="titlepage.value.length > 0">{{titlepage.value}}</h2>
+        <div class="title col me-auto text-left my-auto">
+          <h2 class="ms-2" *ngIf="titlepage.value.length == 0">{{'PAGE.Name-page'|translate}}</h2>
+          <h2 class="ms-2" *ngIf="titlepage.value.length > 0">{{titlepage.value}}</h2>
         </div>
-        <div class="follow col ml-auto text-right my-auto">
+        <div class="follow col ms-auto text-right my-auto">
           <button>
             <i class="px-2 py-auto fa fa-heart-o"></i>
             <span class="px-2 py-1">{{'CORE.Follow'|translate}}</span>
@@ -37,7 +37,7 @@
         <!-- Page name -->
         <div class="row mx-0 my-3">
           <div class="col-8 form-group mb-0 my-auto">
-            <input #titlepage formControlName="name" type="text" class="form-control pl-3"
+            <input #titlepage formControlName="name" type="text" class="form-control ps-3"
               [placeholder]="'PAGE.Name-page'|translate">
           </div>
           <div class="col-4 my-auto">
@@ -117,8 +117,8 @@
                 <path fill-rule="evenodd"
                   d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z" />
               </svg>
-              <span class="upload-link pl-3" *ngIf="coverUrl" for="profileUpload">{{coverUrl}}</span>
-              <span class="upload-link pl-3" *ngIf="!coverUrl"
+              <span class="upload-link ps-3" *ngIf="coverUrl" for="profileUpload">{{coverUrl}}</span>
+              <span class="upload-link ps-3" *ngIf="!coverUrl"
                 for="profileUpload">{{'UPLOAD.add-cover-picture'|translate}}</span>
             </label>
           </div>
@@ -143,8 +143,8 @@
                 <path fill-rule="evenodd"
                   d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z" />
               </svg>
-              <span class="upload-link pl-3" *ngIf="avatarUrl" for="profileUpload">{{avatarUrl}}</span>
-              <span class="upload-link pl-3" *ngIf="!avatarUrl"
+              <span class="upload-link ps-3" *ngIf="avatarUrl" for="profileUpload">{{avatarUrl}}</span>
+              <span class="upload-link ps-3" *ngIf="!avatarUrl"
                 for="profileUpload">{{'UPLOAD.add-profile-picture'|translate}}</span>
             </label>
           </div>
@@ -168,7 +168,7 @@
         <div class="container-user">
           <div class="row mx-0">
             <div class="input-group col-8 h-100 mt-3 mb-2">
-              <input [matAutocomplete]="auto" matInput type="text" class="form-control pl-3"
+              <input [matAutocomplete]="auto" matInput type="text" class="form-control ps-3"
                 [placeholder]="'PLACEHOLDER.Type-t-pseudo'|translate" [formControl]="searchField">
               <mat-autocomplete #auto="matAutocomplete">
                 <mat-option *ngFor="let profile of (resultsProfile$|async)" (click)="addAdmin(profile)">

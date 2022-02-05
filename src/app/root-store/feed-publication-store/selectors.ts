@@ -1,6 +1,7 @@
 import { createFeatureSelector, createSelector, MemoizedSelector } from '@ngrx/store';
 import { featureAdapter, State } from './state';
 import { FeedPublication } from 'src/app/core/models/publication/feed/feed-publication.model';
+import { Room } from 'src/app/core/models/messenger/room.model';
 
 export const getError = (state: State): any => state.error;
 

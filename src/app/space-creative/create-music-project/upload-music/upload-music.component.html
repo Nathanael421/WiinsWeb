@@ -26,7 +26,7 @@
             </label>
             <img *ngIf="pictureImg" [src]="pictureImg" alt="">
             <div class="edit-picture row" *ngIf="pictureImg">
-              <label for="pic" class="ml-2 my-auto">
+              <label for="pic" class="ms-2 my-auto">
                 <span>{{'CORE.Edit'|translate}}</span>
               </label>
             </div>
@@ -50,11 +50,11 @@
                 <div class="col-10">
                   <div class="form-group">
                     <label>{{'WIINS-MUSIC.Music-name'|translate}}</label>
-                    <input type="text" class="form-control pl-4" formControlName="title">
+                    <input type="text" class="form-control ps-4" formControlName="title">
                   </div>
                 </div>
                 <div class="col-2 my-auto">
-                  <i class="ml-auto pt-1 fa fa-2x fa-check-circle-o" [ngClass]="{'is-valid': !f.title.errors}"></i>
+                  <i class="ms-auto pt-1 fa fa-2x fa-check-circle-o" [ngClass]="{'is-valid': !f.title.errors}"></i>
                 </div>
               </div>
               <div class="row">
@@ -73,14 +73,14 @@
                         </div>
                         <div *ngIf="f.dateVisibility.errors?.date && f.dateVisibility.touched">
                           <span
-                            class="ml-3 ml-1 alert-date">{{'ERROR-MESSAGE.Date-cannot-be-in-the-past'|translate}}</span>
+                            class="ms-3 ms-1 alert-date">{{'ERROR-MESSAGE.Date-cannot-be-in-the-past'|translate}}</span>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="col-2 my-auto">
-                  <i class="ml-auto fa fa-2x fa-check-circle-o"
+                  <i class="ms-auto fa fa-2x fa-check-circle-o"
                     [ngClass]="{'is-valid': !f.dateVisibility.errors?.date}"></i>
                 </div>
               </div>
@@ -92,7 +92,7 @@
                       <label for="musicUpload" class="w-100">
                         <div class="form-date w-100">
                           <div class="form-control form-upload">
-                            <div class="content-link pt-2 pl-5 pr-3">
+                            <div class="content-link pt-2 ps-5 pe-3">
                               <div for="musicUpload" class="btn-upload">
                                 <i class="fa fa-folder-open"></i>
                               </div>
@@ -115,7 +115,7 @@
                   </div>
                 </div>
                 <div class="col-1 my-auto">
-                  <i class="ml-auto fa fa-2x fa-check-circle-o" [ngClass]="{'is-valid': !!musicUrl}"></i>
+                  <i class="ms-auto fa fa-2x fa-check-circle-o" [ngClass]="{'is-valid': !!musicUrl}"></i>
                 </div>
               </div>
               <div class="container-fluid">

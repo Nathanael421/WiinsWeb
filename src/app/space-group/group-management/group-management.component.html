@@ -33,7 +33,7 @@
                   <div class="col-md-8">
                     <div class="form-group">
                       <label>{{'GROUP.Name-group'|translate}}</label>
-                      <input formControlName="name" type="text" class="form-control pl-3" [placeholder]="group.name">
+                      <input formControlName="name" type="text" class="form-control ps-3" [placeholder]="group.name">
                     </div>
                   </div>
                 </div>
@@ -78,8 +78,8 @@
     <div class="row" *ngIf="section[1]">
       <div class="container py-4 bg-light-grey">
         <div class="row mb-3" *ngIf="group.admins.myrole == 0">
-          <div class="input-group col-4 ml-auto h-100">
-            <input [matAutocomplete]="auto" matInput type="text" class="form-control pl-4 bg-white"
+          <div class="input-group col-4 ms-auto h-100">
+            <input [matAutocomplete]="auto" matInput type="text" class="form-control ps-4 bg-white"
               [placeholder]="'GROUP.Add-admin'|translate" [formControl]="searchField">
             <mat-autocomplete #auto="matAutocomplete">
               <mat-option *ngFor="let profile of (resultsProfile$|async)" (click)="addAmin(profile)" >
@@ -189,7 +189,7 @@
     <div class="row" *ngIf="section[2]">
       <div class="container py-4 bg-light-grey content-avanced-row">
         <div class="row">
-          <div class="col-8 my-auto pl-5">
+          <div class="col-8 my-auto ps-5">
             <span class="title">{{'GROUP.Delete-the-group'|translate}}</span>
           </div>
           <div class="col-4 text-center">
@@ -214,8 +214,8 @@
     <div class="row" *ngIf="section[3]">
       <div class="container py-4 bg-light-grey content-avanced-row">
         <div class="row mb-3">
-          <div class="input-group col-4 ml-auto h-100">
-            <input [matAutocomplete]="auto" matInput type="text" class="form-control pl-4 bg-white"
+          <div class="input-group col-4 ms-auto h-100">
+            <input [matAutocomplete]="auto" matInput type="text" class="form-control ps-4 bg-white"
               [placeholder]="'GROUP.Invit-friend'|translate" [formControl]="searchField">
             <mat-autocomplete #auto="matAutocomplete">
               <mat-option *ngFor="let profile of (resultsProfile$|async)" (click)="addMember(group._id, profile._id)">

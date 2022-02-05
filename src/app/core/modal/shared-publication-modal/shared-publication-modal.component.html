@@ -1,0 +1,58 @@
+
+<h2 mat-dialog-title>Share Publication</h2>
+<mat-dialog-content class="mat-typography">
+
+  <!-- Teste -->
+  <h3>Friends</h3>
+  <!-- <input type="text"  [formControl]="searchField" class="form-control"> -->
+  <!-- <div class="suggestion-search col-7 col-sm-7 col-md-6 col-xl-4" *ngIf="(resultsProfile$|async)">
+  <div class="col-8 mx-0 list-user my-auto">
+    <div *ngIf="resultsProfile$ | async; let resultsProfile">
+      <li class="row col-12 list-group-item mx-0 py-3" *ngFor="let profile of resultsProfile">
+        <div class="col-4">
+          <img class="img-fluid img-user" [src]="profile.pictureprofile" alt="User">
+        </div>
+        <div class="col-12 content-text px-0">
+          <a>{{profile?._meta?.pseudo}}</a>
+          <p *ngIf="profile.mutalFriends !== 0" class="mb-0">{{profile.mutalFriends}} amis en communs</p>
+          <p *ngIf="profile.mutalFriends == 0" class="mb-0">0 {{'CORE.mutual-friends'|translate}}</p>
+          <button class="btn btn-primary">Select</button>
+        </div>
+      </li>
+    </div>
+  </div>
+</div> -->
+
+
+  <div class="col-12 my-auto p-3">
+    <input type="text" class="form-control" placeholder="Your message..." #messageShareInput>
+    <hr>
+    <ul class="list-group">
+      <li class="list-group-item d-flex justify-content-between align-items-center" 
+      *ngFor="let r of (room$|async); let i = index"
+      [ngClass]="{'bg-primary': whenClicked[i]}"
+      
+      (click)="whenClicked[i]=!whenClicked[i]">
+        <div class="col-2">
+          <img class="rounded-circle" [src]="r.participants[0].pictureprofile" style="width: 100px;">
+        </div>
+        <div class="col-4 text-center">
+          <span>{{ r.participants[0]._meta.pseudo }}</span>
+        </div>
+        <div class="col-3">
+          <button class="btn btn-primary text-white">Select</button>
+        </div>
+        <div class="col-3 text-end">
+          <button class="btn btn-primary text-white" (click)="send(r._id, messageShareInput)">Send</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Send</button>
+</mat-dialog-actions>

@@ -30,7 +30,7 @@
             </div>
             <div class="mx-2">
               <div class="d-flex mt-4">
-                <i class="ml-auto pt-2 fa fa-2x fa-check-circle-o"
+                <i class="ms-auto pt-2 fa fa-2x fa-check-circle-o"
                   [ngClass]="{ 'is-valid': videoName?.length > 3 }"></i>
               </div>
             </div>
@@ -52,7 +52,7 @@
             </div>
             <div class="mx-2">
               <div class="d-flex mt-4">
-                <i class="ml-auto pt-2 fa fa-2x fa-check-circle-o" [ngClass]="{ 'is-valid': !!categorieSeleteted }"></i>
+                <i class="ms-auto pt-2 fa fa-2x fa-check-circle-o" [ngClass]="{ 'is-valid': !!categorieSeleteted }"></i>
               </div>
             </div>
           </div>
@@ -61,7 +61,7 @@
             <div class="mx-3">
               <input hidden id="upload_video" type="file" accept='video/*,.mkv' #video (change)=uploadVideo($event)>
               <label for="upload_video" class="btn btn-upload">
-                <i class="fa fa-download mr-2"></i>
+                <i class="fa fa-download me-2"></i>
                 <span>{{'CORE.Upload'|translate}}</span>
               </label>
             </div>
@@ -80,7 +80,7 @@
               <input hidden id="upload_profile" type="file" accept='image/*' #miniature
                 (change)=previewMiniature($event)>
               <label for="upload_profile" class="btn btn-upload">
-                <i class="fa fa-download mr-2"></i>
+                <i class="fa fa-download me-2"></i>
                 <span>{{'CORE.Upload'|translate}}</span>
               </label>
             </div>
@@ -122,8 +122,8 @@
                 </strong>
               </h3>
               <div class="row mx-0">
-                <p class="mr-auto">0 {{'CORE.views'|translate}}</p>
-                <p class="ml-auto">00:00</p>
+                <p class="me-auto">0 {{'CORE.views'|translate}}</p>
+                <p class="ms-auto">00:00</p>
               </div>
             </div>
           </div>

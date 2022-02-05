@@ -1,12 +1,26 @@
+
 .mini-conversation {
   cursor: pointer;
+  background: none;
+  
 }
 
 .mini-conversation:hover,
 .highlight {
   background: #eeeeee;
-  border-right: 4px solid #9292ff;
 }
+
+.newDiscuss {
+  cursor: pointer;
+  background: none;
+  
+}
+
+.newDiscuss:hover {
+  background: #eeeeee;
+}
+
+
 
 p {
   color: #646d75;
@@ -19,8 +33,8 @@ p {
 }
 
 .date p {
-  font-size: 12px;
-  color: #0084ff;
+  font-size: 13px;
+  color: #A9A9A9;
 }
 
 .badge-notif {
@@ -43,25 +57,44 @@ p {
   }
 }
 
+.currentFriendName p:first-child,
+.newDiscussFriend p:first-child {
+  font-size: 18px;
+  color: #000000;
+  font-weight: 500;
+}
+
 .last-msg {
   flex: 0 1 auto;
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  font-weight: 400;
+  color: #9AA9BA;
+}
+
+.searchAndRequest{
+  border: 1px solid #E3E3E3;
+  border-top: none;
 }
 
 .searchBar {
   padding: 3px;
-  border: solid 1px #E4E4E4;
-  border-radius: 27px;
-  background-color: #fff;
+  border-bottom: 1px solid #646464;
+  font-size: 18px;
 
   input {
-    border: 0;
+    border: none;
     box-shadow: none;
     background: transparent;
     text-align: center;
+    text-align: left;
+  }
+
+  input::placeholder {
+    color: #646464;
+    font-weight: 400;
   }
 
   button {
@@ -79,6 +112,49 @@ p {
   }
 }
 
+//Mat Expansion Panel
+.mat-expansion-panel-header-title p {
+  font-size: 17px;
+  color: #000000;
+  font-weight: 500;
+}
+.mat-expansion-panel-header-title button {
+  color: #fff;
+  font-size: 17px;
+  font-weight: 500;
+  background: linear-gradient(90deg,#58AED2,#4A85D1,#545DD5,#6245D8);
+  width: 9rem;
+  border-radius: 15px;
+}
+::ng-deep .mat-expansion-panel-body {
+  padding: 0px 0px 0px 0px !important; 
+}
+
+
+// Icon +
+.add-someone {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+}
+
+// Best & Second
+.closest p:nth-child(1),
+.closest p:nth-child(2)
+ {
+  font-size: 18px;
+  font-weight: 300;
+  cursor: pointer;
+  color: #000000;
+}
+.closest p:nth-child(1)
+ {
+  border-bottom: 1px solid;
+  border-image-slice: 1;
+  border-width: 3px;
+  border-image-source: linear-gradient(to left, #515DDD, #6743E0, #FF5964);
+}
+
 .container-avatar {
   transition: 0.5s;
   cursor: pointer;
@@ -86,12 +162,10 @@ p {
 
   img {
     object-fit: cover;
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     overflow: hidden;
-    border: white solid 2px;
-    box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.175);
-    -webkit-box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.175);
+    border: white solid 1px;
   }
 
 }
@@ -103,8 +177,6 @@ p {
   position: relative;
   overflow: hidden;
   border: white solid 2px;
-  box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.175);
-  -webkit-box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.175);
   cursor: pointer;
 
   img {
@@ -131,12 +203,39 @@ p {
 
   img {
     object-fit: cover;
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     overflow: hidden;
     border: white solid 2px;
-    box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.175);
-    -webkit-box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.175);
   }
 
+}
+
+//Checkbox
+.round {
+  position: relative;
+}
+
+.round label {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 28px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 28px;
+}
+
+.round input[type="checkbox"] {
+  visibility: hidden;
+}
+
+.round input[type="checkbox"]:checked + label {
+  background-color: #58AED2;
+}
+
+.round input[type="checkbox"]:checked + label:after {
+  opacity: 1;
 }

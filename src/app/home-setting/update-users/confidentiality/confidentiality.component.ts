@@ -9,6 +9,7 @@ import { TranslateService } from '@ngx-translate/core'
 import { Observable } from 'rxjs'
 import { ProfileModel } from 'src/app/core/models/baseUser/profile.model'
 import { filter, skipWhile } from 'rxjs/operators'
+import { MatSlideToggleChange } from '@angular/material/slide-toggle'
 
 @Component({
   selector: 'app-confidentiality',
@@ -29,13 +30,13 @@ export class ConfidentialityComponent implements OnInit {
   // Expansion panel
   panelOpenState = false;
 
-  // Checkbox
-  blocked: boolean = true;
-  closeFriend: boolean = true;
+  // Slide
   postVisibleCommunity: boolean = true;
   onlineStatutCommunity: boolean = true;
   isFollow: boolean = true;
   isFollowing: boolean = true;
+  blockedProfile: ProfileModel[] = [];
+  closeFriend: ProfileModel[] = [];
 
   // Paginator
   totalLength: any;
@@ -215,5 +216,37 @@ toggleVisible(): void {
 toggleOnline(): void {
   this.onlineStatutCommunity = !this.onlineStatutCommunity;
 }
+
+// Check Toggle before Submit (Blocked)
+blockedToggle(event: MatSlideToggleChange, profile: ProfileModel): void {
+  if (event.checked === true) {
+    this.blockedProfile.push(profile)
+  } else {
+    const found = this.blockedProfile.map((x: ProfileModel) => x._id).indexOf(profile._id)
+    if (found !== -1) {
+      this.blockedProfile.splice(found, 1)
+    }
+  }
+  console.log(event);
+}
+
+
+// Check Toggle before Submit (Close Friend)
+closeFriendToggle(event: MatSlideToggleChange, profile: ProfileModel): void {
+
+  if (event.checked === true) {
+    this.closeFriend.push(profile)
+  } else {
+    const found = this.closeFriend.map((x: ProfileModel) => x._id).indexOf(profile._id)
+    if (found !== -1) {
+      this.closeFriend.splice(found, 1)
+    }
+  }
+  console.log(this.closeFriend);
+}
+
+
+
+
 
 }

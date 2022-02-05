@@ -4,7 +4,7 @@
     <div class="content-pseudo col-5 col-md-3 d-flex justify-content-center pt-2">
       <h2 class="pseudo-name pt-3">{{(myprofile$|async)._meta.pseudo}}</h2>
     </div>
-    <div class="ml-auto col-2 col-md-2 cover-edit my-auto text-right">
+    <div class="ms-auto col-2 col-md-2 cover-edit my-auto text-right">
       <input hidden #cover type='file' name="photo" id="coverUpload" accept=".png, .jpg, .jpeg"
         (change)=previewCover($event) />
       <label for="coverUpload"></label>
@@ -30,7 +30,7 @@
 
 <!-- Sub Header -->
 <div class="information-profil row mx-0 my-3 px-5">
-  <div class="nav-space mr-auto">
+  <div class="nav-space col-10">
     <button *ngIf="(myprofile$|async)?.actifSpace !== 1" type="button" class="mx-2 p-2 btn" [routerLink]="['Story']"
       routerLinkActive="active">
       <i class="fa fa-bolt"></i>
@@ -47,8 +47,8 @@
       <span class="mx-2">{{'PROFILE.my-videos'|translate}}</span>
     </button>
   </div>
-  <div class="nav-space ml-auto">
-    <div class="mx-2 py-2 px-3 btn-community" [routerLink]="['Community']">
+  <div class="nav-space col-2">
+    <div class="mx-2 py-2 px-3 btn-community text-center" [routerLink]="['Community']">
       {{'CORE.My-community'|translate}}
     </div>
   </div>

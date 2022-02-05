@@ -1,6 +1,6 @@
 <div class="card" *ngIf="(profile$|async); let p">
     <div class="card-header">
-        <h5 class="title pl-3">{{'SETTING.profile.Confidentiality'|translate}}</h5>
+        <h5 class="title ps-3">{{'SETTING.profile.Confidentiality'|translate}}</h5>
         <div class="btn-footer float-right"></div>
     </div>
         <!-- Expansion Panel-->
@@ -15,16 +15,15 @@
             </mat-panel-title>
             </mat-expansion-panel-header>
             <div *ngFor="let profile of profilesBlocked | paginate: { itemsPerPage: 5, currentPage: page, id: 'first', totalItems: totalLength}; let i = index" class="profileHover d-flex justify-content-center align-items-baseline my-2">
-                <div class="containerPicture">
-                <img class="w-100 h-100 pictureExemple" [src]="profile.picture" alt="Profile Blocked">
+                <div class="containerPicture me-2">
+                <img class="w-100 h-100 pictureExemple" [src]="profile.picture" alt="">
             </div>
             <p class="col-1">{{profile.name}}</p>
             <div class="row my-3 d-flex align-items-baseline">
                 <div class="col-1">
-                  <mat-slide-toggle [checked]="profile.status"></mat-slide-toggle>
+                  <mat-slide-toggle checked="true" (change)="blockedToggle($event,profile)"></mat-slide-toggle>
                 </div>
-                <!-- i18n -->
-                <p class="col ml-3">Blocked</p> 
+                <p class="col ms-3">Blocked</p>
             </div>
             <mat-panel-description class="d-flex justify-content-center">
                 <p>{{'SETTING.profile.Blocked-since' | translate}} {{profile.date}}</p>
@@ -43,16 +42,15 @@
               </mat-panel-title>
             </mat-expansion-panel-header>
             <div *ngFor="let profileFriends of closeFriends | paginate: { itemsPerPage: 5, currentPage: page2, id: 'second', totalItems: totalLength} ;let i = index" class="profileHover d-flex justify-content-center align-items-baseline my-2">
-              <div class="containerPicture">
-                <img class="w-100 h-100 pictureExemple" [src]="profileFriends.picture" alt="Close Friends">
+              <div class="containerPicture me-2">
+                <img class="w-100 h-100 pictureExemple" [src]="profileFriends.picture" alt="">
               </div>
               <p class="col-1">{{profileFriends.name}}</p>
               <div class="row my-3 d-flex align-items-baseline">
                 <div class="col-1">
-                  <mat-slide-toggle [checked]="profileFriends.status"></mat-slide-toggle>
+                  <mat-slide-toggle checked="true" (change)="closeFriendToggle($event,profileFriends)"></mat-slide-toggle>
                 </div>
-                <!-- i18n -->
-                <p class="col ml-3">Close Friend</p>
+                <p class="col ms-3">Close Friend</p>
               </div>
               <mat-panel-description class="d-flex justify-content-center">
                 <p>{{'SETTING.profile.CloseFriend-since' | translate}} {{profileFriends.date}}</p>
