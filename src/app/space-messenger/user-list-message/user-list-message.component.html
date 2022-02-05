@@ -18,7 +18,7 @@
 <!-- Expansion panel-->
 <mat-accordion multi>
   <mat-expansion-panel hideToggle>
-    <mat-expansion-panel-header class="pr-0" (click)="hideOrShowUser()">
+    <!-- <mat-expansion-panel-header class="pr-0" (click)="hideOrShowUser()">
       <mat-panel-title class="d-flex justify-content-between mr-0">
         <div class="d-flex align-items-center">
           <p class="p-0 me-2">Users</p>
@@ -30,10 +30,10 @@
           <button type="submit" class="btn" [disabled]="nobodySelected">Ready</button>
         </div>
       </mat-panel-title>
-    </mat-expansion-panel-header>
+    </mat-expansion-panel-header> -->
     
 <!-- List of New Discussions -->
-<div class="container p-0" *ngIf="(profiles$|async) && searchField.value !== ''">
+<!-- <div class="container p-0" *ngIf="(profiles$|async) && searchField.value !== ''">
     <div *ngFor="let item of profiles$ | async, let i = index" class="newDiscuss d-flex col-md-12 py-4 p-0">
       <div class="col-md-2 p-0 ms-1">
         <a class="px-0 container-avatar">
@@ -51,7 +51,7 @@
         </div>
       </div>
     </div>
-</div>
+</div> -->
 
     
   </mat-expansion-panel>

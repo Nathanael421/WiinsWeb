@@ -172,11 +172,13 @@
             </div>
           </div>
           <div *ngSwitchDefault class="row message message-personal new my-3 mx-0">
-            <div class=" me-3 ms-auto row mx-0">
-              <div class="container-btn-message my-auto me-3">
-                <i class="fa fa-ellipsis-h pt-1"></i>
-              </div>
-              <span class="content-text ms-auto">{{m.text}}</span>
+            <div class="position-relative me-3 ms-auto row mx-0 h-100">
+              <span class="content-text ms-auto" *ngIf="isValidText(m.text)">{{m.text}}
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-three-dots ms-auto text-white" viewBox="0 0 16 16">
+                  <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+                </svg>
+              </span>
+                <img [src]="m.text" class="w-100 h-100 rounded-0 pe-0" *ngIf="isValidSrc(m.text)">
             </div>
             <div class="timestamp" *ngIf="last">
               {{translateService.getDateTranslated(m.createdAt)}}

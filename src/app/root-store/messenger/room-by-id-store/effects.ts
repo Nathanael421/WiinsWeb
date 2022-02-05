@@ -44,6 +44,15 @@ export class RoomByIdStoreEffects {
     ))
   ))
 
+  shareMessage$: Observable<featureActions.ActionsMessage> = createEffect(() => this.actions$.pipe(
+    ofType<featureActions.shareMessage>(featureActions.ActionTypes.SHARE_MESSAGE),
+    switchMap(action => this.dataService.shareMessage(action.payload, action.idRoom).pipe(
+      tap(action => this.ws.shareMessage(action.respond)),
+      map(data => new featureActions.shareMessageSuccess(data.respond)),
+      catchError(error => observableOf(new featureActions.shareMessageFail(error)))
+    ))
+  ))
+
   createRoom$: Observable<Action> = createEffect(() => this.actions$.pipe(
     ofType<featureActions.createRoom>(featureActions.ActionTypes.CREATE_ROOM),
     switchMap(action => this.dataService.createRoom(action.payload).pipe(
