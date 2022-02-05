@@ -139,6 +139,8 @@ import { DownloadDataComponent } from './home-setting/update-users/download-data
 import { ToBecomeWiinserProComponent } from './home-setting/update-users/to-become-wiinser-pro/to-become-wiinser-pro.component';
 import { NotificationsComponent } from './home-setting/update-users/notifications/notifications.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { SharedPublicationModalComponent } from './core/modal/shared-publication-modal/shared-publication-modal.component';
+import { MatRadioModule } from '@angular/material/radio';
 
 
 // AoT requires an exported function for factories
@@ -169,14 +171,15 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     ContentIdComponent, PasswordValidationsComponent, ModalTOUComponent, ChangingPasswordComponent,
     ManagementTeamComponent, GroupValidationComponent, ReportMessageComponent, FooterCoreComponent,
     ForgotPasswordComponent, CommunityListComponent, ReportModalComponent, VerificationSpaceUnlockedComponent,
-    LedgerComponent, CreateMusicProjectComponent, NotfoundComponent, 
-    VeritificationStepsComponent, MyProfileBodyComponent, ProfileBodyComponent, CreditMusicComponent, OnboardingComponent, ToDiscordComponent, ToStripeComponent, ForgotPasswordConfirmationComponent,
-    ConfidentialityComponent, LangageComponent, DownloadDataComponent, ToBecomeWiinserProComponent, NotificationsComponent
+    LedgerComponent, CreateMusicProjectComponent, NotfoundComponent, VeritificationStepsComponent, MyProfileBodyComponent, 
+    ProfileBodyComponent, CreditMusicComponent, OnboardingComponent, ToDiscordComponent, ToStripeComponent, 
+    ForgotPasswordConfirmationComponent, ConfidentialityComponent, LangageComponent, DownloadDataComponent, 
+    ToBecomeWiinserProComponent, NotificationsComponent, SharedPublicationModalComponent
   ],
   imports: [
     RootStoreModule, BrowserModule, NgxMasonryModule, AppRoutingModule, NgbModule, HttpClientModule,
     HttpClientJsonpModule, CoreModule, BrowserAnimationsModule, FormsModule, AutosizeModule,
-    MaterialModule, ReactiveFormsModule, ClickOutsideModule, GooglePlaceModule,
+    MaterialModule, ReactiveFormsModule, ClickOutsideModule, GooglePlaceModule, MatRadioModule,
     InfiniteScrollModule, RoundProgressModule,NgxPaginationModule, DragDropModule, MatProgressSpinnerModule, PlyrModule, ImageCropperModule, QRCodeModule,
     TranslateModule.forRoot({ 
       loader: { 

@@ -117,8 +117,10 @@ export class UserListMessageComponent implements OnInit {
     this.panelDiscuss = !this.panelDiscuss;
   }
 
-  selectThisFriend() {
+  selectThisFriend(index: number) {
     this.nobodySelected = !this.nobodySelected;
+    console.log(index);
+    
   }
 
 }

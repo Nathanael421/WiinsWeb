@@ -27,6 +27,10 @@ export class MessengerService {
     return this.http.post<SingleMessageResponse>(`${this.baseUrl}/messenger/sendMessage/${idRoom}`, {message})
   }
 
+  shareMessage(message: Message, idRoom: string): Observable<SingleMessageResponse>  {
+    return this.http.post<SingleMessageResponse>(`${this.baseUrl}/messenger/sendMessage/${idRoom}`, {message})
+  }
+
   GetAllRoomsByPage(page: number): Observable<ListRoomResponse>  {
     return this.http.get<ListRoomResponse>(`${this.baseUrl}/messenger/allRooms/${page}`)
   }

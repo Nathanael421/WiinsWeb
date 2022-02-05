@@ -11,5 +11,11 @@ export class MessageText extends Message {
   constructor(type: string, public text: string) {
     super(type)
   }
+}
 
+export class MessageShare extends Message {
+
+  constructor(type: string, public text: string) {
+    super(type)
+  }
 }

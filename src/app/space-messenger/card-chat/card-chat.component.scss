@@ -109,7 +109,7 @@
     }
 
     .message-personal:hover {
-      .fa-ellipsis-h {
+      .bi-three-dots {
         display: block;
       }
     }
@@ -117,21 +117,10 @@
     .message {
       position: relative;
 
-      .fa-ellipsis-h {
+      .bi-three-dots {
         cursor: pointer;
-        border-radius: 50%;
-        font-size: 15px;
-        height: 22px;
-        width: 22px;
         padding: 0;
         overflow: hidden;
-        color: #909090 !important;
-        background: #f0f0f0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
         display: none;
       }
 
@@ -144,7 +133,7 @@
         margin-left: 9px;
         margin-right: 9px;
         position: absolute;
-        bottom: -33px;
+        bottom: 0;
       }
 
       .timestamp {
@@ -180,7 +169,7 @@
       position: relative;
       min-height: 39px;
       max-height: 230px;
-      overflow-y: scroll;
+      overflow-y: auto;
 
       .message-input {
         background: none;

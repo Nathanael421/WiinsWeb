@@ -30,8 +30,8 @@
                       <path fill-rule="evenodd"
                         d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z" />
                     </svg>
-                    <span class="upload-link pl-3 pr-4" *ngIf="fileIdname" for="profileUpload">{{fileIdname}}</span>
-                    <span class="upload-link pl-3 pr-4" *ngIf="!fileIdname"
+                    <span class="upload-link ps-3 pe-4" *ngIf="fileIdname" for="profileUpload">{{fileIdname}}</span>
+                    <span class="upload-link ps-3 pe-4" *ngIf="!fileIdname"
                       for="profileUpload">{{'CORE.Upload-yr-file-here'|translate}}</span>
                   </label>
                   <svg *ngIf="!!fileIdLink" width="2em" height="2em" viewBox="0 0 16 16" class="reset-upload" fill="currentColor" xmlns="http://www.w3.org/2000/svg" (click)="resetUpload('fileIdLink')">
@@ -39,7 +39,7 @@
                   </svg>
                 </div>
                 <div class="row mx-0">
-                  <p class="pl-1 pt-1 input-desc">
+                  <p class="ps-1 pt-1 input-desc">
                     {{'SETTING.verified.Upload-yr-passport-id-identity-or-driver-license'|translate}}</p>
                 </div>
               </div>
@@ -54,15 +54,15 @@
                       <path fill-rule="evenodd"
                         d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z" />
                     </svg>
-                    <span class="upload-link pl-3 pr-4" *ngIf="fileIdname2">{{fileIdname2}}</span>
-                    <span class="upload-link pl-3 pr-4" *ngIf="!fileIdname2">{{'CORE.Upload-yr-file-here'|translate}}</span>
+                    <span class="upload-link ps-3 pe-4" *ngIf="fileIdname2">{{fileIdname2}}</span>
+                    <span class="upload-link ps-3 pe-4" *ngIf="!fileIdname2">{{'CORE.Upload-yr-file-here'|translate}}</span>
                   </label>
                   <svg *ngIf="!!fileIdLink2" width="2em" height="2em" viewBox="0 0 16 16" class="reset-upload" fill="currentColor" xmlns="http://www.w3.org/2000/svg" (click)="resetUpload('fileIdLink2')">
                     <path fill-rule="evenodd" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
                   </svg>
                 </div>
                 <div class="row mx-0">
-                  <p class="pl-1 pt-1 input-desc">
+                  <p class="ps-1 pt-1 input-desc">
                     {{'SETTING.verified.M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card'|translate}}</p>
                 </div>
               </div>
@@ -77,9 +77,9 @@
                       <path fill-rule="evenodd"
                         d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z" />
                     </svg>
-                    <span class="upload-link pl-3 pr-4" *ngIf="pictureTakeName"
+                    <span class="upload-link ps-3 pe-4" *ngIf="pictureTakeName"
                       for="pictureTakenFile">{{pictureTakeName}}</span>
-                    <span class="upload-link pl-3 pr-4" *ngIf="!pictureTakeName"
+                    <span class="upload-link ps-3 pe-4" *ngIf="!pictureTakeName"
                       for="pictureTakenFile">{{'CORE.Upload-yr-file-here'|translate}}</span>
                   </label>
                   <svg *ngIf="!!pictureTakeLink" width="2em" height="2em" viewBox="0 0 16 16" class="reset-upload" fill="currentColor" xmlns="http://www.w3.org/2000/svg" (click)="resetUpload('pictureTakeLink')">
@@ -87,7 +87,7 @@
                   </svg>
                 </div>
                 <div class="row mx-0">
-                  <p class="pl-1 pt-1 input-desc">{{'SETTING.verified.Upload-a-photo-holding-t-ID-D'|translate}}</p>
+                  <p class="ps-1 pt-1 input-desc">{{'SETTING.verified.Upload-a-photo-holding-t-ID-D'|translate}}</p>
                 </div>
               </div>
             </div>
@@ -97,7 +97,7 @@
             <p class="col">{{'SETTING.verified.I-agree-t-m-data-may-b-used-t-check-my-account'|translate}}</p>
           </div>
           <div class="row mx-0">
-            <button class="ml-auto m-3 px-2 confirmBtn" (click)="confirm()">
+            <button class="ms-auto m-3 px-2 confirmBtn" (click)="confirm()">
               <span>{{'CORE.Confirm'|translate}}</span>
             </button>
           </div>

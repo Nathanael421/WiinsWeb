@@ -5,24 +5,19 @@
     <div class="row mx-0 my-2">
       <div class="col-4">
         <span class="row">
-          <p class="ml-4">{{"CORE.Filter"|translate}}</p>
+          <p class="ms-4">{{"CORE.Filter"|translate}}</p>
         </span>
       </div>
       <div class="col-8 btn-filter">
         <div class="row mx-0">
-          <div class="ml-auto">
-           <div class="row mx-0">
-            <div class="mx-2 row">
-              <i class="fa fa-heart mx-2 mt-1"></i>
-              <span>{{"CORE.Like"|translate}}</span>
-            </div>
-            <div class="mx-2 row">
-              <i class="fa fa-calendar mx-2 mt-1"></i>
-               <span>{{"CORE.Date"|translate}}</span>
-            </div>
-           </div>
+          <div class="col text-center">
+            <i class="fa fa-heart mx-2 mt-1"></i>
+            <span>{{"CORE.Like"|translate}}</span>
           </div>
-        </div>
+          <div class="col text-center">
+            <i class="fa fa-calendar mx-2 mt-1"></i>
+              <span>{{"CORE.Date"|translate}}</span>
+          </div>
       </div>
     </div>
   </div>
@@ -42,7 +37,7 @@
             <div class="col-8 px-0 my-auto">
               <span>
                 <h4 class="d-inline pseudo-comment" [routerLink]="'/profile/' + c.idProfil._id">{{c.idProfil._meta.pseudo}}</h4>
-                <p class="d-inline ml-1">{{c.text}}</p>
+                <p class="d-inline ms-1">{{c.text}}</p>
                 <div class="d-inline mx-2 btn-response" (click)="createResponse(i)">
                   <span class="d-inline-block">{{"CORE.reply.."|translate}}</span>
                 </div>
@@ -107,7 +102,7 @@
           <div class="col-md-3 px-0 d-flex justify-content-center">
             <img class="rounded-circle" [src]="p.pictureprofile">
           </div>
-          <div class="col-md-9 my-auto pl-0">
+          <div class="col-md-9 my-auto ps-0">
             <span><p class="mb-0">{{p._meta.pseudo}}</p></span>
           </div>
         </div>

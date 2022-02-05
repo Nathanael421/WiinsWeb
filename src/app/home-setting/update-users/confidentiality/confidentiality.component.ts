@@ -9,6 +9,7 @@ import { TranslateService } from '@ngx-translate/core'
 import { Observable } from 'rxjs'
 import { ProfileModel } from 'src/app/core/models/baseUser/profile.model'
 import { filter, skipWhile } from 'rxjs/operators'
+import { MatSlideToggleChange } from '@angular/material/slide-toggle'
 
 @Component({
   selector: 'app-confidentiality',
@@ -29,13 +30,13 @@ export class ConfidentialityComponent implements OnInit {
   // Expansion panel
   panelOpenState = false;
 
-  // Checkbox
-  blocked: boolean = true;
-  closeFriend: boolean = true;
+  // Slide
   postVisibleCommunity: boolean = true;
   onlineStatutCommunity: boolean = true;
   isFollow: boolean = true;
   isFollowing: boolean = true;
+  blockedProfile: ProfileModel[] = [];
+  closeFriend: ProfileModel[] = [];
 
   // Paginator
   totalLength: any;
@@ -139,31 +140,36 @@ public closeFriends  = [
     id: 9,
     name: 'Sarah',
     date: '11/12/21',
-    picture: 'https://images.unsplash.com/photo-1515463892140-58a22e37ff72?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=520&q=80'
+    picture: 'https://images.unsplash.com/photo-1515463892140-58a22e37ff72?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=520&q=80',
+    status: true
   },
   {
     id: 10,
     name: 'Thom',
     date: '07/05/20',
-    picture: 'https://images.unsplash.com/photo-1541260894924-7ff059b93d54?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=375&q=80'
+    picture: 'https://images.unsplash.com/photo-1541260894924-7ff059b93d54?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=375&q=80',
+    status: true
   },
   {
     id: 11,
     name: 'Anna',
     date: '02/11/19',
-    picture: 'https://images.unsplash.com/photo-1565294124524-200bb738cdb7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=494&q=80'
+    picture: 'https://images.unsplash.com/photo-1565294124524-200bb738cdb7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=494&q=80',
+    status: true
   },
   {
     id: 12,
     name: 'Eric',
     date: '29/01/17',
-    picture: 'https://images.unsplash.com/photo-1566802842272-e694af42eb29?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=455&q=80'
+    picture: 'https://images.unsplash.com/photo-1566802842272-e694af42eb29?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=455&q=80',
+    status: true
   },
   {
     id: 13,
     name: 'Darius',
     date: '30/04/15',
-    picture: 'https://images.unsplash.com/photo-1608457074760-f67c9edf1bb0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80'
+    picture: 'https://images.unsplash.com/photo-1608457074760-f67c9edf1bb0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80',
+    status: true
   },
   {
     id: 14,
@@ -199,14 +205,48 @@ changeViewverOption(value: boolean) {
   this.store$.dispatch(new ProfileFeatureStoreActions.ChangeBtnFollow(new BtnFollow(undefined, value)))
 }
 
-toggleClose(): void {
-  this.closeFriend = !this.closeFriend;
-}
+// toggleClose(): void {
+//   this.closeFriend = !this.closeFriend;
+// }
+
 toggleVisible(): void {
   this.postVisibleCommunity = !this.postVisibleCommunity;
 }
+
 toggleOnline(): void {
   this.onlineStatutCommunity = !this.onlineStatutCommunity;
 }
+
+// Check Toggle before Submit (Blocked)
+blockedToggle(event: MatSlideToggleChange, profile: ProfileModel): void {
+  if (event.checked === true) {
+    this.blockedProfile.push(profile)
+  } else {
+    const found = this.blockedProfile.map((x: ProfileModel) => x._id).indexOf(profile._id)
+    if (found !== -1) {
+      this.blockedProfile.splice(found, 1)
+    }
+  }
+  console.log(event);
+}
+
+
+// Check Toggle before Submit (Close Friend)
+closeFriendToggle(event: MatSlideToggleChange, profile: ProfileModel): void {
+
+  if (event.checked === true) {
+    this.closeFriend.push(profile)
+  } else {
+    const found = this.closeFriend.map((x: ProfileModel) => x._id).indexOf(profile._id)
+    if (found !== -1) {
+      this.closeFriend.splice(found, 1)
+    }
+  }
+  console.log(this.closeFriend);
+}
+
+
+
+
 
 }

@@ -32,17 +32,17 @@
                   <img [src]="this.avatarPublication" class="avatar-header rounded-circle img-fluid">
                 </a>
               </div>
-              <div class="col-9 col-sm-8 col-md-9 my-auto pr-0">
+              <div class="col-9 col-sm-8 col-md-9 my-auto pe-0">
                 <div class="container">
                   <div class="row">{{name}}</div>
                   <div class="row ">
                     <span class="date-publication">
-                      <i class="fa fa-clock-o my-auto pr-1"></i>
+                      <i class="fa fa-clock-o my-auto pe-1"></i>
                       {{translateService.getDateTranslated(data.publication.createdAt)}}
                     </span>
                   </div>
                   <div class="row w-100 container-stat">
-                    <div class="ml-auto">
+                    <div class="ms-auto">
                       <span class="cursor-pointer" *ngIf="numberLike > 0" (click)="openLikedList()">
                         <i>{{numberLike}}</i>
                         <i class="fa fa-heart mx-2"></i>
@@ -62,13 +62,13 @@
           <div class="row mx-0">
             <div class="col">
               <button class="btn w-100 py-1 px-0" [ngClass]="{liked: isLiked}" (click)="btnLike()">
-                <i class="fa fa-heart mr-2"></i>
+                <i class="fa fa-heart me-2"></i>
                 <span>{{'CORE.Like'|translate}}</span>
               </button>
             </div>
             <div class="col">
               <button class="btn w-100 py-1 px-0" (click)="focusComment()">
-                <i class="fa fa-comment mr-2"></i>
+                <i class="fa fa-comment me-2"></i>
                 <span>{{'CORE.Comment'|translate}}</span>
               </button>
             </div>
@@ -88,7 +88,7 @@
                 <div class="col-8 px-0 my-auto">
                   <span>
                     <h4 class="d-inline pseudo-comment" (click)="closeModal()" [routerLink]="'/profile/' + c.idProfil._id">{{c.idProfil._meta.pseudo}}</h4>
-                    <p class="d-inline ml-1">{{c.text}}</p>
+                    <p class="d-inline ms-1">{{c.text}}</p>
                     <div class="d-inline mx-2 btn-response" (click)="createResponse(i)">
                       <span class="d-inline-block">{{'CORE.reply..'|translate}}</span>
                     </div>
@@ -152,7 +152,7 @@
               <div class="col-md-3 px-0 d-flex justify-content-center">
                 <img class="rounded-circle" [src]="p.pictureprofile">
               </div>
-              <div class="col-md-9 my-auto pl-0">
+              <div class="col-md-9 my-auto ps-0">
                 <span><p class="mb-0">{{p._meta.pseudo}}</p></span>
               </div>
             </div>

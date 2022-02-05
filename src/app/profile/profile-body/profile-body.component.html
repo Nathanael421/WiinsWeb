@@ -4,7 +4,7 @@
     <div class="container-fluid px-0">
       <div class="row mx-0 container-header py-3">
         <div class="col-4 col-md-5">
-          <h2 class="pseudo-name ml-5">{{p._meta.pseudo}}</h2>
+          <h2 class="pseudo-name ms-5">{{p._meta.pseudo}}</h2>
         </div>
         <div class="col-8 col-md-7 my-auto d-flex justify-content-end">
           <div class="col-5 col-md-4 text-right" *ngIf="p.relation !== 'friend'">
@@ -72,25 +72,25 @@
       <img class="shadow rounded-circle mx-auto" [src]="p.pictureprofile">
     </div>
   </div>
-  <div class="information-profil row mr-auto ml-5">
-    <div class="swith-space mr-auto mt-3 ml-4">
+  <div class="information-profil row me-auto ms-5">
+    <div class="swith-space me-auto mt-3 ms-4">
       <a *ngIf="(profile$|async)?.actifSpace !== 1" [routerLink]="['Story']" routerLinkActive="active">
         <button type="button" class="mx-2 btn">
-          <i class="p-2 mr-1 fa fa-camera"></i>
+          <i class="p-2 me-1 fa fa-camera"></i>
           <span>{{'PROFILE.Story'|translate}}</span>
         </button>
       </a>
       <a *ngIf="(profile$|async)?.actifSpace == 2 || (profile$|async)?.actifSpace == 4" [routerLink]="['Music']"
         routerLinkActive="active">
         <button type="button" class="mx-2 btn">
-          <i class="p-2 mr-1 fa fa-music"></i>
+          <i class="p-2 me-1 fa fa-music"></i>
           <span>{{'PROFILE.Musics'|translate}}</span>
         </button>
       </a>
       <a *ngIf="(profile$|async)?.actifSpace == 3 || (profile$|async)?.actifSpace == 4" [routerLink]="['Tube']"
         routerLinkActive="active">
         <button type="button" class="mx-2 btn">
-          <i class="p-2 mr-1 fa fa-video-camera"></i>
+          <i class="p-2 me-1 fa fa-video-camera"></i>
           <span>{{'PROFILE.Videos'|translate}}</span>
         </button>
       </a>

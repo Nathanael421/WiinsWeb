@@ -11,8 +11,19 @@
     background-color: white;
   }
 
-  .btn-light {
-    border-color: #aeaeae;
+  .leaveGroup {
+    font-size: 17px;
+    color: #818181;
+  }
+
+  .btnConfirm {
+    background-color: #E9F0FD;
+    color: #6245D8;
+  }
+
+  .btnClose {
+    background: linear-gradient(45deg,#58AED2,#4A85D1,#545DD5,#6245D8);
+    color: #fff;
   }
 
   textarea {

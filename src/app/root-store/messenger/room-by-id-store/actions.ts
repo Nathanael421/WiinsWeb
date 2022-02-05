@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
 import { Room } from 'src/app/core/models/messenger/room.model';
-import { Message } from 'src/app/core/models/messenger/message.model';
+import { Message, MessageShare } from 'src/app/core/models/messenger/message.model';
 
 export enum ActionTypes {
 
@@ -27,6 +27,10 @@ export enum ActionTypes {
   SEND_MESSAGE = '@current-message/send',
   SEND_MESSAGE_SUCCESS = '@current-message/send_success',
   SEND_MESSAGE_FAIL = '@current-message/send_fail',
+
+  SHARE_MESSAGE = '@share-message/share',
+  SHARE_MESSAGE_SUCCESS = '@share-message/share_success',
+  SHARE_MESSAGE_FAIL = '@share-message/share_fail',
 
   CURRENT_ROOM_MUTE = '@current_room_mute/room',
   CURRENT_ROOM_MUTE_SUCCESS = '@current_room_mute/room_success',
@@ -140,6 +144,21 @@ export class sendMessageFail implements Action {
   constructor(public payload: any) {}
 }
 
+export class shareMessage implements Action {
+  readonly type = ActionTypes.SHARE_MESSAGE;
+  constructor(public payload: Message, public idRoom: string) {}
+}
+
+export class shareMessageSuccess implements Action {
+  readonly type = ActionTypes.SHARE_MESSAGE_SUCCESS;
+  constructor(public payload: Message) {}
+}
+
+export class shareMessageFail implements Action {
+  readonly type = ActionTypes.SHARE_MESSAGE_FAIL;
+  constructor(public payload: any) {}
+}
+
 export class receiveMessage implements Action {
   readonly type = ActionTypes.RECEIVE_MESSAGE
   constructor(public payload: any) {}
@@ -188,6 +207,9 @@ export type ActionsMessage =
 | sendMessage
 | sendMessageSuccess
 | sendMessageFail
+| shareMessage
+| shareMessageSuccess
+| shareMessageFail
 | receiveMessage
 | resetRoom
 | createRoom
